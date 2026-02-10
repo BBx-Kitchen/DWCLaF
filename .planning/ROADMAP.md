@@ -33,10 +33,14 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. HSL color values from DWC tokens convert to java.awt.Color objects in sRGB color space
   4. Parser loads CSS from both classpath resources (bundled) and external file paths (override)
   5. Circular variable references are detected and reported as errors instead of causing stack overflow
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 01-01-PLAN.md — Project scaffolding, CssValue types, NamedCssColors, bundled CSS
+- [ ] 01-02-PLAN.md — CssTokenParser: extract custom properties from CSS text (TDD)
+- [ ] 01-03-PLAN.md — CssVariableResolver: resolve var() references with cycle detection (TDD)
+- [ ] 01-04-PLAN.md — CssColorParser + CssDimensionParser: typed value conversion (TDD)
+- [ ] 01-05-PLAN.md — CssThemeLoader + CssTokenMap: public API and integration
 
 ### Phase 2: UIDefaults Bridge & L&F Setup
 **Goal**: CSS tokens map to Swing UIDefaults enabling L&F activation via UIManager
@@ -143,11 +147,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. CSS Token Engine | 0/TBD | Not started | - |
+| 1. CSS Token Engine | 0/5 | Planned | - |
 | 2. UIDefaults Bridge & L&F Setup | 0/TBD | Not started | - |
 | 3. Shared Painting Utilities | 0/TBD | Not started | - |
 | 4. Button Component | 0/TBD | Not started | - |

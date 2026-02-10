@@ -98,10 +98,11 @@ Plans:
   2. JTextField shows visually distinct states: normal, hover, focused, disabled
   3. JTextField renders placeholder text in muted color when empty and unfocused
   4. JTextField shows focus ring on focus matching DWC input focus style
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 05-01-PLAN.md — DwcTextFieldBorder, token mapping fixes, L&F registration
+- [ ] 05-02-PLAN.md — DwcTextFieldUI delegate with paintSafely pipeline and placeholder text
 
 ### Phase 6: Selection Components
 **Goal**: CheckBox, RadioButton, and ComboBox render with custom DWC styling completing form controls
@@ -158,7 +159,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
 | 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
 | 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
-| 5. Text Input Components | 0/TBD | Not started | - |
+| 5. Text Input Components | 0/2 | Planned | - |
 | 6. Selection Components | 0/TBD | Not started | - |
 | 7. Display & Container Components | 0/TBD | Not started | - |
 | 8. Demo Application | 0/TBD | Not started | - |

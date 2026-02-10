@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 6 in progress - CheckBox/RadioButton icons and UI delegates complete, ComboBox delegate next
+**Current focus:** Phase 6 complete - All selection components (CheckBox, RadioButton, ComboBox) implemented
 
 ## Current Position
 
 Phase: 6 of 8 (Selection Components)
-Plan: 1 of 2 in current phase
-Status: Plan 01 Complete
-Last activity: 2026-02-10 — Completed 06-01-PLAN.md (CheckBox/RadioButton icons and L&F setup)
+Plan: 2 of 2 in current phase
+Status: Phase 06 Complete
+Last activity: 2026-02-10 — Completed 06-02-PLAN.md (ComboBox delegate)
 
-Progress: [################░] 50%
+Progress: [##################░] 56%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
+- Total plans completed: 15
 - Average duration: 4min
-- Total execution time: 0.88 hours
+- Total execution time: 0.91 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [################░] 50%
 | 03-shared-painting-utilities | 2 | 6min | 3min |
 | 04-button-component | 2 | 5min | 2.5min |
 | 05-text-input-components | 2 | 5min | 2.5min |
-| 06-selection-components | 1 | 7min | 7min |
+| 06-selection-components | 2 | 9min | 4.5min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 2min, 3min, 2min, 7min
-- Trend: Slight increase on 06-01 (CSS calc() fix added complexity)
+- Last 5 plans: 2min, 3min, 2min, 7min, 2min
+- Trend: Back to normal speed on 06-02 (no deviations needed)
 
 *Updated after each plan completion*
 
@@ -104,6 +104,9 @@ Recent decisions affecting current work:
 - [Phase 06]: Pre-computed primary-text contrast colors in CSS to bypass calc() limitation
 - [Phase 06]: Checkmark color = --dwc-color-on-primary-text (white), not --dwc-color-primary (blue)
 - [Phase 06]: Icon dimensions include focusWidth*2 for focus ring space
+- [Phase 06]: ComboBox paintCurrentValueBackground no-op; background painted in custom paint() for correct z-order
+- [Phase 06]: Hover exit sets client property to null (not FALSE) matching DwcTextFieldBorder's Boolean.TRUE check
+- [Phase 06]: DwcComboBoxArrowButton extends JButton (not BasicArrowButton) for full painting control
 
 ### Pending Todos
 
@@ -116,6 +119,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 06-01-PLAN.md (CheckBox/RadioButton icons and L&F setup)
+Stopped at: Completed 06-02-PLAN.md (ComboBox delegate) - Phase 06 complete
 Resume file: None
-Next action: Execute 06-02-PLAN.md (ComboBox delegate)
+Next action: Begin Phase 07 (layout containers)

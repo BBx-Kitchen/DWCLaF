@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 1 of 8 (CSS Token Engine)
-Plan: 3 of 5 in current phase
+Plan: 4 of 5 in current phase
 Status: Executing
-Last activity: 2026-02-10 — Completed 01-03-PLAN.md (CSS variable resolver)
+Last activity: 2026-02-10 — Completed 01-04-PLAN.md (CSS value parsers)
 
-Progress: [###░░░░░░░] 8%
+Progress: [####░░░░░░] 10%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 5min
-- Total execution time: 0.27 hours
+- Total execution time: 0.33 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-css-token-engine | 3 | 16min | 5min |
+| 01-css-token-engine | 4 | 20min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 8min, 3min, 5min
+- Last 5 plans: 8min, 3min, 5min, 4min
 - Trend: Accelerating
 
 *Updated after each plan completion*
@@ -57,6 +57,8 @@ Recent decisions affecting current work:
 - DFS graph coloring (UNVISITED/VISITING/VISITED) for var() cycle detection instead of explicit graph construction
 - Cycle participants without fallbacks excluded via post-processing pass (order-independent behavior)
 - Sentinel UNRESOLVABLE string to distinguish "resolved to empty" from "cannot resolve"
+- Hand-written CSS HSL-to-RGB algorithm (not Java HSB) with hue wrapping and value clamping
+- Character-scanning dimension parser to split numeric/unit boundary (not regex)
 
 ### Pending Todos
 
@@ -69,6 +71,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 01-03-PLAN.md (CSS variable resolver)
+Stopped at: Completed 01-04-PLAN.md (CSS value parsers)
 Resume file: None
-Next action: Execute 01-04-PLAN.md (CSS value parser)
+Next action: Execute 01-05-PLAN.md (CSS Engine facade)

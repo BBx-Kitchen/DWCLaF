@@ -111,11 +111,11 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ### Extended Components
 
-- **XTND-01**: JTable with row striping, header styling, selection highlighting
-- **XTND-02**: JTree with custom expand/collapse icons, selection styling
-- **XTND-03**: JScrollBar with thin modern track/thumb styling
-- **XTND-04**: JProgressBar with color variants (primary, success, danger)
-- **XTND-05**: JToolTip with rounded corners and shadow
+- [x] **XTND-01**: JTable with row striping, header styling, selection highlighting
+- [x] **XTND-02**: JTree with custom expand/collapse icons, selection styling
+- [x] **XTND-03**: JScrollBar with thin modern track/thumb styling
+- [x] **XTND-04**: JProgressBar with color variants (primary, success, danger)
+- [x] **XTND-05**: JToolTip with rounded corners and shadow
 
 ### Polish
 

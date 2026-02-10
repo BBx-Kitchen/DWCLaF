@@ -21,7 +21,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
 - [x] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
 - [x] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
-- [ ] **Phase 10: Extended Components** - JTable, JTree, JScrollBar, JProgressBar, JToolTip
+- [x] **Phase 10: Extended Components** - JTable, JTree, JScrollBar, JProgressBar, JToolTip
 
 ## Phase Details
 
@@ -182,10 +182,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 10-01-PLAN.md — DwcToolTipUI + DwcToolTipBorder + DwcProgressBarUI with color variants
-- [ ] 10-02-PLAN.md — DwcScrollBarUI (thin modern) + DwcTreeUI with chevron icons
-- [ ] 10-03-PLAN.md — DwcTableUI with row striping, cell renderer, header renderer
-- [ ] 10-04-PLAN.md — Gallery update for all 5 new components + visual verification
+- [x] 10-01-PLAN.md — DwcToolTipUI + DwcToolTipBorder + DwcProgressBarUI with color variants
+- [x] 10-02-PLAN.md — DwcScrollBarUI (thin modern) + DwcTreeUI with chevron icons
+- [x] 10-03-PLAN.md — DwcTableUI with row striping, cell renderer, header renderer
+- [x] 10-04-PLAN.md — Gallery update for all 5 new components + visual verification
 
 ## Progress
 
@@ -203,4 +203,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
 | 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |
-| 10. Extended Components | 0/4 | In Progress | — |
+| 10. Extended Components | 4/4 | ✓ Complete | 2026-02-10 |

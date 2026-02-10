@@ -10,6 +10,7 @@ import com.dwc.laf.ui.DwcCheckBoxIcon;
 import com.dwc.laf.ui.DwcRadioButtonIcon;
 import com.dwc.laf.ui.DwcTextFieldBorder;
 import com.dwc.laf.ui.DwcToolTipBorder;
+import com.dwc.laf.ui.DwcTreeExpandIcon;
 
 import javax.swing.UIDefaults;
 import javax.swing.plaf.BorderUIResource;
@@ -95,6 +96,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ToolTipUI", "com.dwc.laf.ui.DwcToolTipUI");
         table.put("ProgressBarUI", "com.dwc.laf.ui.DwcProgressBarUI");
         table.put("ScrollBarUI", "com.dwc.laf.ui.DwcScrollBarUI");
+        table.put("TreeUI", "com.dwc.laf.ui.DwcTreeUI");
     }
 
     @Override
@@ -145,6 +147,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 15. Set up scrollbar-specific UIDefaults (thumb arc, width)
         initScrollBarDefaults(table);
+
+        // 16. Set up tree-specific UIDefaults (expand/collapse icons, row height)
+        initTreeDefaults(table);
     }
 
     // ---- Public API ----
@@ -409,6 +414,25 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         }
 
         LOG.fine("Initialized progress bar defaults (border, arc)");
+    }
+
+    // ---- Tree defaults ----
+
+    /**
+     * Initializes tree-specific UIDefaults entries.
+     *
+     * <p>Installs custom {@link DwcTreeExpandIcon} chevron icons for expand/collapse,
+     * sets 24px row height for comfortable spacing, enables root handles, and
+     * disables connecting lines for a modern look.</p>
+     */
+    private void initTreeDefaults(UIDefaults table) {
+        table.put("Tree.expandedIcon", new DwcTreeExpandIcon(true));
+        table.put("Tree.collapsedIcon", new DwcTreeExpandIcon(false));
+        table.put("Tree.rowHeight", 24);
+        table.put("Tree.showsRootHandles", Boolean.TRUE);
+        table.put("Tree.paintLines", Boolean.FALSE);
+
+        LOG.fine("Initialized tree defaults (expandedIcon, collapsedIcon, rowHeight, showsRootHandles, paintLines)");
     }
 
     // ---- ScrollBar defaults ----

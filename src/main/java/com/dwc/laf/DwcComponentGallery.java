@@ -52,21 +52,26 @@ public class DwcComponentGallery {
             themeRow.add(new JLabel("Theme:"));
             JComboBox<String> themeSelector = new JComboBox<>(
                     new String[]{"Default (bundled)", "Theme 1", "Theme 2"});
+            // Guard against re-entrancy: updateComponentTreeUI re-fires ActionEvent
+            boolean[] switching = {false};
             themeSelector.addActionListener((ActionEvent e) -> {
-                int idx = themeSelector.getSelectedIndex();
-                switch (idx) {
-                    case 0 -> System.clearProperty("dwc.theme");
-                    case 1 -> System.setProperty("dwc.theme", "css/theme1.css");
-                    case 2 -> System.setProperty("dwc.theme", "css/theme2.css");
-                }
+                if (switching[0]) return;
+                switching[0] = true;
                 try {
-                    int savedIdx = idx;
+                    int idx = themeSelector.getSelectedIndex();
+                    switch (idx) {
+                        case 0 -> System.clearProperty("dwc.theme");
+                        case 1 -> System.setProperty("dwc.theme", "css/theme1.css");
+                        case 2 -> System.setProperty("dwc.theme", "css/theme2.css");
+                    }
                     UIManager.setLookAndFeel(new DwcLookAndFeel());
                     SwingUtilities.updateComponentTreeUI(
                             SwingUtilities.getWindowAncestor(themeSelector));
-                    SwingUtilities.invokeLater(() -> themeSelector.setSelectedIndex(savedIdx));
+                    themeSelector.setSelectedIndex(idx);
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                } finally {
+                    switching[0] = false;
                 }
             });
             themeRow.add(themeSelector);

@@ -6,9 +6,11 @@ import com.dwc.laf.painting.StateColorResolver;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.ListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
@@ -187,6 +189,24 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
     }
 
     @Override
+    public void paintCurrentValue(Graphics g, Rectangle bounds, boolean hasFocus) {
+        // Override to prevent BasicComboBoxUI from setting foreground to
+        // selectionForeground (white) when focused — the display area has no
+        // selection highlight background so white text is unreadable.
+        ListCellRenderer<Object> renderer = comboBox.getRenderer();
+        Component c = renderer.getListCellRendererComponent(
+                listBox, comboBox.getSelectedItem(), -1, false, false);
+        c.setFont(comboBox.getFont());
+        c.setForeground(comboBox.isEnabled()
+                ? comboBox.getForeground()
+                : UIManager.getColor("ComboBox.disabledForeground"));
+        c.setBackground(comboBox.getBackground());
+        boolean shouldValidate = c instanceof JPanel;
+        currentValuePane.paintComponent(g, c, comboBox,
+                bounds.x, bounds.y, bounds.width, bounds.height, shouldValidate);
+    }
+
+    @Override
     public void paintCurrentValueBackground(Graphics g, Rectangle bounds, boolean hasFocus) {
         // No-op: background painted in paint() method above
     }
@@ -283,9 +303,15 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
             // index == -1 means the display area (not popup list).
             // Must be non-opaque so the renderer doesn't paint its own
             // background rectangle over the custom rounded background.
+            // Also use normal foreground (not selection foreground) since the
+            // display area has no selection highlight background.
             setOpaque(index != -1);
 
-            if (isSelected) {
+            if (index == -1) {
+                Color fg = UIManager.getColor("ComboBox.foreground");
+                setForeground(fg != null ? fg : list.getForeground());
+                setBackground(list.getBackground());
+            } else if (isSelected) {
                 Color selBg = UIManager.getColor("ComboBox.selectionBackground");
                 Color selFg = UIManager.getColor("ComboBox.selectionForeground");
                 setBackground(selBg != null ? selBg : list.getSelectionBackground());

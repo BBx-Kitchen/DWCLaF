@@ -462,4 +462,15 @@ class DwcLookAndFeelTest {
         assertEquals("com.dwc.laf.ui.DwcPanelUI", panelUI,
                 "PanelUI should be registered to DwcPanelUI");
     }
+
+    // ---- Test 32: TabbedPaneUI class default registered ----
+
+    @Test
+    void lafRegistersTabbedPaneUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object tabbedPaneUI = UIManager.get("TabbedPaneUI");
+        assertEquals("com.dwc.laf.ui.DwcTabbedPaneUI", tabbedPaneUI,
+                "TabbedPaneUI should be registered to DwcTabbedPaneUI");
+    }
 }

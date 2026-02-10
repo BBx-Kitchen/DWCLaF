@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 10 in progress - Adding more controls (tooltip, progress bar, slider, spinner, etc.)
+**Current focus:** Phase 10 complete - 13 themed components with gallery showcase.
 
 ## Current Position
 
-Phase: 10 of 10 (More Controls)
-Plan: 3 of 4 in current phase (COMPLETE)
-Status: Executing Phase 10
-Last activity: 2026-02-10 — Completed 10-03-PLAN.md (JTable UI)
+Phase: 10 of 10 (Extended Components)
+Plan: 4 of 4 in current phase (COMPLETE)
+Status: Phase 10 Complete - ALL PHASES DONE
+Last activity: 2026-02-10 — Completed 10-04-PLAN.md (gallery update & visual verification)
 
-Progress: [##############################------------------] 75%
+Progress: [################################################] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 23
+- Total plans completed: 24
 - Average duration: 4min
-- Total execution time: 1.46 hours
+- Total execution time: 1.52 hours
 
 **By Phase:**
 
@@ -36,11 +36,11 @@ Progress: [##############################------------------] 75%
 | 07-display-container-components | 2 | 6min | 3min |
 | 08-demo-application | 1 | 5min | 5min |
 | 09-button-theme-variants | 2 | 11min | 5.5min |
-| 10-more-controls | 3 | 11min | 3.7min |
+| 10-more-controls | 4 | 15min | 3.8min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 8min, 4min, 4min, 3min
-- Trend: Steady execution pace for new component delegates
+- Last 5 plans: 4min, 4min, 3min, 4min, 4min
+- Trend: Steady execution pace; final plan included visual verification checkpoint and tree fix
 
 *Updated after each plan completion*
 
@@ -136,6 +136,8 @@ Recent decisions affecting current work:
 - [Phase 10]: Renderer-based approach (not monolithic paint override) for JTable customization
 - [Phase 10]: Table.alternateRowColor mapped from --dwc-surface-3 for subtle row striping
 - [Phase 10]: TableHeader.bottomSeparatorColor mapped from --dwc-color-default-dark
+- [Phase 10]: Tree.textBackground set to Tree.background to prevent grey rectangles from DefaultTreeCellRenderer
+- [Phase 10]: DefaultTreeCellRenderer configured with matching non-selection/selection colors and null border selection color
 
 ### Roadmap Evolution
 
@@ -153,6 +155,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 10-03-PLAN.md (JTable UI)
+Stopped at: Completed 10-04-PLAN.md (gallery update & visual verification) - ALL PHASES COMPLETE
 Resume file: None
-Next action: Execute 10-04-PLAN.md (next plan in Phase 10)
+Next action: Project complete. All 10 phases executed. Run `mvn compile exec:java` to see 13-component gallery.

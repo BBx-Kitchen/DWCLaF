@@ -447,7 +447,7 @@ class CssTokenParserTest {
             assertNotNull(result.get("--dwc-font-family-sans"), "should have font family");
             assertNotNull(result.get("--dwc-font-weight-normal"), "should have font weight");
             assertNotNull(result.get("--dwc-border-radius"), "should have border radius");
-            assertNotNull(result.get("--dwc-shadow-1"), "should have shadow");
+            assertNotNull(result.get("--dwc-shadow"), "should have shadow");
         }
 
         @Test

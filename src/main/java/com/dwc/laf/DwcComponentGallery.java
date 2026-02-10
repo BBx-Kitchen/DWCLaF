@@ -2,6 +2,7 @@ package com.dwc.laf;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  * Comprehensive demo gallery showcasing all 8 DWC-themed Swing components.
@@ -43,7 +44,34 @@ public class DwcComponentGallery {
                     "All 8 themed components. Hover and press to see interactive states.");
             subtitle.setAlignmentX(Component.LEFT_ALIGNMENT);
             main.add(subtitle);
-            main.add(Box.createVerticalStrut(24));
+            main.add(Box.createVerticalStrut(16));
+
+            // Theme switcher
+            JPanel themeRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
+            themeRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+            themeRow.add(new JLabel("Theme:"));
+            JComboBox<String> themeSelector = new JComboBox<>(
+                    new String[]{"Default (bundled)", "Theme 1", "Theme 2"});
+            themeSelector.addActionListener((ActionEvent e) -> {
+                int idx = themeSelector.getSelectedIndex();
+                switch (idx) {
+                    case 0 -> System.clearProperty("dwc.theme");
+                    case 1 -> System.setProperty("dwc.theme", "css/theme1.css");
+                    case 2 -> System.setProperty("dwc.theme", "css/theme2.css");
+                }
+                try {
+                    int savedIdx = idx;
+                    UIManager.setLookAndFeel(new DwcLookAndFeel());
+                    SwingUtilities.updateComponentTreeUI(
+                            SwingUtilities.getWindowAncestor(themeSelector));
+                    SwingUtilities.invokeLater(() -> themeSelector.setSelectedIndex(savedIdx));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            themeRow.add(themeSelector);
+            main.add(themeRow);
+            main.add(Box.createVerticalStrut(16));
 
             // 8 component sections
             main.add(createButtonSection());
@@ -139,8 +167,40 @@ public class DwcComponentGallery {
         primaryRow.add(priFocused);
         primaryRow.add(priDisabled);
         section.add(primaryRow);
+        section.add(Box.createVerticalStrut(8));
+
+        // Semantic variant rows
+        addVariantRow(section, "success", "Success");
+        addVariantRow(section, "danger", "Danger");
+        addVariantRow(section, "warning", "Warning");
+        addVariantRow(section, "info", "Info");
 
         return section;
+    }
+
+    private static void addVariantRow(JPanel section, String variant, String label) {
+        JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        labelPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel lbl = new JLabel(label + " variant:");
+        lbl.setFont(lbl.getFont().deriveFont(Font.ITALIC));
+        labelPanel.add(lbl);
+        section.add(labelPanel);
+        section.add(Box.createVerticalStrut(4));
+
+        JPanel row = new JPanel(new GridLayout(1, 3, 8, 0));
+        row.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JButton normal = new JButton(label);
+        normal.putClientProperty("dwc.buttonType", variant);
+        JButton disabled = new JButton("Disabled");
+        disabled.putClientProperty("dwc.buttonType", variant);
+        disabled.setEnabled(false);
+
+        row.add(normal);
+        row.add(new JLabel(""));
+        row.add(disabled);
+        section.add(row);
+        section.add(Box.createVerticalStrut(8));
     }
 
     // ---- Section 2: JTextField ----

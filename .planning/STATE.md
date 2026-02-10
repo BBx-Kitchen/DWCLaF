@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 1 of 8 (CSS Token Engine)
-Plan: 2 of 5 in current phase
+Plan: 3 of 5 in current phase
 Status: Executing
-Last activity: 2026-02-10 — Completed 01-02-PLAN.md (CSS token parser)
+Last activity: 2026-02-10 — Completed 01-03-PLAN.md (CSS variable resolver)
 
-Progress: [##░░░░░░░░] 5%
+Progress: [###░░░░░░░] 8%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 6min
-- Total execution time: 0.18 hours
+- Total plans completed: 3
+- Average duration: 5min
+- Total execution time: 0.27 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-css-token-engine | 2 | 11min | 6min |
+| 01-css-token-engine | 3 | 16min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 8min, 3min
+- Last 5 plans: 8min, 3min, 5min
 - Trend: Accelerating
 
 *Updated after each plan completion*
@@ -54,6 +54,9 @@ Recent decisions affecting current work:
 - default-light.css hand-compiled from actual DWC SCSS mixin source files
 - Hand-written character-by-character CSS parser (not regex) for robustness with nested parens and multi-line values
 - Document-order flattening: later declarations override earlier for same property name (component naturally overrides :root)
+- DFS graph coloring (UNVISITED/VISITING/VISITED) for var() cycle detection instead of explicit graph construction
+- Cycle participants without fallbacks excluded via post-processing pass (order-independent behavior)
+- Sentinel UNRESOLVABLE string to distinguish "resolved to empty" from "cannot resolve"
 
 ### Pending Todos
 
@@ -66,6 +69,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 01-02-PLAN.md (CSS token parser)
+Stopped at: Completed 01-03-PLAN.md (CSS variable resolver)
 Resume file: None
-Next action: Execute 01-03-PLAN.md (CSS variable resolver)
+Next action: Execute 01-04-PLAN.md (CSS value parser)

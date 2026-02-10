@@ -6,6 +6,8 @@ import com.dwc.laf.css.CssValue;
 import com.dwc.laf.defaults.TokenMappingConfig;
 import com.dwc.laf.defaults.UIDefaultsPopulator;
 import com.dwc.laf.ui.DwcButtonBorder;
+import com.dwc.laf.ui.DwcCheckBoxIcon;
+import com.dwc.laf.ui.DwcRadioButtonIcon;
 import com.dwc.laf.ui.DwcTextFieldBorder;
 
 import javax.swing.UIDefaults;
@@ -83,6 +85,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         super.initClassDefaults(table);
         table.put("ButtonUI", "com.dwc.laf.ui.DwcButtonUI");
         table.put("TextFieldUI", "com.dwc.laf.ui.DwcTextFieldUI");
+        table.put("CheckBoxUI", "com.dwc.laf.ui.DwcCheckBoxUI");
+        table.put("RadioButtonUI", "com.dwc.laf.ui.DwcRadioButtonUI");
+        table.put("ComboBoxUI", "com.dwc.laf.ui.DwcComboBoxUI");
     }
 
     @Override
@@ -106,6 +111,15 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 6. Set up text field-specific UIDefaults (margin, border)
         initTextFieldDefaults(table);
+
+        // 7. Set up checkbox-specific UIDefaults (icon, margin, rollover)
+        initCheckBoxDefaults(table);
+
+        // 8. Set up radio button-specific UIDefaults (icon, margin, rollover)
+        initRadioButtonDefaults(table);
+
+        // 9. Set up combobox-specific UIDefaults (border, padding)
+        initComboBoxDefaults(table);
     }
 
     // ---- Public API ----
@@ -234,6 +248,53 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("TextField.border", new BorderUIResource(new DwcTextFieldBorder()));
 
         LOG.fine("Initialized text field defaults (margin, border)");
+    }
+
+    // ---- CheckBox defaults ----
+
+    /**
+     * Initializes checkbox-specific UIDefaults entries.
+     *
+     * <p>Installs the custom {@link DwcCheckBoxIcon} as the default icon for
+     * all checkboxes, sets margins, and enables rollover for hover tracking.</p>
+     */
+    private void initCheckBoxDefaults(UIDefaults table) {
+        table.put("CheckBox.icon", new DwcCheckBoxIcon());
+        table.put("CheckBox.margin", new InsetsUIResource(2, 4, 2, 4));
+        table.put("CheckBox.rollover", Boolean.TRUE);
+
+        LOG.fine("Initialized checkbox defaults (icon, margin, rollover)");
+    }
+
+    // ---- RadioButton defaults ----
+
+    /**
+     * Initializes radio button-specific UIDefaults entries.
+     *
+     * <p>Installs the custom {@link DwcRadioButtonIcon} as the default icon for
+     * all radio buttons, sets margins, and enables rollover for hover tracking.</p>
+     */
+    private void initRadioButtonDefaults(UIDefaults table) {
+        table.put("RadioButton.icon", new DwcRadioButtonIcon());
+        table.put("RadioButton.margin", new InsetsUIResource(2, 4, 2, 4));
+        table.put("RadioButton.rollover", Boolean.TRUE);
+
+        LOG.fine("Initialized radio button defaults (icon, margin, rollover)");
+    }
+
+    // ---- ComboBox defaults ----
+
+    /**
+     * Initializes combobox-specific UIDefaults entries.
+     *
+     * <p>Reuses the {@link DwcTextFieldBorder} for the combobox border (same
+     * {@code --dwc-input-*} token styling as text fields) and sets padding.</p>
+     */
+    private void initComboBoxDefaults(UIDefaults table) {
+        table.put("ComboBox.border", new BorderUIResource(new DwcTextFieldBorder()));
+        table.put("ComboBox.padding", new InsetsUIResource(2, 6, 2, 6));
+
+        LOG.fine("Initialized combobox defaults (border, padding)");
     }
 
     /**

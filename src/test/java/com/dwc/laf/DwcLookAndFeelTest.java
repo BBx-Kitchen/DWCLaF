@@ -337,4 +337,107 @@ class DwcLookAndFeelTest {
         assertEquals(new Insets(2, 6, 2, 6), margin,
                 "TextField.margin should be (2, 6, 2, 6)");
     }
+
+    // ---- Test 21: CheckBox.icon.background populated ----
+
+    @Test
+    void lafPopulatesCheckBoxIconBackground() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color bg = UIManager.getColor("CheckBox.icon.background");
+        assertNotNull(bg, "CheckBox.icon.background should be populated from --dwc-color-default");
+        assertInstanceOf(ColorUIResource.class, bg);
+    }
+
+    // ---- Test 22: CheckBox.icon.checkmarkColor is white (not primary blue) ----
+
+    @Test
+    void lafCheckBoxCheckmarkColorIsWhite() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color checkmarkColor = UIManager.getColor("CheckBox.icon.checkmarkColor");
+        assertNotNull(checkmarkColor,
+                "CheckBox.icon.checkmarkColor should be populated from --dwc-color-on-primary-text");
+        // White-ish: RGB values should all be above 200 (on-primary-text is white/near-white)
+        assertTrue(checkmarkColor.getRed() > 200 && checkmarkColor.getGreen() > 200
+                && checkmarkColor.getBlue() > 200,
+                "Checkmark color should be white-ish (not primary blue). Got: " + checkmarkColor);
+    }
+
+    // ---- Test 23: RadioButton.icon.dotColor populated ----
+
+    @Test
+    void lafPopulatesRadioButtonIconDotColor() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color dotColor = UIManager.getColor("RadioButton.icon.dotColor");
+        assertNotNull(dotColor, "RadioButton.icon.dotColor should be populated");
+        assertInstanceOf(ColorUIResource.class, dotColor);
+    }
+
+    // ---- Test 24: CheckBox.icon.selectedBackground populated ----
+
+    @Test
+    void lafPopulatesCheckBoxSelectedBackground() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color selBg = UIManager.getColor("CheckBox.icon.selectedBackground");
+        assertNotNull(selBg, "CheckBox.icon.selectedBackground should be populated from --dwc-color-primary");
+        assertInstanceOf(ColorUIResource.class, selBg);
+    }
+
+    // ---- Test 25: ComboBox.background populated ----
+
+    @Test
+    void lafPopulatesComboBoxBackground() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color bg = UIManager.getColor("ComboBox.background");
+        assertNotNull(bg, "ComboBox.background should be populated from --dwc-input-background");
+        assertInstanceOf(ColorUIResource.class, bg);
+    }
+
+    // ---- Test 26: ComboBox.selectionBackground populated ----
+
+    @Test
+    void lafPopulatesComboBoxSelectionBackground() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color selBg = UIManager.getColor("ComboBox.selectionBackground");
+        assertNotNull(selBg, "ComboBox.selectionBackground should be populated from --dwc-color-primary");
+        assertInstanceOf(ColorUIResource.class, selBg);
+    }
+
+    // ---- Test 27: CheckBoxUI class default registered ----
+
+    @Test
+    void lafRegistersCheckBoxUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object checkBoxUI = UIManager.get("CheckBoxUI");
+        assertEquals("com.dwc.laf.ui.DwcCheckBoxUI", checkBoxUI,
+                "CheckBoxUI should be registered to DwcCheckBoxUI");
+    }
+
+    // ---- Test 28: RadioButtonUI class default registered ----
+
+    @Test
+    void lafRegistersRadioButtonUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object radioButtonUI = UIManager.get("RadioButtonUI");
+        assertEquals("com.dwc.laf.ui.DwcRadioButtonUI", radioButtonUI,
+                "RadioButtonUI should be registered to DwcRadioButtonUI");
+    }
+
+    // ---- Test 29: ComboBoxUI class default registered ----
+
+    @Test
+    void lafRegistersComboBoxUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object comboBoxUI = UIManager.get("ComboBoxUI");
+        assertEquals("com.dwc.laf.ui.DwcComboBoxUI", comboBoxUI,
+                "ComboBoxUI should be registered to DwcComboBoxUI");
+    }
 }

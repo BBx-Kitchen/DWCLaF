@@ -166,43 +166,46 @@
    * COLOR VARIATIONS - PRIMARY (light mode: 5 to 95 step 5)
    * ================================================================ */
   --dwc-color-primary-5: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 5%);
-  --dwc-color-primary-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-primary-c)) * -100%));
+  /* Pre-computed contrast text colors for --dwc-color-primary-c: 50
+   * Formula: hsl(0, 0%, calc((N - c) * -100%))
+   * N < c => white (#fff), N >= c => black (#000) */
+  --dwc-color-primary-text-5: hsl(0, 0%, 100%);
   --dwc-color-primary-10: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 10%);
-  --dwc-color-primary-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-10: hsl(0, 0%, 100%);
   --dwc-color-primary-15: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 15%);
-  --dwc-color-primary-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-15: hsl(0, 0%, 100%);
   --dwc-color-primary-20: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 20%);
-  --dwc-color-primary-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-20: hsl(0, 0%, 100%);
   --dwc-color-primary-25: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 25%);
-  --dwc-color-primary-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-25: hsl(0, 0%, 100%);
   --dwc-color-primary-30: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 30%);
-  --dwc-color-primary-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-30: hsl(0, 0%, 100%);
   --dwc-color-primary-35: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 35%);
-  --dwc-color-primary-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-35: hsl(0, 0%, 100%);
   --dwc-color-primary-40: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 40%);
-  --dwc-color-primary-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-40: hsl(0, 0%, 100%);
   --dwc-color-primary-45: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 45%);
-  --dwc-color-primary-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-45: hsl(0, 0%, 100%);
   --dwc-color-primary-50: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 50%);
-  --dwc-color-primary-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-50: hsl(0, 0%, 0%);
   --dwc-color-primary-55: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 55%);
-  --dwc-color-primary-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-55: hsl(0, 0%, 0%);
   --dwc-color-primary-60: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 60%);
-  --dwc-color-primary-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-60: hsl(0, 0%, 0%);
   --dwc-color-primary-65: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 65%);
-  --dwc-color-primary-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-65: hsl(0, 0%, 0%);
   --dwc-color-primary-70: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 70%);
-  --dwc-color-primary-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-70: hsl(0, 0%, 0%);
   --dwc-color-primary-75: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 75%);
-  --dwc-color-primary-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-75: hsl(0, 0%, 0%);
   --dwc-color-primary-80: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 80%);
-  --dwc-color-primary-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-80: hsl(0, 0%, 0%);
   --dwc-color-primary-85: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 85%);
-  --dwc-color-primary-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-85: hsl(0, 0%, 0%);
   --dwc-color-primary-90: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 90%);
-  --dwc-color-primary-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-90: hsl(0, 0%, 0%);
   --dwc-color-primary-95: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 95%);
-  --dwc-color-primary-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-text-95: hsl(0, 0%, 0%);
 
   /* ================================================================
    * COLOR VARIATIONS - SUCCESS (light mode: 5 to 95 step 5)

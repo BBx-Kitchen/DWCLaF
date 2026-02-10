@@ -145,10 +145,10 @@ Plans:
   2. Demo shows each component in all its states (normal, hover, pressed, focused, disabled)
   3. Demo is a single runnable main class with no framework dependencies
   4. User can visually compare Swing components to DWC web equivalents side-by-side
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 08-01-PLAN.md — DwcComponentGallery: comprehensive 8-component gallery with exec-maven-plugin
 
 ## Progress
 
@@ -164,4 +164,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 5. Text Input Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 6. Selection Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
-| 8. Demo Application | 0/TBD | Not started | - |
+| 8. Demo Application | 0/1 | Not started | - |

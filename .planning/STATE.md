@@ -5,21 +5,21 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 3 in progress - shared painting utilities
+**Current focus:** Phase 3 complete - ready for Phase 4 (Button Delegates)
 
 ## Current Position
 
-Phase: 3 of 8 (Shared Painting Utilities)
-Plan: 1 of 2 in current phase (03-01 done)
-Status: In Progress
-Last activity: 2026-02-10 — Completed 03-01-PLAN.md (Foundation painting utilities)
+Phase: 4 of 8 (Button Delegates)
+Plan: 0 of ? in current phase
+Status: Phase 3 Complete
+Last activity: 2026-02-10 — Completed 03-02-PLAN.md (FocusRingPainter, ShadowPainter)
 
-Progress: [#########░] 25%
+Progress: [###########░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 4min
 - Total execution time: 0.6 hours
 
@@ -29,10 +29,10 @@ Progress: [#########░] 25%
 |-------|-------|-------|----------|
 | 01-css-token-engine | 5 | 25min | 5min |
 | 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
-| 03-shared-painting-utilities | 1 | 3min | 3min |
+| 03-shared-painting-utilities | 2 | 6min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 4min, 5min, 5min, 3min, 3min
+- Last 5 plans: 5min, 5min, 3min, 3min, 3min
 - Trend: Stable (~4min/plan)
 
 *Updated after each plan completion*
@@ -78,6 +78,10 @@ Recent decisions affecting current work:
 - Pressed state requires both isArmed() AND isPressed() on ButtonModel (FlatLaf pattern)
 - HiDPI scale read from Graphics2D transform only, never system properties or Toolkit
 - hasFocus() used on Component (not isFocusOwner) for broader compatibility
+- Shadow blur radius clamped to 50px max (DWC uses up to 100px but excessive for Swing)
+- ShadowCacheKey as Java record with auto hashCode/equals for all visual parameters
+- applyGaussianBlur package-private for direct testability (project convention)
+- Shadow images at logical dimensions; Graphics2D transform handles HiDPI scaling
 
 ### Pending Todos
 
@@ -90,6 +94,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 03-01-PLAN.md (Foundation painting utilities)
+Stopped at: Completed 03-02-PLAN.md (FocusRingPainter, ShadowPainter) -- Phase 03 complete
 Resume file: None
-Next action: Execute 03-02-PLAN.md (FocusRingPainter, ShadowPainter)
+Next action: Research/plan Phase 04 (Button Delegates)

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 2 complete - ready for Phase 3
+**Current focus:** Phase 3 in progress - shared painting utilities
 
 ## Current Position
 
-Phase: 2 of 8 (UIDefaults Bridge & L&F Setup) -- COMPLETE
-Plan: 2 of 2 in current phase (02-02 done)
-Status: Phase Complete
-Last activity: 2026-02-10 — Completed 02-02-PLAN.md (DwcLookAndFeel class)
+Phase: 3 of 8 (Shared Painting Utilities)
+Plan: 1 of 2 in current phase (03-01 done)
+Status: In Progress
+Last activity: 2026-02-10 — Completed 03-01-PLAN.md (Foundation painting utilities)
 
-Progress: [########░░] 20%
+Progress: [#########░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 4min
-- Total execution time: 0.55 hours
+- Total execution time: 0.6 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [########░░] 20%
 |-------|-------|-------|----------|
 | 01-css-token-engine | 5 | 25min | 5min |
 | 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
+| 03-shared-painting-utilities | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 4min, 5min, 5min, 3min
+- Last 5 plans: 4min, 5min, 5min, 3min, 3min
 - Trend: Stable (~4min/plan)
 
 *Updated after each plan completion*
@@ -74,6 +75,9 @@ Recent decisions affecting current work:
 - CSS generic font names mapped to Java logical fonts (sans-serif->SansSerif, serif->Serif, monospace->Monospaced)
 - Platform font aliases: -apple-system/BlinkMacSystemFont -> .AppleSystemUIFont
 - 14 component font keys set from single CSS font token for consistent typography
+- Pressed state requires both isArmed() AND isPressed() on ButtonModel (FlatLaf pattern)
+- HiDPI scale read from Graphics2D transform only, never system properties or Toolkit
+- hasFocus() used on Component (not isFocusOwner) for broader compatibility
 
 ### Pending Todos
 
@@ -86,6 +90,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 02-02-PLAN.md (DwcLookAndFeel class)
+Stopped at: Completed 03-01-PLAN.md (Foundation painting utilities)
 Resume file: None
-Next action: Begin Phase 3 planning
+Next action: Execute 03-02-PLAN.md (FocusRingPainter, ShadowPainter)

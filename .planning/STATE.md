@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 4 in progress - Button component (border + UIDefaults done, ButtonUI delegate next)
+**Current focus:** Phase 4 complete - Button component (border, UIDefaults, ButtonUI delegate all done)
 
 ## Current Position
 
 Phase: 4 of 8 (Button Delegates)
-Plan: 1 of 2 in current phase
-Status: Executing
-Last activity: 2026-02-10 — Completed 04-01-PLAN.md (DwcButtonBorder, Button UIDefaults)
+Plan: 2 of 2 in current phase (phase complete)
+Status: Phase Complete
+Last activity: 2026-02-10 — Completed 04-02-PLAN.md (DwcButtonUI delegate)
 
-Progress: [###########░░░░] 30%
+Progress: [############░░░] 35%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: 4min
-- Total execution time: 0.65 hours
+- Total execution time: 0.68 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [###########░░░░] 30%
 | 01-css-token-engine | 5 | 25min | 5min |
 | 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
 | 03-shared-painting-utilities | 2 | 6min | 3min |
-| 04-button-component | 1 | 3min | 3min |
+| 04-button-component | 2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 3min, 3min, 3min
+- Last 5 plans: 3min, 3min, 3min, 3min, 2min
 - Trend: Stable (~3min/plan)
 
 *Updated after each plan completion*
@@ -86,6 +86,9 @@ Recent decisions affecting current work:
 - [Phase 04]: Focus ring color stored as Component.focusRingColor (shared across all components) rather than Button-specific key
 - [Phase 04]: Private hslToColor helper in DwcLookAndFeel (not reusing CssColorParser internals)
 - [Phase 04]: DimensionValue with % unit accessed via tokenMap.get() pattern match on CssValue.DimensionValue
+- [Phase 04]: Per-component DwcButtonUI instances (not shared singleton) for future per-component state caching
+- [Phase 04]: Full paint() override without calling super.paint() for complete rendering control
+- [Phase 04]: LookAndFeel.installProperty for opaque=false (respects UIResource contract)
 
 ### Pending Todos
 
@@ -98,6 +101,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 04-01-PLAN.md (DwcButtonBorder, Button UIDefaults)
+Stopped at: Completed 04-02-PLAN.md (DwcButtonUI delegate) - Phase 04 complete
 Resume file: None
-Next action: Execute 04-02-PLAN.md (DwcButtonUI delegate)
+Next action: Plan phase 05 (next component delegates)

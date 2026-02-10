@@ -9,14 +9,14 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### CSS Parsing
 
-- [ ] **CSS-01**: Parser extracts custom property declarations (`--name: value`) from `:root` and `:host` blocks in CSS files
-- [ ] **CSS-02**: Parser resolves `var(--name, fallback)` references with nested fallback support
-- [ ] **CSS-03**: Parser detects circular `var()` references and reports error instead of infinite loop
-- [ ] **CSS-04**: Parser handles CSS color formats: `#hex` (3/4/6/8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, and space-separated modern syntax
-- [ ] **CSS-05**: Parser converts HSL color values (used by DWC tokens) to java.awt.Color in sRGB color space
-- [ ] **CSS-06**: Parser converts numeric values with units (`rem`, `px`, `em`) to Java float/int values
-- [ ] **CSS-07**: Parser loads CSS from classpath resource (bundled in JAR)
-- [ ] **CSS-08**: Parser loads CSS from external file path (user override)
+- [x] **CSS-01**: Parser extracts custom property declarations (`--name: value`) from `:root` and `:host` blocks in CSS files
+- [x] **CSS-02**: Parser resolves `var(--name, fallback)` references with nested fallback support
+- [x] **CSS-03**: Parser detects circular `var()` references and reports error instead of infinite loop
+- [x] **CSS-04**: Parser handles CSS color formats: `#hex` (3/4/6/8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, and space-separated modern syntax
+- [x] **CSS-05**: Parser converts HSL color values (used by DWC tokens) to java.awt.Color in sRGB color space
+- [x] **CSS-06**: Parser converts numeric values with units (`rem`, `px`, `em`) to Java float/int values
+- [x] **CSS-07**: Parser loads CSS from classpath resource (bundled in JAR)
+- [x] **CSS-08**: Parser loads CSS from external file path (user override)
 
 ### Token Mapping
 
@@ -143,14 +143,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CSS-01 | Phase 1 | Pending |
-| CSS-02 | Phase 1 | Pending |
-| CSS-03 | Phase 1 | Pending |
-| CSS-04 | Phase 1 | Pending |
-| CSS-05 | Phase 1 | Pending |
-| CSS-06 | Phase 1 | Pending |
-| CSS-07 | Phase 1 | Pending |
-| CSS-08 | Phase 1 | Pending |
+| CSS-01 | Phase 1 | ✓ Done |
+| CSS-02 | Phase 1 | ✓ Done |
+| CSS-03 | Phase 1 | ✓ Done |
+| CSS-04 | Phase 1 | ✓ Done |
+| CSS-05 | Phase 1 | ✓ Done |
+| CSS-06 | Phase 1 | ✓ Done |
+| CSS-07 | Phase 1 | ✓ Done |
+| CSS-08 | Phase 1 | ✓ Done |
 | MAP-01 | Phase 2 | Pending |
 | MAP-02 | Phase 2 | Pending |
 | MAP-03 | Phase 2 | Pending |

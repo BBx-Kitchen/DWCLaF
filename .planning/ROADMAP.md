@@ -12,7 +12,7 @@ This roadmap builds a Java Swing Look & Feel that makes Swing applications visua
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: CSS Token Engine** - Parse CSS custom properties with variable resolution
+- [x] **Phase 1: CSS Token Engine** - Parse CSS custom properties with variable resolution
 - [ ] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
 - [ ] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
 - [ ] **Phase 4: Button Component** - First delegate validates architecture
@@ -36,11 +36,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 5 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding, CssValue types, NamedCssColors, bundled CSS
-- [ ] 01-02-PLAN.md — CssTokenParser: extract custom properties from CSS text (TDD)
-- [ ] 01-03-PLAN.md — CssVariableResolver: resolve var() references with cycle detection (TDD)
-- [ ] 01-04-PLAN.md — CssColorParser + CssDimensionParser: typed value conversion (TDD)
-- [ ] 01-05-PLAN.md — CssThemeLoader + CssTokenMap: public API and integration
+- [x] 01-01-PLAN.md — Project scaffolding, CssValue types, NamedCssColors, bundled CSS
+- [x] 01-02-PLAN.md — CssTokenParser: extract custom properties from CSS text (TDD)
+- [x] 01-03-PLAN.md — CssVariableResolver: resolve var() references with cycle detection (TDD)
+- [x] 01-04-PLAN.md — CssColorParser + CssDimensionParser: typed value conversion (TDD)
+- [x] 01-05-PLAN.md — CssThemeLoader + CssTokenMap: public API and integration
 
 ### Phase 2: UIDefaults Bridge & L&F Setup
 **Goal**: CSS tokens map to Swing UIDefaults enabling L&F activation via UIManager
@@ -151,7 +151,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. CSS Token Engine | 0/5 | Planned | - |
+| 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
 | 2. UIDefaults Bridge & L&F Setup | 0/TBD | Not started | - |
 | 3. Shared Painting Utilities | 0/TBD | Not started | - |
 | 4. Button Component | 0/TBD | Not started | - |

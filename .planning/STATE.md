@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 2 - UIDefaults Bridge & L&F Setup
+**Current focus:** Phase 2 complete - ready for Phase 3
 
 ## Current Position
 
-Phase: 2 of 8 (UIDefaults Bridge & L&F Setup)
-Plan: 1 of 2 in current phase (02-01 done)
-Status: Executing
-Last activity: 2026-02-10 — Completed 02-01-PLAN.md (Token Mapping & UIDefaults Populator)
+Phase: 2 of 8 (UIDefaults Bridge & L&F Setup) -- COMPLETE
+Plan: 2 of 2 in current phase (02-02 done)
+Status: Phase Complete
+Last activity: 2026-02-10 — Completed 02-02-PLAN.md (DwcLookAndFeel class)
 
-Progress: [#######░░░] 15%
+Progress: [########░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 5min
-- Total execution time: 0.50 hours
+- Total plans completed: 7
+- Average duration: 4min
+- Total execution time: 0.55 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-css-token-engine | 5 | 25min | 5min |
-| 02-uidefaults-bridge-laf-setup | 1 | 5min | 5min |
+| 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 5min, 4min, 5min, 5min
-- Trend: Stable (~5min/plan)
+- Last 5 plans: 5min, 4min, 5min, 5min, 3min
+- Trend: Stable (~4min/plan)
 
 *Updated after each plan completion*
 
@@ -69,6 +69,11 @@ Recent decisions affecting current work:
 - 16px base font size for rem/em to pixel conversion (matches browser default)
 - INSETS type deferred to component delegate phase (needs multi-value parsing)
 - RawValue skipped in AUTO mode (calc expressions not convertible to UIDefaults)
+- CSS font-weight >= 600 maps to Font.BOLD, < 600 maps to Font.PLAIN
+- CSS font-family stack resolved left-to-right with GraphicsEnvironment availability check
+- CSS generic font names mapped to Java logical fonts (sans-serif->SansSerif, serif->Serif, monospace->Monospaced)
+- Platform font aliases: -apple-system/BlinkMacSystemFont -> .AppleSystemUIFont
+- 14 component font keys set from single CSS font token for consistent typography
 
 ### Pending Todos
 
@@ -81,6 +86,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 02-01-PLAN.md (Token Mapping & UIDefaults Populator)
+Stopped at: Completed 02-02-PLAN.md (DwcLookAndFeel class)
 Resume file: None
-Next action: Execute 02-02-PLAN.md (DwcLookAndFeel class, installTheme, getDefaults)
+Next action: Begin Phase 3 planning

@@ -1,0 +1,95 @@
+/*
+ * Test CSS file for parser unit tests.
+ * Covers all edge cases: colors, var() references, fallbacks,
+ * circular references, dimensions, numbers, strings, calc().
+ */
+
+:root {
+  /* Simple hex colors */
+  --color-red: #ff0000;
+  --color-green: #00ff00;
+  --color-blue: #0000ff;
+
+  /* Hex short forms */
+  --hex3: #f00;
+  --hex6: #ff0000;
+  --hex8: #ff000080;
+
+  /* RGB/RGBA colors */
+  --rgb-color: rgb(255, 0, 0);
+  --rgba-color: rgba(255, 0, 0, 0.5);
+  --rgb-modern: rgb(255 0 0);
+  --rgb-alpha-modern: rgb(255 0 0 / 0.5);
+
+  /* HSL/HSLA colors */
+  --hsl-color: hsl(211, 100%, 50%);
+  --hsla-color: hsla(211, 100%, 50%, 0.5);
+  --modern-hsl: hsl(211 100% 50%);
+  --modern-hsl-alpha: hsl(211 100% 50% / 0.5);
+
+  /* Named color */
+  --named: red;
+  --named-transparent: transparent;
+
+  /* var() references */
+  --theme-color: var(--color-red);
+  --aliased-theme: var(--theme-color);
+
+  /* Nested var() fallbacks */
+  --fallback-simple: var(--missing, blue);
+  --fallback-nested: var(--missing, var(--color-red, blue));
+  --fallback-deep: var(--missing, var(--also-missing, var(--color-blue)));
+
+  /* Circular references (for testing detection) */
+  --circular-a: var(--circular-b);
+  --circular-b: var(--circular-a);
+
+  /* Self-reference */
+  --self-ref: var(--self-ref);
+
+  /* Dimensions */
+  --size-rem: 0.875rem;
+  --size-px: 16px;
+  --size-em: 1.5em;
+  --size-percent: 50%;
+
+  /* Unitless numbers */
+  --weight: 400;
+  --line-height: 1.25;
+  --opacity: 0.6;
+  --zero: 0;
+
+  /* String values */
+  --font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-style: solid;
+  --cursor: pointer;
+
+  /* calc() expression */
+  --calc-val: calc(var(--size-m) / 2);
+  --calc-simple: calc(16px * 1.5);
+
+  /* Complex multi-value shadow (raw value) */
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+
+  /* HSL with var() references (DWC pattern) */
+  --color-primary-h: 211;
+  --color-primary-s: 100%;
+  --color-primary-50: hsl(var(--color-primary-h), var(--color-primary-s), 50%);
+
+  /* Property that will be overridden in component selector */
+  --comp-override: #ff0000;
+}
+
+/* Component selector block (overrides :root for same property name) */
+.test-component {
+  --comp-bg: var(--color-red);
+  --comp-border: 1px solid var(--color-blue);
+  --comp-override: #00ff00;
+}
+
+/* Additional component block for multi-selector testing */
+.test-panel {
+  --panel-bg: var(--color-green);
+  --panel-shadow: var(--shadow);
+  --panel-radius: var(--size-rem);
+}

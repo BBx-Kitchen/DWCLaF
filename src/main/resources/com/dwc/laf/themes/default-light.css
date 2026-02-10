@@ -1,0 +1,722 @@
+/*
+ * DWC Default Light Theme
+ *
+ * Compiled from DWC SCSS mixins into CSS custom properties.
+ * Source: dwc/src/styles/mixins/props/ (fonts, sizes, spaces, borders,
+ *         surfaces, shadows, colors, transitions, easings, cursors,
+ *         z-indexes, windows, focus-ring, disabled, color-variations)
+ *
+ * This file is the bundled default theme for dwc-laf.
+ * External CSS files can override any of these tokens.
+ */
+
+:root {
+  /* ================================================================
+   * FONTS (from props-fonts)
+   * ================================================================ */
+  --dwc-font-family-sans: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --dwc-font-family-mono: 'Dank Mono', 'Operator Mono', Inconsolata, 'Fira Mono', ui-monospace, 'SF Mono', Monaco, 'Droid Sans Mono', 'Source Code Pro', monospace;
+  --dwc-font-family: var(--dwc-font-family-sans);
+
+  /* Font weight */
+  --dwc-font-weight-lighter: 200;
+  --dwc-font-weight-light: 300;
+  --dwc-font-weight-normal: 400;
+  --dwc-font-weight-semibold: 500;
+  --dwc-font-weight-bold: 700;
+  --dwc-font-weight-bolder: 800;
+  --dwc-font-weight: var(--dwc-font-weight-normal);
+
+  /* Line height */
+  --dwc-font-line-height-2xs: 0.95;
+  --dwc-font-line-height-xs: 1.1;
+  --dwc-font-line-height-s: 1.25;
+  --dwc-font-line-height-m: 1.375;
+  --dwc-font-line-height-l: 1.5;
+  --dwc-font-line-height-xl: 1.75;
+  --dwc-font-line-height-2xl: 2;
+  --dwc-font-line-height: var(--dwc-font-line-height-s);
+
+  /* Font sizes */
+  --dwc-font-size-2xs: 0.75rem;
+  --dwc-font-size-xs: 0.813rem;
+  --dwc-font-size-s: 0.875rem;
+  --dwc-font-size-m: 1rem;
+  --dwc-font-size-l: 1.125rem;
+  --dwc-font-size-xl: 1.375rem;
+  --dwc-font-size-2xl: 1.75rem;
+  --dwc-font-size-3xl: 2.25rem;
+  --dwc-font-size: var(--dwc-font-size-s);
+
+  /* ================================================================
+   * SIZES (from props-sizes)
+   * ================================================================ */
+  --dwc-size-3xs: 1.125rem;
+  --dwc-size-2xs: 1.375rem;
+  --dwc-size-xs: 1.625rem;
+  --dwc-size-s: 1.875rem;
+  --dwc-size-m: 2.25rem;
+  --dwc-size-l: 2.75rem;
+  --dwc-size-xl: 3.25rem;
+  --dwc-size-2xl: 4rem;
+  --dwc-size-3xl: 4.25rem;
+  --dwc-size: var(--dwc-size-m);
+
+  /* ================================================================
+   * SPACES (from props-spaces)
+   * ================================================================ */
+  --dwc-space-3xs: 0.075rem;
+  --dwc-space-2xs: 0.15rem;
+  --dwc-space-xs: 0.25rem;
+  --dwc-space-s: 0.5rem;
+  --dwc-space-m: 1rem;
+  --dwc-space-l: 1.25rem;
+  --dwc-space-xl: 1.5rem;
+  --dwc-space-2xl: 1.75rem;
+  --dwc-space-3xl: 2rem;
+  --dwc-space: var(--dwc-space-s);
+
+  /* ================================================================
+   * BORDERS (from props-borders)
+   * ================================================================ */
+  --dwc-border-width: 1px;
+  --dwc-border-style: solid;
+  --dwc-border-radius-2xs: 0.071em;
+  --dwc-border-radius-xs: 0.125em;
+  --dwc-border-radius-s: 0.25em;
+  --dwc-border-radius-m: 0.375em;
+  --dwc-border-radius-l: 0.5em;
+  --dwc-border-radius-xl: 0.75em;
+  --dwc-border-radius-2xl: 1em;
+  --dwc-border-radius-round: 50%;
+  --dwc-border-radius-pill: calc(var(--dwc-size-m) / 2);
+  --dwc-border-radius: var(--dwc-border-radius-s);
+
+  /* ================================================================
+   * SURFACES (from props-surfaces)
+   * ================================================================ */
+  --dwc-surface-1: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 96%);
+  --dwc-surface-2: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 98%);
+  --dwc-surface-3: hsl(0, 0%, 100%);
+
+  /* ================================================================
+   * SHADOWS (from props-shadows)
+   * ================================================================ */
+  --dwc-shadow-color: var(--dwc-color-primary-h), 3%, 15%;
+  --dwc-shadow: var(--dwc-shadow-m);
+  --dwc-shadow-xs: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07);
+  --dwc-shadow-s: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07),
+                  0 12.52px 10.01px hsla(var(--dwc-shadow-color), 0.03);
+  --dwc-shadow-m: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07),
+                  0 22.33px 17.86px hsla(var(--dwc-shadow-color), 0.04),
+                  0 6.65px 5.32px hsla(var(--dwc-shadow-color), 0.02);
+  --dwc-shadow-l: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07),
+                  0 30.14px 24.11px hsla(var(--dwc-shadow-color), 0.04),
+                  0 12.52px 10.01px hsla(var(--dwc-shadow-color), 0.03),
+                  0 4.52px 3.62px hsla(var(--dwc-shadow-color), 0.02);
+  --dwc-shadow-xl: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07),
+                   0 36.50px 29.20px hsla(var(--dwc-shadow-color), 0.04),
+                   0 17.72px 14.17px hsla(var(--dwc-shadow-color), 0.03),
+                   0 8.68px 6.94px hsla(var(--dwc-shadow-color), 0.031),
+                   0 3.43px 2.74px hsla(var(--dwc-shadow-color), 0.02);
+  --dwc-shadow-2xl: 0 100px 80px hsla(var(--dwc-shadow-color), 0.07),
+                    0 41.77px 33.42px hsla(var(--dwc-shadow-color), 0.05),
+                    0 22.33px 17.86px hsla(var(--dwc-shadow-color), 0.04),
+                    0 12.52px 10.017px hsla(var(--dwc-shadow-color), 0.03),
+                    0 6.65px 5.32px hsla(var(--dwc-shadow-color), 0.02),
+                    0 2.76px 2.21px hsla(var(--dwc-shadow-color), 0.01);
+
+  /* ================================================================
+   * BASE COLORS (from props-colors)
+   * ================================================================ */
+  --dwc-color-white: #fff;
+  --dwc-color-black: #000;
+
+  --dwc-color-primary-h: 211;
+  --dwc-color-primary-s: 100%;
+  --dwc-color-primary-c: 50;
+
+  --dwc-color-success-h: 133;
+  --dwc-color-success-s: 67%;
+  --dwc-color-success-c: 35;
+
+  --dwc-color-warning-h: 48;
+  --dwc-color-warning-s: 100%;
+  --dwc-color-warning-c: 30;
+
+  --dwc-color-danger-h: 3;
+  --dwc-color-danger-s: 100%;
+  --dwc-color-danger-c: 50;
+
+  --dwc-color-info-h: 287;
+  --dwc-color-info-s: 61%;
+  --dwc-color-info-c: 55;
+
+  --dwc-color-gray-h: 0;
+  --dwc-color-gray-s: 0%;
+  --dwc-color-gray-c: 50;
+
+  --dwc-color-default-h: var(--dwc-color-primary-h);
+  --dwc-color-default-s: 38%;
+  --dwc-color-default-c: 50;
+
+  --dwc-color-body-text: var(--dwc-color-black);
+
+  /* ================================================================
+   * COLOR VARIATIONS - PRIMARY (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-primary-5: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 5%);
+  --dwc-color-primary-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-10: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 10%);
+  --dwc-color-primary-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-15: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 15%);
+  --dwc-color-primary-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-20: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 20%);
+  --dwc-color-primary-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-25: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 25%);
+  --dwc-color-primary-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-30: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 30%);
+  --dwc-color-primary-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-35: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 35%);
+  --dwc-color-primary-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-40: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 40%);
+  --dwc-color-primary-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-45: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 45%);
+  --dwc-color-primary-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-50: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 50%);
+  --dwc-color-primary-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-55: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 55%);
+  --dwc-color-primary-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-60: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 60%);
+  --dwc-color-primary-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-65: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 65%);
+  --dwc-color-primary-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-70: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 70%);
+  --dwc-color-primary-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-75: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 75%);
+  --dwc-color-primary-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-80: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 80%);
+  --dwc-color-primary-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-85: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 85%);
+  --dwc-color-primary-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-90: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 90%);
+  --dwc-color-primary-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-primary-c)) * -100%));
+  --dwc-color-primary-95: hsl(var(--dwc-color-primary-h), var(--dwc-color-primary-s), 95%);
+  --dwc-color-primary-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-primary-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - SUCCESS (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-success-5: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 5%);
+  --dwc-color-success-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-10: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 10%);
+  --dwc-color-success-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-15: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 15%);
+  --dwc-color-success-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-20: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 20%);
+  --dwc-color-success-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-25: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 25%);
+  --dwc-color-success-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-30: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 30%);
+  --dwc-color-success-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-35: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 35%);
+  --dwc-color-success-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-40: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 40%);
+  --dwc-color-success-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-45: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 45%);
+  --dwc-color-success-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-50: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 50%);
+  --dwc-color-success-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-55: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 55%);
+  --dwc-color-success-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-60: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 60%);
+  --dwc-color-success-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-65: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 65%);
+  --dwc-color-success-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-70: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 70%);
+  --dwc-color-success-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-75: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 75%);
+  --dwc-color-success-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-80: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 80%);
+  --dwc-color-success-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-85: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 85%);
+  --dwc-color-success-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-90: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 90%);
+  --dwc-color-success-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-success-c)) * -100%));
+  --dwc-color-success-95: hsl(var(--dwc-color-success-h), var(--dwc-color-success-s), 95%);
+  --dwc-color-success-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-success-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - WARNING (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-warning-5: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 5%);
+  --dwc-color-warning-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-10: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 10%);
+  --dwc-color-warning-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-15: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 15%);
+  --dwc-color-warning-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-20: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 20%);
+  --dwc-color-warning-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-25: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 25%);
+  --dwc-color-warning-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-30: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 30%);
+  --dwc-color-warning-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-35: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 35%);
+  --dwc-color-warning-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-40: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 40%);
+  --dwc-color-warning-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-45: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 45%);
+  --dwc-color-warning-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-50: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 50%);
+  --dwc-color-warning-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-55: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 55%);
+  --dwc-color-warning-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-60: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 60%);
+  --dwc-color-warning-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-65: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 65%);
+  --dwc-color-warning-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-70: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 70%);
+  --dwc-color-warning-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-75: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 75%);
+  --dwc-color-warning-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-80: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 80%);
+  --dwc-color-warning-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-85: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 85%);
+  --dwc-color-warning-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-90: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 90%);
+  --dwc-color-warning-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-warning-c)) * -100%));
+  --dwc-color-warning-95: hsl(var(--dwc-color-warning-h), var(--dwc-color-warning-s), 95%);
+  --dwc-color-warning-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-warning-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - DANGER (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-danger-5: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 5%);
+  --dwc-color-danger-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-10: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 10%);
+  --dwc-color-danger-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-15: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 15%);
+  --dwc-color-danger-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-20: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 20%);
+  --dwc-color-danger-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-25: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 25%);
+  --dwc-color-danger-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-30: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 30%);
+  --dwc-color-danger-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-35: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 35%);
+  --dwc-color-danger-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-40: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 40%);
+  --dwc-color-danger-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-45: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 45%);
+  --dwc-color-danger-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-50: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 50%);
+  --dwc-color-danger-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-55: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 55%);
+  --dwc-color-danger-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-60: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 60%);
+  --dwc-color-danger-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-65: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 65%);
+  --dwc-color-danger-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-70: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 70%);
+  --dwc-color-danger-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-75: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 75%);
+  --dwc-color-danger-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-80: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 80%);
+  --dwc-color-danger-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-85: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 85%);
+  --dwc-color-danger-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-90: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 90%);
+  --dwc-color-danger-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-danger-c)) * -100%));
+  --dwc-color-danger-95: hsl(var(--dwc-color-danger-h), var(--dwc-color-danger-s), 95%);
+  --dwc-color-danger-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-danger-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - INFO (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-info-5: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 5%);
+  --dwc-color-info-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-10: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 10%);
+  --dwc-color-info-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-15: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 15%);
+  --dwc-color-info-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-20: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 20%);
+  --dwc-color-info-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-25: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 25%);
+  --dwc-color-info-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-30: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 30%);
+  --dwc-color-info-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-35: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 35%);
+  --dwc-color-info-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-40: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 40%);
+  --dwc-color-info-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-45: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 45%);
+  --dwc-color-info-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-50: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 50%);
+  --dwc-color-info-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-55: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 55%);
+  --dwc-color-info-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-60: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 60%);
+  --dwc-color-info-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-65: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 65%);
+  --dwc-color-info-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-70: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 70%);
+  --dwc-color-info-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-75: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 75%);
+  --dwc-color-info-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-80: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 80%);
+  --dwc-color-info-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-85: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 85%);
+  --dwc-color-info-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-90: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 90%);
+  --dwc-color-info-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-info-c)) * -100%));
+  --dwc-color-info-95: hsl(var(--dwc-color-info-h), var(--dwc-color-info-s), 95%);
+  --dwc-color-info-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-info-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - GRAY (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-gray-5: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 5%);
+  --dwc-color-gray-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-10: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 10%);
+  --dwc-color-gray-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-15: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 15%);
+  --dwc-color-gray-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-20: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 20%);
+  --dwc-color-gray-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-25: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 25%);
+  --dwc-color-gray-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-30: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 30%);
+  --dwc-color-gray-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-35: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 35%);
+  --dwc-color-gray-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-40: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 40%);
+  --dwc-color-gray-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-45: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 45%);
+  --dwc-color-gray-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-50: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 50%);
+  --dwc-color-gray-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-55: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 55%);
+  --dwc-color-gray-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-60: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 60%);
+  --dwc-color-gray-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-65: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 65%);
+  --dwc-color-gray-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-70: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 70%);
+  --dwc-color-gray-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-75: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 75%);
+  --dwc-color-gray-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-80: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 80%);
+  --dwc-color-gray-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-85: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 85%);
+  --dwc-color-gray-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-90: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 90%);
+  --dwc-color-gray-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-gray-c)) * -100%));
+  --dwc-color-gray-95: hsl(var(--dwc-color-gray-h), var(--dwc-color-gray-s), 95%);
+  --dwc-color-gray-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-gray-c)) * -100%));
+
+  /* ================================================================
+   * COLOR VARIATIONS - DEFAULT (light mode: 5 to 95 step 5)
+   * ================================================================ */
+  --dwc-color-default-5: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 5%);
+  --dwc-color-default-text-5: hsl(0, 0%, calc((5 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-10: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 10%);
+  --dwc-color-default-text-10: hsl(0, 0%, calc((10 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-15: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 15%);
+  --dwc-color-default-text-15: hsl(0, 0%, calc((15 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-20: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 20%);
+  --dwc-color-default-text-20: hsl(0, 0%, calc((20 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-25: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 25%);
+  --dwc-color-default-text-25: hsl(0, 0%, calc((25 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-30: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 30%);
+  --dwc-color-default-text-30: hsl(0, 0%, calc((30 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-35: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 35%);
+  --dwc-color-default-text-35: hsl(0, 0%, calc((35 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-40: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 40%);
+  --dwc-color-default-text-40: hsl(0, 0%, calc((40 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-45: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 45%);
+  --dwc-color-default-text-45: hsl(0, 0%, calc((45 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-50: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 50%);
+  --dwc-color-default-text-50: hsl(0, 0%, calc((50 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-55: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 55%);
+  --dwc-color-default-text-55: hsl(0, 0%, calc((55 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-60: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 60%);
+  --dwc-color-default-text-60: hsl(0, 0%, calc((60 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-65: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 65%);
+  --dwc-color-default-text-65: hsl(0, 0%, calc((65 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-70: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 70%);
+  --dwc-color-default-text-70: hsl(0, 0%, calc((70 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-75: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 75%);
+  --dwc-color-default-text-75: hsl(0, 0%, calc((75 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-80: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 80%);
+  --dwc-color-default-text-80: hsl(0, 0%, calc((80 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-85: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 85%);
+  --dwc-color-default-text-85: hsl(0, 0%, calc((85 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-90: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 90%);
+  --dwc-color-default-text-90: hsl(0, 0%, calc((90 - var(--dwc-color-default-c)) * -100%));
+  --dwc-color-default-95: hsl(var(--dwc-color-default-h), var(--dwc-color-default-s), 95%);
+  --dwc-color-default-text-95: hsl(0, 0%, calc((95 - var(--dwc-color-default-c)) * -100%));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - PRIMARY (from color-variations/_primary.scss)
+   * ================================================================ */
+  --dwc-color-primary-dark: var(--dwc-color-primary-35);
+  --dwc-color-on-primary-text-dark: var(--dwc-color-primary-text-35);
+  --dwc-color-primary-text-dark: var(--dwc-color-primary-30);
+  --dwc-color-primary: var(--dwc-color-primary-40);
+  --dwc-color-on-primary-text: var(--dwc-color-primary-text-40);
+  --dwc-color-primary-text: var(--dwc-color-primary-35);
+  --dwc-color-primary-light: var(--dwc-color-primary-45);
+  --dwc-color-on-primary-text-light: var(--dwc-color-primary-text-45);
+  --dwc-color-primary-text-light: var(--dwc-color-primary-40);
+  --dwc-color-primary-alt: var(--dwc-color-primary-95);
+  --dwc-color-on-primary-text-alt: var(--dwc-color-primary-text-95);
+  --dwc-border-color-primary: var(--dwc-color-primary);
+  --dwc-focus-ring-primary: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-primary-h), var(--dwc-color-primary-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - SUCCESS (from color-variations/_success.scss)
+   * ================================================================ */
+  --dwc-color-success-dark: var(--dwc-color-success-20);
+  --dwc-color-on-success-text-dark: var(--dwc-color-success-text-20);
+  --dwc-color-success-text-dark: var(--dwc-color-success-15);
+  --dwc-color-success: var(--dwc-color-success-25);
+  --dwc-color-on-success-text: var(--dwc-color-success-text-25);
+  --dwc-color-success-text: var(--dwc-color-success-20);
+  --dwc-color-success-light: var(--dwc-color-success-30);
+  --dwc-color-on-success-text-light: var(--dwc-color-success-text-30);
+  --dwc-color-success-text-light: var(--dwc-color-success-25);
+  --dwc-color-success-alt: var(--dwc-color-success-95);
+  --dwc-color-on-success-text-alt: var(--dwc-color-success-text-95);
+  --dwc-border-color-success: var(--dwc-color-success);
+  --dwc-focus-ring-success: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-success-h), var(--dwc-color-success-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - WARNING (from color-variations/_warning.scss)
+   * ================================================================ */
+  --dwc-color-warning-dark: var(--dwc-color-warning-35);
+  --dwc-color-on-warning-text-dark: var(--dwc-color-warning-text-35);
+  --dwc-color-warning-text-dark: var(--dwc-color-warning-15);
+  --dwc-color-warning: var(--dwc-color-warning-40);
+  --dwc-color-on-warning-text: var(--dwc-color-warning-text-40);
+  --dwc-color-warning-text: var(--dwc-color-warning-20);
+  --dwc-color-warning-light: var(--dwc-color-warning-45);
+  --dwc-color-on-warning-text-light: var(--dwc-color-warning-text-45);
+  --dwc-color-warning-text-light: var(--dwc-color-warning-25);
+  --dwc-color-warning-alt: var(--dwc-color-warning-95);
+  --dwc-color-on-warning-text-alt: var(--dwc-color-warning-text-95);
+  --dwc-border-color-warning: var(--dwc-color-warning);
+  --dwc-focus-ring-warning: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-warning-h), var(--dwc-color-warning-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - DANGER (from color-variations/_danger.scss)
+   * ================================================================ */
+  --dwc-color-danger-dark: var(--dwc-color-danger-35);
+  --dwc-color-on-danger-text-dark: var(--dwc-color-danger-text-35);
+  --dwc-color-danger-text-dark: var(--dwc-color-danger-30);
+  --dwc-color-danger: var(--dwc-color-danger-40);
+  --dwc-color-on-danger-text: var(--dwc-color-danger-text-40);
+  --dwc-color-danger-text: var(--dwc-color-danger-35);
+  --dwc-color-danger-light: var(--dwc-color-danger-45);
+  --dwc-color-on-danger-text-light: var(--dwc-color-danger-text-45);
+  --dwc-color-danger-text-light: var(--dwc-color-danger-40);
+  --dwc-color-danger-alt: var(--dwc-color-danger-95);
+  --dwc-color-on-danger-text-alt: var(--dwc-color-danger-text-95);
+  --dwc-border-color-danger: var(--dwc-color-danger);
+  --dwc-focus-ring-danger: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-danger-h), var(--dwc-color-danger-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - INFO (from color-variations/_info.scss)
+   * ================================================================ */
+  --dwc-color-info-dark: var(--dwc-color-info-35);
+  --dwc-color-on-info-text-dark: var(--dwc-color-info-text-35);
+  --dwc-color-info-text-dark: var(--dwc-color-info-35);
+  --dwc-color-info: var(--dwc-color-info-40);
+  --dwc-color-on-info-text: var(--dwc-color-info-text-40);
+  --dwc-color-info-text: var(--dwc-color-info-40);
+  --dwc-color-info-light: var(--dwc-color-info-45);
+  --dwc-color-on-info-text-light: var(--dwc-color-info-text-45);
+  --dwc-color-info-text-light: var(--dwc-color-info-45);
+  --dwc-color-info-alt: var(--dwc-color-info-95);
+  --dwc-color-on-info-text-alt: var(--dwc-color-info-text-95);
+  --dwc-border-color-info: var(--dwc-color-info);
+  --dwc-focus-ring-info: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-info-h), var(--dwc-color-info-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - GRAY (from color-variations/_gray.scss)
+   * ================================================================ */
+  --dwc-color-gray-dark: var(--dwc-color-gray-10);
+  --dwc-color-on-gray-text-dark: var(--dwc-color-gray-text-10);
+  --dwc-color-gray-text-dark: var(--dwc-color-gray-15);
+  --dwc-color-gray: var(--dwc-color-gray-15);
+  --dwc-color-on-gray-text: var(--dwc-color-gray-text-15);
+  --dwc-color-gray-text: var(--dwc-color-gray-20);
+  --dwc-color-gray-light: var(--dwc-color-gray-20);
+  --dwc-color-on-gray-text-light: var(--dwc-color-gray-text-20);
+  --dwc-color-gray-text-light: var(--dwc-color-gray-25);
+  --dwc-color-gray-alt: var(--dwc-color-gray-95);
+  --dwc-color-on-gray-text-alt: var(--dwc-color-gray-text-95);
+  --dwc-border-color-gray: var(--dwc-color-gray);
+  --dwc-focus-ring-gray: 0 0 0 var(--dwc-focus-ring-width) hsla(var(--dwc-color-gray-h), var(--dwc-color-gray-s), var(--dwc-focus-ring-l), var(--dwc-focus-ring-a));
+
+  /* ================================================================
+   * SEMANTIC COLOR ALIASES - DEFAULT (from color-variations/_default.scss)
+   * ================================================================ */
+  --dwc-color-default-dark: var(--dwc-color-default-85);
+  --dwc-color-on-default-text-dark: var(--dwc-color-default-text-85);
+  --dwc-color-default-text-dark: var(--dwc-color-default-35);
+  --dwc-color-default: var(--dwc-color-default-90);
+  --dwc-color-on-default-text: var(--dwc-color-default-text-90);
+  --dwc-color-default-text: var(--dwc-color-default-40);
+  --dwc-color-default-light: var(--dwc-color-default-95);
+  --dwc-color-on-default-text-light: var(--dwc-color-default-text-95);
+  --dwc-color-default-text-light: var(--dwc-color-default-45);
+  --dwc-color-default-alt: var(--dwc-color-primary-alt);
+  --dwc-color-on-default-text-alt: var(--dwc-color-on-primary-text-alt);
+  --dwc-border-color-default: var(--dwc-border-color-primary);
+  --dwc-focus-ring-default: var(--dwc-focus-ring-primary);
+
+  /* ================================================================
+   * TRANSITIONS (from props-transitions)
+   * ================================================================ */
+  --dwc-transition-x-slow: 1000ms;
+  --dwc-transition-slow: 500ms;
+  --dwc-transition-medium: 250ms;
+  --dwc-transition-fast: 150ms;
+  --dwc-transition-x-fast: 50ms;
+  --dwc-transition: var(--dwc-transition-medium);
+
+  /* ================================================================
+   * EASINGS (from props-easings)
+   * ================================================================ */
+  --dwc-ease-inQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --dwc-ease-inCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --dwc-ease-inQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --dwc-ease-inQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --dwc-ease-inExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --dwc-ease-inCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --dwc-ease-outQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dwc-ease-outCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --dwc-ease-outQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --dwc-ease-outQuint: cubic-bezier(0.23, 1, 0.32, 1);
+  --dwc-ease-outExpo: cubic-bezier(0.19, 1, 0.22, 1);
+  --dwc-ease-outCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --dwc-ease-inOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --dwc-ease-inQutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --dwc-ease-inQutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+  --dwc-ease-inQutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+  --dwc-ease-inOutExpo: cubic-bezier(1, 0, 0, 1);
+  --dwc-ease-inOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  --dwc-ease-inBack: cubic-bezier(0.36, 0, 0.66, -0.56);
+  --dwc-ease-outBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dwc-ease-inOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* ================================================================
+   * CURSORS (from props-cursors)
+   * ================================================================ */
+  --dwc-cursor-click: pointer;
+  --dwc-cursor-text: text;
+  --dwc-cursor-disabled: not-allowed;
+  --dwc-cursor-grab: grab;
+  --dwc-cursor-grabbing: grabbing;
+  --dwc-cursor-move: move;
+  --dwc-cursor-resize-row: ew-resize;
+  --dwc-cursor-resize-column: ns-resize;
+  --dwc-cursor-progress: progress;
+  --dwc-cursor-wait: wait;
+
+  /* ================================================================
+   * Z-INDEXES (from props-zindexes)
+   * ================================================================ */
+  --dwc-zindex-h0: 1000;
+  --dwc-zindex-h1: 1001;
+  --dwc-zindex-h2: 1002;
+  --dwc-zindex-h3: 1003;
+  --dwc-zindex-h4: 1004;
+  --dwc-zindex-h5: 1005;
+
+  /* ================================================================
+   * FOCUS RING (from props-focus-ring)
+   * ================================================================ */
+  --dwc-focus-ring-l: 45%;
+  --dwc-focus-ring-a: 0.4;
+  --dwc-focus-ring-width: 3px;
+
+  /* ================================================================
+   * DISABLED STATE (from props-disabled)
+   * ================================================================ */
+  --dwc-disabled-opacity: 0.6;
+  --dwc-disabled-cursor: var(--dwc-cursor-disabled);
+
+  /* ================================================================
+   * WINDOWS (from props-windows)
+   * ================================================================ */
+  --dwc-window-shadow-color: 0, 0%, 0%;
+  --dwc-window-background: var(--dwc-surface-2);
+  --dwc-window-border: 0.5px solid hsla(var(--dwc-window-shadow-color), 0.12);
+  --dwc-window-box-shadow: var(--dwc-shadow-s);
+  --dwc-window-border-radius: var(--dwc-border-radius-l);
+  --dwc-window-header-background: var(--dwc-surface-3);
+  --dwc-window-header-color: var(--dwc-color-body-text);
+  --dwc-window-header-font-weight: 500;
+  --dwc-window-header-box-shadow: 0 0.5px 0 hsla(var(--dwc-window-shadow-color), 0.15), inset 0 -0.5px 0 hsla(var(--dwc-window-shadow-color), 0.05);
+}
+
+/* ================================================================
+ * COMPONENT: dwc-button (from dwc-button.scss)
+ * Representative component-level custom properties
+ * ================================================================ */
+.dwc-button {
+  /* Default theme button tokens */
+  --dwc-button-background: var(--dwc-color-default);
+  --dwc-button-border-color: var(--dwc-color-default);
+  --dwc-button-color: var(--dwc-color-primary-text);
+  --dwc-button-hover-background: var(--dwc-color-default-light);
+  --dwc-button-hover-border-color: var(--dwc-color-default-dark);
+  --dwc-button-hover-color: var(--dwc-color-primary-text-light);
+  --dwc-button-focus-border-color: var(--dwc-color-primary);
+  --dwc-button-focus-ring: var(--dwc-focus-ring-default);
+  --dwc-button-selected-background: var(--dwc-color-default-dark);
+  --dwc-button-selected-color: var(--dwc-color-primary-text-dark);
+  --dwc-button-dropdown-background: var(--dwc-button-selected-background);
+  --dwc-button-dropdown-color: var(--dwc-button-selected-color);
+  --dwc-button-font-weight: var(--dwc-font-weight-semibold);
+}
+
+.dwc-button[theme='primary'] {
+  --dwc-button-background: var(--dwc-color-primary);
+  --dwc-button-border-color: var(--dwc-button-background);
+  --dwc-button-color: var(--dwc-color-on-primary-text);
+  --dwc-button-hover-background: var(--dwc-color-primary-light);
+  --dwc-button-hover-border-color: var(--dwc-color-primary-dark);
+  --dwc-button-hover-color: var(--dwc-color-on-primary-text-light);
+  --dwc-button-focus-border-color: var(--dwc-button-background);
+  --dwc-button-selected-background: var(--dwc-color-primary-dark);
+  --dwc-button-selected-color: var(--dwc-color-on-primary-text-dark);
+  --dwc-button-focus-ring: var(--dwc-focus-ring-primary);
+}
+
+/* ================================================================
+ * COMPONENT: dwc-input (from dwc-field/input-base.scss)
+ * Representative component-level custom properties
+ * ================================================================ */
+.dwc-input {
+  --dwc-input-background: var(--dwc-color-default-light);
+  --dwc-input-border-color: var(--dwc-color-default-dark);
+  --dwc-input-border-width: var(--dwc-border-width);
+  --dwc-input-border-style: var(--dwc-border-style);
+  --dwc-input-color: currentColor;
+  --dwc-input-font-weight: var(--dwc-font-weight-semibold);
+  --dwc-input-placeholder-color: var(--dwc-color-gray-60);
+  --dwc-input-label-color: var(--dwc-color-body-text);
+  --dwc-input-label-font-weight: var(--dwc-font-weight-semibold);
+  --dwc-input-label-hover-color: var(--dwc-color-primary-text-light);
+  --dwc-input-hover-background: var(--dwc-color-default-light);
+  --dwc-input-hover-border-color: var(--dwc-color-primary);
+  --dwc-input-hover-color: var(--dwc-color-on-default-text-light);
+  --dwc-input-focus-ring: var(--dwc-focus-ring-default);
+  --dwc-input-selection-background: var(--dwc-color-primary-light);
+  --dwc-input-selection-color: var(--dwc-color-on-primary-text-light);
+  --dwc-input-required-field-indicator: '\2022';
+  --dwc-input-required-field-indicator-color: var(--dwc-color-primary-text);
+  --dwc-input-spinner-color: currentColor;
+}

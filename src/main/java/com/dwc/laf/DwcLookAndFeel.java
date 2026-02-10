@@ -9,6 +9,7 @@ import com.dwc.laf.ui.DwcButtonBorder;
 import com.dwc.laf.ui.DwcCheckBoxIcon;
 import com.dwc.laf.ui.DwcRadioButtonIcon;
 import com.dwc.laf.ui.DwcTextFieldBorder;
+import com.dwc.laf.ui.DwcToolTipBorder;
 
 import javax.swing.UIDefaults;
 import javax.swing.plaf.BorderUIResource;
@@ -91,6 +92,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("LabelUI", "com.dwc.laf.ui.DwcLabelUI");
         table.put("PanelUI", "com.dwc.laf.ui.DwcPanelUI");
         table.put("TabbedPaneUI", "com.dwc.laf.ui.DwcTabbedPaneUI");
+        table.put("ToolTipUI", "com.dwc.laf.ui.DwcToolTipUI");
     }
 
     @Override
@@ -132,6 +134,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 12. Set up tabbed pane-specific UIDefaults (tab insets, underline height)
         initTabbedPaneDefaults(table);
+
+        // 13. Set up tooltip-specific UIDefaults (border)
+        initToolTipDefaults(table);
     }
 
     // ---- Public API ----
@@ -362,6 +367,20 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("TabbedPane.underlineHeight", 3);
 
         LOG.fine("Initialized tabbed pane defaults (tabInsets, tabAreaInsets, contentBorderInsets, underlineHeight)");
+    }
+
+    // ---- ToolTip defaults ----
+
+    /**
+     * Initializes tooltip-specific UIDefaults entries.
+     *
+     * <p>Installs the custom {@link DwcToolTipBorder} that provides shadow
+     * rendering and rounded outline painting.</p>
+     */
+    private void initToolTipDefaults(UIDefaults table) {
+        table.put("ToolTip.border", new BorderUIResource(new DwcToolTipBorder()));
+
+        LOG.fine("Initialized tooltip defaults (border)");
     }
 
     /**

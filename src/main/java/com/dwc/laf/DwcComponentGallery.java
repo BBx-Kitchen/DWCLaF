@@ -1,11 +1,12 @@
 package com.dwc.laf;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Comprehensive demo gallery showcasing all 8 DWC-themed Swing components.
+ * Comprehensive demo gallery showcasing all 13 DWC-themed Swing components.
  *
  * <p>Each component is displayed in a labeled section with normal, focused,
  * and disabled states shown statically. Hover and pressed states are
@@ -41,7 +42,7 @@ public class DwcComponentGallery {
 
             // Subtitle
             JLabel subtitle = new JLabel(
-                    "All 8 themed components. Hover and press to see interactive states.");
+                    "All 13 themed components. Hover and press to see interactive states.");
             subtitle.setAlignmentX(Component.LEFT_ALIGNMENT);
             main.add(subtitle);
             main.add(Box.createVerticalStrut(16));
@@ -78,7 +79,7 @@ public class DwcComponentGallery {
             main.add(themeRow);
             main.add(Box.createVerticalStrut(16));
 
-            // 8 component sections
+            // 13 component sections
             main.add(createButtonSection());
             main.add(Box.createVerticalStrut(24));
             main.add(createTextFieldSection());
@@ -94,6 +95,16 @@ public class DwcComponentGallery {
             main.add(createPanelSection());
             main.add(Box.createVerticalStrut(24));
             main.add(createTabbedPaneSection());
+            main.add(Box.createVerticalStrut(24));
+            main.add(createProgressBarSection());
+            main.add(Box.createVerticalStrut(24));
+            main.add(createScrollBarSection());
+            main.add(Box.createVerticalStrut(24));
+            main.add(createTreeSection());
+            main.add(Box.createVerticalStrut(24));
+            main.add(createTableSection());
+            main.add(Box.createVerticalStrut(24));
+            main.add(createToolTipSection());
 
             // Wrap in scroll pane
             JScrollPane scrollPane = new JScrollPane(main);
@@ -405,6 +416,218 @@ public class DwcComponentGallery {
                 tabs.getPreferredSize().height));
 
         section.add(tabs);
+
+        return section;
+    }
+
+    // ---- Section 9: JProgressBar ----
+
+    private static JPanel createProgressBarSection() {
+        JPanel section = new JPanel();
+        section.setLayout(new BoxLayout(section, BoxLayout.Y_AXIS));
+        section.setBorder(BorderFactory.createTitledBorder("JProgressBar"));
+        section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        // Default + disabled row
+        JPanel defaultRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 4));
+        defaultRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JProgressBar pbDefault = new JProgressBar(0, 100);
+        pbDefault.setValue(60);
+        pbDefault.setStringPainted(true);
+        pbDefault.setPreferredSize(new Dimension(200, 12));
+        defaultRow.add(new JLabel("Default:"));
+        defaultRow.add(pbDefault);
+
+        JProgressBar pbDisabled = new JProgressBar(0, 100);
+        pbDisabled.setValue(40);
+        pbDisabled.setEnabled(false);
+        pbDisabled.setPreferredSize(new Dimension(200, 12));
+        defaultRow.add(new JLabel("Disabled:"));
+        defaultRow.add(pbDisabled);
+
+        section.add(defaultRow);
+
+        // Variant row
+        JPanel variantRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 4));
+        variantRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JProgressBar pbSuccess = new JProgressBar(0, 100);
+        pbSuccess.setValue(75);
+        pbSuccess.putClientProperty("dwc.progressType", "success");
+        pbSuccess.setPreferredSize(new Dimension(120, 12));
+        variantRow.add(new JLabel("Success:"));
+        variantRow.add(pbSuccess);
+
+        JProgressBar pbDanger = new JProgressBar(0, 100);
+        pbDanger.setValue(30);
+        pbDanger.putClientProperty("dwc.progressType", "danger");
+        pbDanger.setPreferredSize(new Dimension(120, 12));
+        variantRow.add(new JLabel("Danger:"));
+        variantRow.add(pbDanger);
+
+        JProgressBar pbWarning = new JProgressBar(0, 100);
+        pbWarning.setValue(50);
+        pbWarning.putClientProperty("dwc.progressType", "warning");
+        pbWarning.setPreferredSize(new Dimension(120, 12));
+        variantRow.add(new JLabel("Warning:"));
+        variantRow.add(pbWarning);
+
+        JProgressBar pbInfo = new JProgressBar(0, 100);
+        pbInfo.setValue(90);
+        pbInfo.putClientProperty("dwc.progressType", "info");
+        pbInfo.setPreferredSize(new Dimension(120, 12));
+        variantRow.add(new JLabel("Info:"));
+        variantRow.add(pbInfo);
+
+        section.add(variantRow);
+
+        // Indeterminate row
+        JPanel indeterminateRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 4));
+        indeterminateRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JProgressBar pbIndeterminate = new JProgressBar(0, 100);
+        pbIndeterminate.setIndeterminate(true);
+        pbIndeterminate.setPreferredSize(new Dimension(200, 12));
+        indeterminateRow.add(new JLabel("Indeterminate:"));
+        indeterminateRow.add(pbIndeterminate);
+
+        section.add(indeterminateRow);
+
+        return section;
+    }
+
+    // ---- Section 10: JScrollBar ----
+
+    private static JPanel createScrollBarSection() {
+        JPanel section = new JPanel();
+        section.setLayout(new BoxLayout(section, BoxLayout.Y_AXIS));
+        section.setBorder(BorderFactory.createTitledBorder("JScrollBar"));
+        section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel note = new JLabel(
+                "The gallery's own scroll bar is already styled. Below are standalone bars:");
+        note.setAlignmentX(Component.LEFT_ALIGNMENT);
+        section.add(note);
+        section.add(Box.createVerticalStrut(8));
+
+        JPanel barRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 16, 4));
+        barRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JScrollBar vertical = new JScrollBar(JScrollBar.VERTICAL);
+        vertical.setValues(50, 10, 0, 100);
+        vertical.setPreferredSize(new Dimension(10, 100));
+        barRow.add(vertical);
+
+        JScrollBar horizontal = new JScrollBar(JScrollBar.HORIZONTAL);
+        horizontal.setValues(50, 10, 0, 100);
+        horizontal.setPreferredSize(new Dimension(200, 10));
+        barRow.add(horizontal);
+
+        section.add(barRow);
+
+        return section;
+    }
+
+    // ---- Section 11: JTree ----
+
+    private static JPanel createTreeSection() {
+        JPanel section = new JPanel();
+        section.setLayout(new BoxLayout(section, BoxLayout.Y_AXIS));
+        section.setBorder(BorderFactory.createTitledBorder("JTree"));
+        section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Project");
+
+        DefaultMutableTreeNode src = new DefaultMutableTreeNode("src");
+        DefaultMutableTreeNode main = new DefaultMutableTreeNode("main");
+        main.add(new DefaultMutableTreeNode("java"));
+        main.add(new DefaultMutableTreeNode("resources"));
+        src.add(main);
+        root.add(src);
+
+        DefaultMutableTreeNode tests = new DefaultMutableTreeNode("tests");
+        tests.add(new DefaultMutableTreeNode("unit"));
+        tests.add(new DefaultMutableTreeNode("integration"));
+        root.add(tests);
+
+        DefaultMutableTreeNode docs = new DefaultMutableTreeNode("docs");
+        docs.add(new DefaultMutableTreeNode("README"));
+        docs.add(new DefaultMutableTreeNode("CHANGELOG"));
+        root.add(docs);
+
+        JTree tree = new JTree(root);
+        tree.setPreferredSize(new Dimension(300, 180));
+        tree.expandRow(0);
+        tree.expandRow(1);
+        tree.setSelectionRow(3);
+        tree.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        section.add(tree);
+
+        return section;
+    }
+
+    // ---- Section 12: JTable ----
+
+    private static JPanel createTableSection() {
+        JPanel section = new JPanel();
+        section.setLayout(new BoxLayout(section, BoxLayout.Y_AXIS));
+        section.setBorder(BorderFactory.createTitledBorder("JTable"));
+        section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        String[] columnNames = {"Name", "Type", "Size", "Modified"};
+        Object[][] data = {
+                {"README.md", "File", "2 KB", "2026-02-10"},
+                {"src", "Directory", "4 KB", "2026-02-09"},
+                {"pom.xml", "File", "3 KB", "2026-02-08"},
+                {"build.gradle", "File", "1 KB", "2026-02-07"},
+                {"LICENSE", "File", "1 KB", "2026-01-15"},
+                {".gitignore", "File", "512 B", "2026-01-10"},
+        };
+
+        JTable table = new JTable(data, columnNames);
+        table.setRowSelectionInterval(1, 1);
+
+        JScrollPane tableScroll = new JScrollPane(table);
+        tableScroll.setPreferredSize(new Dimension(600, 180));
+        tableScroll.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        section.add(tableScroll);
+
+        return section;
+    }
+
+    // ---- Section 13: JToolTip ----
+
+    private static JPanel createToolTipSection() {
+        JPanel section = new JPanel();
+        section.setLayout(new BoxLayout(section, BoxLayout.Y_AXIS));
+        section.setBorder(BorderFactory.createTitledBorder("JToolTip"));
+        section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel instruction = new JLabel("Hover over the buttons below to see themed tooltips");
+        instruction.setAlignmentX(Component.LEFT_ALIGNMENT);
+        section.add(instruction);
+        section.add(Box.createVerticalStrut(8));
+
+        JPanel buttonRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
+        buttonRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JButton b1 = new JButton("Hover me");
+        b1.setToolTipText("This is a themed tooltip with rounded corners and shadow");
+        buttonRow.add(b1);
+
+        JButton b2 = new JButton("Information");
+        b2.setToolTipText("Tooltips use DWC CSS tokens for consistent styling");
+        buttonRow.add(b2);
+
+        JButton b3 = new JButton("Disabled");
+        b3.setToolTipText("Even disabled buttons show styled tooltips");
+        b3.setEnabled(false);
+        buttonRow.add(b3);
+
+        section.add(buttonRow);
 
         return section;
     }

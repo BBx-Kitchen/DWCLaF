@@ -114,10 +114,11 @@ Plans:
   3. JRadioButton paints custom circular indicator with dot matching DWC radio styling
   4. JRadioButton shows visually distinct states: normal, hover, selected, disabled
   5. JComboBox paints with styled dropdown arrow, rounded border, and themed popup list
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 06-01-PLAN.md — Token mappings + L&F setup + CheckBox/RadioButton icons + UI delegates
+- [ ] 06-02-PLAN.md — DwcComboBoxUI delegate with arrow button, renderer, hover tracking
 
 ### Phase 7: Display & Container Components
 **Goal**: Label, Panel, and TabbedPane complete the 8-component set
@@ -160,6 +161,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
 | 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
 | 5. Text Input Components | 2/2 | ✓ Complete | 2026-02-10 |
-| 6. Selection Components | 0/TBD | Not started | - |
+| 6. Selection Components | 0/2 | Not started | - |
 | 7. Display & Container Components | 0/TBD | Not started | - |
 | 8. Demo Application | 0/TBD | Not started | - |

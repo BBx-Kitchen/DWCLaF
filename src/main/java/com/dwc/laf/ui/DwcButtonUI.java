@@ -23,17 +23,24 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A custom {@link javax.swing.plaf.ButtonUI} delegate that paints JButton
  * components with rounded backgrounds, borders, icons, text, and focus rings
  * based on DWC CSS design tokens.
  *
- * <p>Supports two visual variants:
+ * <p>Supports six visual variants:
  * <ul>
  *   <li><b>Default:</b> neutral background/foreground colors</li>
  *   <li><b>Primary:</b> accent-colored background/foreground, activated via
  *       {@code button.putClientProperty("dwc.buttonType", "primary")}</li>
+ *   <li><b>Success:</b> green background from {@code --dwc-color-success}</li>
+ *   <li><b>Danger:</b> red background from {@code --dwc-color-danger}</li>
+ *   <li><b>Warning:</b> amber background from {@code --dwc-color-warning}</li>
+ *   <li><b>Info:</b> info-colored background from {@code --dwc-color-info}</li>
  * </ul>
  *
  * <p>Five visual states are rendered: normal, hover, pressed, focused, and
@@ -45,24 +52,22 @@ import java.awt.Rectangle;
  */
 public class DwcButtonUI extends BasicButtonUI {
 
-    // Colors loaded from UIDefaults
-    private Color background;
-    private Color foreground;
-    private Color hoverBackground;
-    private Color pressedBackground;
+    /**
+     * Encapsulates all colors for one button variant.
+     */
+    private record VariantColors(
+            Color background,
+            Color foreground,
+            Color hoverBackground,
+            Color pressedBackground,
+            Color focusRingColor
+    ) {}
+
+    // Variant color map keyed by variant name
+    private Map<String, VariantColors> variantColors;
+
+    // Disabled text color
     private Color disabledText;
-
-    // Primary variant colors
-    private Color defaultBackground;
-    private Color defaultForeground;
-    private Color defaultHoverBackground;
-    private Color defaultPressedBackground;
-
-    // Focus ring color
-    private Color focusRingColor;
-
-    // Border color
-    private Color borderColor;
 
     // Dimensions
     private int arc;
@@ -88,22 +93,42 @@ public class DwcButtonUI extends BasicButtonUI {
     protected void installDefaults(AbstractButton b) {
         super.installDefaults(b);
 
-        // Read colors from UIManager
-        background = UIManager.getColor("Button.background");
-        foreground = UIManager.getColor("Button.foreground");
-        hoverBackground = UIManager.getColor("Button.hoverBackground");
-        pressedBackground = UIManager.getColor("Button.pressedBackground");
+        // Build variant color map
+        variantColors = new HashMap<>();
+        List<String> variants = List.of("default", "primary", "success", "danger", "warning", "info");
+        for (String variant : variants) {
+            // UIDefaults prefix: "default" variant uses "Button" (no suffix),
+            // "primary" uses "Button.default" (Swing convention: default button = primary),
+            // others use "Button.{variant}"
+            String prefix = switch (variant) {
+                case "default" -> "Button";
+                case "primary" -> "Button.default";
+                default -> "Button." + variant;
+            };
+
+            Color bg = UIManager.getColor(prefix + ".background");
+            Color fg = UIManager.getColor(prefix + ".foreground");
+            Color hoverBg = UIManager.getColor(prefix + ".hoverBackground");
+            Color pressedBg = UIManager.getColor(prefix + ".pressedBackground");
+
+            // Focus ring: "default" uses global, others use variant-specific
+            Color focusRing = switch (variant) {
+                case "default" -> UIManager.getColor("Component.focusRingColor");
+                case "primary" -> {
+                    Color c2 = UIManager.getColor("Component.focusRingColor.primary");
+                    yield c2 != null ? c2 : UIManager.getColor("Component.focusRingColor");
+                }
+                default -> {
+                    Color c2 = UIManager.getColor("Component.focusRingColor." + variant);
+                    yield c2 != null ? c2 : UIManager.getColor("Component.focusRingColor");
+                }
+            };
+
+            variantColors.put(variant, new VariantColors(bg, fg, hoverBg, pressedBg, focusRing));
+        }
+
+        // Disabled text
         disabledText = UIManager.getColor("Button.disabledText");
-
-        // Primary variant colors
-        defaultBackground = UIManager.getColor("Button.default.background");
-        defaultForeground = UIManager.getColor("Button.default.foreground");
-        defaultHoverBackground = UIManager.getColor("Button.default.hoverBackground");
-        defaultPressedBackground = UIManager.getColor("Button.default.pressedBackground");
-
-        // Shared component colors
-        focusRingColor = UIManager.getColor("Component.focusRingColor");
-        borderColor = UIManager.getColor("Button.borderColor");
 
         // Dimensions
         arc = UIManager.getInt("Button.arc");
@@ -146,10 +171,10 @@ public class DwcButtonUI extends BasicButtonUI {
         try {
             int width = c.getWidth();
             int height = c.getHeight();
-            boolean primary = isPrimary(b);
+            String variant = getVariant(b);
+            VariantColors vc = variantColors.getOrDefault(variant, variantColors.get("default"));
 
             int fw = focusWidth;
-            int bw = borderWidth;
 
             // Content area (inside focus ring reservation)
             float cx = fw;
@@ -159,7 +184,7 @@ public class DwcButtonUI extends BasicButtonUI {
 
             // 1. Paint background
             if (b.isContentAreaFilled()) {
-                Color bg = resolveBackground(b, primary);
+                Color bg = resolveBackground(b);
                 if (!b.isEnabled()) {
                     StateColorResolver.paintWithOpacity(g2, disabledOpacity, () -> {
                         PaintUtils.paintRoundedBackground(g2, cx, cy, cw, ch, arc, bg);
@@ -207,9 +232,11 @@ public class DwcButtonUI extends BasicButtonUI {
 
             // 5. Paint text
             if (text != null && !text.isEmpty()) {
-                Color fg = resolveForeground(b, primary);
+                Color fg = resolveForeground(b);
                 if (!b.isEnabled()) {
-                    fg = disabledText != null ? disabledText : foreground;
+                    VariantColors defVc = variantColors.get("default");
+                    fg = disabledText != null ? disabledText
+                            : (defVc != null ? defVc.foreground() : fg);
                     g2.setComposite(AlphaComposite.getInstance(
                             AlphaComposite.SRC_OVER, disabledOpacity));
                 }
@@ -221,7 +248,7 @@ public class DwcButtonUI extends BasicButtonUI {
 
             // 6. Paint focus ring
             if (b.isFocusPainted() && b.hasFocus()) {
-                Color ringColor = focusRingColor;
+                Color ringColor = vc != null ? vc.focusRingColor() : null;
                 if (ringColor != null) {
                     FocusRingPainter.paintFocusRing(g2, cx, cy, cw, ch,
                             arc, fw, ringColor);
@@ -235,30 +262,34 @@ public class DwcButtonUI extends BasicButtonUI {
     /**
      * Resolves the background color based on button state and variant.
      */
-    private Color resolveBackground(AbstractButton b, boolean primary) {
-        if (primary) {
-            return StateColorResolver.resolve(b, defaultBackground, null, null,
-                    defaultHoverBackground, defaultPressedBackground);
-        }
-        return StateColorResolver.resolve(b, background, null, null,
-                hoverBackground, pressedBackground);
+    private Color resolveBackground(AbstractButton b) {
+        String variant = getVariant(b);
+        VariantColors vc = variantColors.getOrDefault(variant, variantColors.get("default"));
+        return StateColorResolver.resolve(b, vc.background(), null, null,
+                vc.hoverBackground(), vc.pressedBackground());
     }
 
     /**
      * Resolves the foreground color based on variant.
      */
-    private Color resolveForeground(AbstractButton b, boolean primary) {
-        if (primary) {
-            return defaultForeground != null ? defaultForeground : foreground;
-        }
-        return foreground;
+    private Color resolveForeground(AbstractButton b) {
+        String variant = getVariant(b);
+        VariantColors vc = variantColors.getOrDefault(variant, variantColors.get("default"));
+        VariantColors defVc = variantColors.get("default");
+        Color fg = vc.foreground();
+        return fg != null ? fg : (defVc != null ? defVc.foreground() : null);
     }
 
     /**
-     * Returns whether the button is a primary variant.
+     * Returns the variant name for the button based on the {@code dwc.buttonType}
+     * client property. Returns {@code "default"} if the property is null or unrecognized.
      */
-    private boolean isPrimary(AbstractButton b) {
-        return "primary".equals(b.getClientProperty("dwc.buttonType"));
+    private String getVariant(AbstractButton b) {
+        Object prop = b.getClientProperty("dwc.buttonType");
+        if (prop instanceof String s && variantColors.containsKey(s)) {
+            return s;
+        }
+        return "default";
     }
 
     /**

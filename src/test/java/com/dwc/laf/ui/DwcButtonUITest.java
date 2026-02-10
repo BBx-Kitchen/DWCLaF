@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests for {@link DwcButtonUI} verifying UI installation, per-component instances,
- * property setup, preferred size enforcement, primary variant support, and paint
- * pipeline smoke tests.
+ * property setup, preferred size enforcement, primary variant support, variant
+ * color resolution, and paint pipeline smoke tests.
  */
 class DwcButtonUITest {
 
@@ -132,5 +132,118 @@ class DwcButtonUITest {
         } finally {
             g2.dispose();
         }
+    }
+
+    @Test
+    void testSuccessVariantPaintNoError() {
+        JButton button = new JButton("Success");
+        button.putClientProperty("dwc.buttonType", "success");
+        button.setSize(200, 40);
+
+        BufferedImage img = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = img.createGraphics();
+        try {
+            assertDoesNotThrow(() -> button.paint(g2),
+                    "Painting success variant button should not throw");
+        } finally {
+            g2.dispose();
+        }
+    }
+
+    @Test
+    void testDangerVariantPaintNoError() {
+        JButton button = new JButton("Danger");
+        button.putClientProperty("dwc.buttonType", "danger");
+        button.setSize(200, 40);
+
+        BufferedImage img = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = img.createGraphics();
+        try {
+            assertDoesNotThrow(() -> button.paint(g2),
+                    "Painting danger variant button should not throw");
+        } finally {
+            g2.dispose();
+        }
+    }
+
+    @Test
+    void testWarningVariantPaintNoError() {
+        JButton button = new JButton("Warning");
+        button.putClientProperty("dwc.buttonType", "warning");
+        button.setSize(200, 40);
+
+        BufferedImage img = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = img.createGraphics();
+        try {
+            assertDoesNotThrow(() -> button.paint(g2),
+                    "Painting warning variant button should not throw");
+        } finally {
+            g2.dispose();
+        }
+    }
+
+    @Test
+    void testInfoVariantPaintNoError() {
+        JButton button = new JButton("Info");
+        button.putClientProperty("dwc.buttonType", "info");
+        button.setSize(200, 40);
+
+        BufferedImage img = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = img.createGraphics();
+        try {
+            assertDoesNotThrow(() -> button.paint(g2),
+                    "Painting info variant button should not throw");
+        } finally {
+            g2.dispose();
+        }
+    }
+
+    @Test
+    void testUnknownVariantFallsBackToDefault() {
+        JButton button = new JButton("Unknown");
+        button.putClientProperty("dwc.buttonType", "nonexistent");
+        button.setSize(200, 40);
+
+        BufferedImage img = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = img.createGraphics();
+        try {
+            assertDoesNotThrow(() -> button.paint(g2),
+                    "Painting button with unknown variant should fall back to default and not throw");
+        } finally {
+            g2.dispose();
+        }
+    }
+
+    @Test
+    void testVariantColorsDifferFromDefault() {
+        JButton defaultBtn = new JButton("Default");
+        defaultBtn.setSize(200, 40);
+
+        JButton successBtn = new JButton("Success");
+        successBtn.putClientProperty("dwc.buttonType", "success");
+        successBtn.setSize(200, 40);
+
+        BufferedImage defaultImg = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage successImg = new BufferedImage(200, 40, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g1 = defaultImg.createGraphics();
+        try {
+            defaultBtn.paint(g1);
+        } finally {
+            g1.dispose();
+        }
+
+        Graphics2D g2 = successImg.createGraphics();
+        try {
+            successBtn.paint(g2);
+        } finally {
+            g2.dispose();
+        }
+
+        // Sample center pixel -- variant colors should differ
+        int defaultPixel = defaultImg.getRGB(100, 20);
+        int successPixel = successImg.getRGB(100, 20);
+        assertNotEquals(defaultPixel, successPixel,
+                "Success variant button should render with different colors than default variant");
     }
 }

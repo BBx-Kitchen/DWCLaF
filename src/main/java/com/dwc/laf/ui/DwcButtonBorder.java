@@ -58,7 +58,7 @@ public class DwcButtonBorder extends AbstractBorder {
         int focusWidth = UIManager.getInt("Component.focusWidth");
         int borderWidth = UIManager.getInt("Component.borderWidth");
         int arc = UIManager.getInt("Button.arc");
-        Color borderColor = UIManager.getColor("Button.borderColor");
+        Color borderColor = resolveBorderColor(c);
 
         if (borderColor == null) {
             return;
@@ -80,5 +80,31 @@ public class DwcButtonBorder extends AbstractBorder {
         } finally {
             g2.dispose();
         }
+    }
+
+    /**
+     * Resolves the border color based on the button's variant.
+     *
+     * <p>Reads the {@code dwc.buttonType} client property and looks up
+     * the variant-specific border color from UIDefaults. Falls back to
+     * the global {@code Button.borderColor} for the default variant or
+     * if no variant-specific color is found.</p>
+     */
+    private Color resolveBorderColor(Component c) {
+        Color defaultBorderColor = UIManager.getColor("Button.borderColor");
+
+        if (c instanceof AbstractButton ab) {
+            Object prop = ab.getClientProperty("dwc.buttonType");
+            if (prop instanceof String variant && !variant.isEmpty()) {
+                // Map variant to UIDefaults prefix
+                String prefix = "primary".equals(variant) ? "Button.default" : "Button." + variant;
+                Color variantBorder = UIManager.getColor(prefix + ".borderColor");
+                if (variantBorder != null) {
+                    return variantBorder;
+                }
+            }
+        }
+
+        return defaultBorderColor;
     }
 }

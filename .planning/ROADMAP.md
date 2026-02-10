@@ -83,10 +83,11 @@ Plans:
   2. JButton shows visually distinct states: normal, hover, pressed, focused, disabled
   3. JButton supports primary variant with accent color background and default variant with standard colors
   4. JButton renders icons alongside text correctly
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 04-01-PLAN.md — DwcButtonBorder, token mapping additions, focus ring color computation in L&F
+- [ ] 04-02-PLAN.md — DwcButtonUI delegate with full paint pipeline and L&F registration
 
 ### Phase 5: Text Input Components
 **Goal**: JTextField renders with DWC input appearance including placeholder and focus styling
@@ -156,7 +157,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
 | 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
 | 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
-| 4. Button Component | 0/TBD | Not started | - |
+| 4. Button Component | 0/2 | Not started | - |
 | 5. Text Input Components | 0/TBD | Not started | - |
 | 6. Selection Components | 0/TBD | Not started | - |
 | 7. Display & Container Components | 0/TBD | Not started | - |

@@ -93,6 +93,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("PanelUI", "com.dwc.laf.ui.DwcPanelUI");
         table.put("TabbedPaneUI", "com.dwc.laf.ui.DwcTabbedPaneUI");
         table.put("ToolTipUI", "com.dwc.laf.ui.DwcToolTipUI");
+        table.put("ProgressBarUI", "com.dwc.laf.ui.DwcProgressBarUI");
     }
 
     @Override
@@ -137,6 +138,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 13. Set up tooltip-specific UIDefaults (border)
         initToolTipDefaults(table);
+
+        // 14. Set up progress bar-specific UIDefaults (border, arc)
+        initProgressBarDefaults(table);
     }
 
     // ---- Public API ----
@@ -381,6 +385,26 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ToolTip.border", new BorderUIResource(new DwcToolTipBorder()));
 
         LOG.fine("Initialized tooltip defaults (border)");
+    }
+
+    // ---- ProgressBar defaults ----
+
+    /**
+     * Initializes progress bar-specific UIDefaults entries.
+     *
+     * <p>Installs an empty border (no visible border) and inherits
+     * {@code ProgressBar.arc} from {@code Component.arc} if not already set.</p>
+     */
+    private void initProgressBarDefaults(UIDefaults table) {
+        table.put("ProgressBar.border",
+                new BorderUIResource(javax.swing.BorderFactory.createEmptyBorder()));
+
+        // Inherit arc from Component.arc if not already set from token mapping
+        if (table.get("ProgressBar.arc") == null || table.getInt("ProgressBar.arc") <= 0) {
+            table.put("ProgressBar.arc", table.getInt("Component.arc"));
+        }
+
+        LOG.fine("Initialized progress bar defaults (border, arc)");
     }
 
     /**

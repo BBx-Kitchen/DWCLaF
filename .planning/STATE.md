@@ -9,29 +9,29 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 
 ## Current Position
 
-Phase: 1 of 8 (CSS Token Engine)
-Plan: 4 of 5 in current phase
-Status: Executing
-Last activity: 2026-02-10 — Completed 01-04-PLAN.md (CSS value parsers)
+Phase: 1 of 8 (CSS Token Engine) -- COMPLETE
+Plan: 5 of 5 in current phase (all done)
+Status: Phase Complete
+Last activity: 2026-02-10 — Completed 01-05-PLAN.md (CSS Engine facade)
 
-Progress: [####░░░░░░] 10%
+Progress: [######░░░░] 12%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 5min
-- Total execution time: 0.33 hours
+- Total execution time: 0.42 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-css-token-engine | 4 | 20min | 5min |
+| 01-css-token-engine | 5 | 25min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 8min, 3min, 5min, 4min
-- Trend: Accelerating
+- Last 5 plans: 8min, 3min, 5min, 4min, 5min
+- Trend: Stable (~5min/plan)
 
 *Updated after each plan completion*
 
@@ -59,6 +59,10 @@ Recent decisions affecting current work:
 - Sentinel UNRESOLVABLE string to distinguish "resolved to empty" from "cannot resolve"
 - Hand-written CSS HSL-to-RGB algorithm (not Java HSB) with hue wrapping and value clamping
 - Character-scanning dimension parser to split numeric/unit boundary (not regex)
+- Classification order: functions -> string patterns -> color -> dimension -> raw (prevents multi-value shorthand mistyping)
+- Top-level comma detection with paren depth tracking distinguishes font stacks from hsl()/rgb() commas
+- CssTokenMap package-private constructor (only CssThemeLoader creates instances)
+- Missing override file is non-fatal (warning logged, bundled defaults preserved)
 
 ### Pending Todos
 
@@ -71,6 +75,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 01-04-PLAN.md (CSS value parsers)
+Stopped at: Completed 01-05-PLAN.md (CSS Engine facade) -- Phase 1 COMPLETE
 Resume file: None
-Next action: Execute 01-05-PLAN.md (CSS Engine facade)
+Next action: Begin Phase 2 (UIDefaults Bridge)

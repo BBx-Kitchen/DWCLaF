@@ -143,62 +143,62 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CSS-01 | — | Pending |
-| CSS-02 | — | Pending |
-| CSS-03 | — | Pending |
-| CSS-04 | — | Pending |
-| CSS-05 | — | Pending |
-| CSS-06 | — | Pending |
-| CSS-07 | — | Pending |
-| CSS-08 | — | Pending |
-| MAP-01 | — | Pending |
-| MAP-02 | — | Pending |
-| MAP-03 | — | Pending |
-| MAP-04 | — | Pending |
-| LAF-01 | — | Pending |
-| LAF-02 | — | Pending |
-| LAF-03 | — | Pending |
-| LAF-04 | — | Pending |
-| PAINT-01 | — | Pending |
-| PAINT-02 | — | Pending |
-| PAINT-03 | — | Pending |
-| PAINT-04 | — | Pending |
-| PAINT-05 | — | Pending |
-| PAINT-06 | — | Pending |
-| BTN-01 | — | Pending |
-| BTN-02 | — | Pending |
-| BTN-03 | — | Pending |
-| BTN-04 | — | Pending |
-| TF-01 | — | Pending |
-| TF-02 | — | Pending |
-| TF-03 | — | Pending |
-| TF-04 | — | Pending |
-| CB-01 | — | Pending |
-| CB-02 | — | Pending |
-| CB-03 | — | Pending |
-| RB-01 | — | Pending |
-| RB-02 | — | Pending |
-| CMB-01 | — | Pending |
-| CMB-02 | — | Pending |
-| CMB-03 | — | Pending |
-| LBL-01 | — | Pending |
-| PNL-01 | — | Pending |
-| PNL-02 | — | Pending |
-| TAB-01 | — | Pending |
-| TAB-02 | — | Pending |
-| TAB-03 | — | Pending |
-| DEMO-01 | — | Pending |
-| DEMO-02 | — | Pending |
-| DEMO-03 | — | Pending |
-| BUILD-01 | — | Pending |
-| BUILD-02 | — | Pending |
-| BUILD-03 | — | Pending |
+| CSS-01 | Phase 1 | Pending |
+| CSS-02 | Phase 1 | Pending |
+| CSS-03 | Phase 1 | Pending |
+| CSS-04 | Phase 1 | Pending |
+| CSS-05 | Phase 1 | Pending |
+| CSS-06 | Phase 1 | Pending |
+| CSS-07 | Phase 1 | Pending |
+| CSS-08 | Phase 1 | Pending |
+| MAP-01 | Phase 2 | Pending |
+| MAP-02 | Phase 2 | Pending |
+| MAP-03 | Phase 2 | Pending |
+| MAP-04 | Phase 2 | Pending |
+| LAF-01 | Phase 2 | Pending |
+| LAF-02 | Phase 2 | Pending |
+| LAF-03 | Phase 2 | Pending |
+| LAF-04 | Phase 2 | Pending |
+| PAINT-01 | Phase 3 | Pending |
+| PAINT-02 | Phase 3 | Pending |
+| PAINT-03 | Phase 3 | Pending |
+| PAINT-04 | Phase 3 | Pending |
+| PAINT-05 | Phase 3 | Pending |
+| PAINT-06 | Phase 3 | Pending |
+| BTN-01 | Phase 4 | Pending |
+| BTN-02 | Phase 4 | Pending |
+| BTN-03 | Phase 4 | Pending |
+| BTN-04 | Phase 4 | Pending |
+| TF-01 | Phase 5 | Pending |
+| TF-02 | Phase 5 | Pending |
+| TF-03 | Phase 5 | Pending |
+| TF-04 | Phase 5 | Pending |
+| CB-01 | Phase 6 | Pending |
+| CB-02 | Phase 6 | Pending |
+| CB-03 | Phase 6 | Pending |
+| RB-01 | Phase 6 | Pending |
+| RB-02 | Phase 6 | Pending |
+| CMB-01 | Phase 6 | Pending |
+| CMB-02 | Phase 6 | Pending |
+| CMB-03 | Phase 6 | Pending |
+| LBL-01 | Phase 7 | Pending |
+| PNL-01 | Phase 7 | Pending |
+| PNL-02 | Phase 7 | Pending |
+| TAB-01 | Phase 7 | Pending |
+| TAB-02 | Phase 7 | Pending |
+| TAB-03 | Phase 7 | Pending |
+| DEMO-01 | Phase 8 | Pending |
+| DEMO-02 | Phase 8 | Pending |
+| DEMO-03 | Phase 8 | Pending |
+| BUILD-01 | Phase 2 | Pending |
+| BUILD-02 | Phase 2 | Pending |
+| BUILD-03 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 48 total
-- Mapped to phases: 0
-- Unmapped: 48
+- Mapped to phases: 48
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-10 after roadmap creation*

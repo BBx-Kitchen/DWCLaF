@@ -43,10 +43,10 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Component: JButton
 
-- [ ] **BTN-01**: JButton paints with rounded background, border, and text from CSS tokens
-- [ ] **BTN-02**: JButton shows distinct visual states: normal, hover, pressed, focused, disabled
-- [ ] **BTN-03**: JButton supports primary/default variant with accent color background
-- [ ] **BTN-04**: JButton supports icon rendering alongside text
+- [x] **BTN-01**: JButton paints with rounded background, border, and text from CSS tokens
+- [x] **BTN-02**: JButton shows distinct visual states: normal, hover, pressed, focused, disabled
+- [x] **BTN-03**: JButton supports primary/default variant with accent color background
+- [x] **BTN-04**: JButton supports icon rendering alongside text
 
 ### Component: JTextField
 
@@ -57,20 +57,20 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Component: JCheckBox
 
-- [ ] **CB-01**: JCheckBox paints custom check mark (not system default) matching DWC checkbox
-- [ ] **CB-02**: JCheckBox shows distinct visual states: normal, hover, checked, disabled
-- [ ] **CB-03**: JCheckBox uses accent color for checked state background
+- [x] **CB-01**: JCheckBox paints custom check mark (not system default) matching DWC checkbox
+- [x] **CB-02**: JCheckBox shows distinct visual states: normal, hover, checked, disabled
+- [x] **CB-03**: JCheckBox uses accent color for checked state background
 
 ### Component: JRadioButton
 
-- [ ] **RB-01**: JRadioButton paints custom circular indicator with dot matching DWC radio
-- [ ] **RB-02**: JRadioButton shows distinct visual states: normal, hover, selected, disabled
+- [x] **RB-01**: JRadioButton paints custom circular indicator with dot matching DWC radio
+- [x] **RB-02**: JRadioButton shows distinct visual states: normal, hover, selected, disabled
 
 ### Component: JComboBox
 
-- [ ] **CMB-01**: JComboBox paints with styled dropdown arrow and rounded border
-- [ ] **CMB-02**: JComboBox popup list uses themed styling (selection highlight, hover)
-- [ ] **CMB-03**: JComboBox shows distinct visual states: normal, hover, focused, disabled
+- [x] **CMB-01**: JComboBox paints with styled dropdown arrow and rounded border
+- [x] **CMB-02**: JComboBox popup list uses themed styling (selection highlight, hover)
+- [x] **CMB-03**: JComboBox shows distinct visual states: normal, hover, focused, disabled
 
 ### Component: JLabel
 
@@ -89,9 +89,9 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Demo
 
-- [ ] **DEMO-01**: Demo application shows all 8 themed components in a scrollable gallery
-- [ ] **DEMO-02**: Demo shows each component in all its states (normal, hover, pressed, focused, disabled)
-- [ ] **DEMO-03**: Demo is a single runnable main class with no framework dependencies
+- [x] **DEMO-01**: Demo application shows all 8 themed components in a scrollable gallery
+- [x] **DEMO-02**: Demo shows each component in all its states (normal, hover, pressed, focused, disabled)
+- [x] **DEMO-03**: Demo is a single runnable main class with no framework dependencies
 
 ### Build & Packaging
 
@@ -165,31 +165,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PAINT-04 | Phase 3 | ✓ Done |
 | PAINT-05 | Phase 3 | ✓ Done |
 | PAINT-06 | Phase 3 | ✓ Done |
-| BTN-01 | Phase 4 | Pending |
-| BTN-02 | Phase 4 | Pending |
-| BTN-03 | Phase 4 | Pending |
-| BTN-04 | Phase 4 | Pending |
+| BTN-01 | Phase 4 | ✓ Done |
+| BTN-02 | Phase 4 | ✓ Done |
+| BTN-03 | Phase 4 | ✓ Done |
+| BTN-04 | Phase 4 | ✓ Done |
 | TF-01 | Phase 5 | ✓ Done |
 | TF-02 | Phase 5 | ✓ Done |
 | TF-03 | Phase 5 | ✓ Done |
 | TF-04 | Phase 5 | ✓ Done |
-| CB-01 | Phase 6 | Pending |
-| CB-02 | Phase 6 | Pending |
-| CB-03 | Phase 6 | Pending |
-| RB-01 | Phase 6 | Pending |
-| RB-02 | Phase 6 | Pending |
-| CMB-01 | Phase 6 | Pending |
-| CMB-02 | Phase 6 | Pending |
-| CMB-03 | Phase 6 | Pending |
+| CB-01 | Phase 6 | ✓ Done |
+| CB-02 | Phase 6 | ✓ Done |
+| CB-03 | Phase 6 | ✓ Done |
+| RB-01 | Phase 6 | ✓ Done |
+| RB-02 | Phase 6 | ✓ Done |
+| CMB-01 | Phase 6 | ✓ Done |
+| CMB-02 | Phase 6 | ✓ Done |
+| CMB-03 | Phase 6 | ✓ Done |
 | LBL-01 | Phase 7 | ✓ Done |
 | PNL-01 | Phase 7 | ✓ Done |
 | PNL-02 | Phase 7 | ✓ Done |
 | TAB-01 | Phase 7 | ✓ Done |
 | TAB-02 | Phase 7 | ✓ Done |
 | TAB-03 | Phase 7 | ✓ Done |
-| DEMO-01 | Phase 8 | Pending |
-| DEMO-02 | Phase 8 | Pending |
-| DEMO-03 | Phase 8 | Pending |
+| DEMO-01 | Phase 8 | ✓ Done |
+| DEMO-02 | Phase 8 | ✓ Done |
+| DEMO-03 | Phase 8 | ✓ Done |
 | BUILD-01 | Phase 2 | ✓ Done |
 | BUILD-02 | Phase 2 | ✓ Done |
 | BUILD-03 | Phase 2 | ✓ Done |

@@ -97,6 +97,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ProgressBarUI", "com.dwc.laf.ui.DwcProgressBarUI");
         table.put("ScrollBarUI", "com.dwc.laf.ui.DwcScrollBarUI");
         table.put("TreeUI", "com.dwc.laf.ui.DwcTreeUI");
+        table.put("TableUI", "com.dwc.laf.ui.DwcTableUI");
     }
 
     @Override
@@ -150,6 +151,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 16. Set up tree-specific UIDefaults (expand/collapse icons, row height)
         initTreeDefaults(table);
+
+        // 17. Set up table-specific UIDefaults (alternate row color, borders)
+        initTableDefaults(table);
     }
 
     // ---- Public API ----
@@ -447,6 +451,33 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ScrollBar.width", 10);
 
         LOG.fine("Initialized scrollbar defaults (thumbArc, width)");
+    }
+
+    // ---- Table defaults ----
+
+    /**
+     * Initializes table-specific UIDefaults entries.
+     *
+     * <p>Ensures the alternate row color is set (inherits from Panel.background
+     * if not already populated by the token mapping pipeline), removes the
+     * scroll pane border, and sets the focus cell highlight border to match
+     * the cell renderer padding.</p>
+     */
+    private void initTableDefaults(UIDefaults table) {
+        // Inherit alternate row color from Panel.background if not already set
+        if (table.getColor("Table.alternateRowColor") == null) {
+            table.put("Table.alternateRowColor", table.getColor("Panel.background"));
+        }
+
+        // No scroll pane border
+        table.put("Table.scrollPaneBorder",
+                new BorderUIResource(javax.swing.BorderFactory.createEmptyBorder()));
+
+        // Match renderer border for focus cell highlight
+        table.put("Table.focusCellHighlightBorder",
+                javax.swing.BorderFactory.createEmptyBorder(2, 6, 2, 6));
+
+        LOG.fine("Initialized table defaults (alternateRowColor, scrollPaneBorder, focusCellHighlightBorder)");
     }
 
     /**

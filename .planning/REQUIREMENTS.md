@@ -50,10 +50,10 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Component: JTextField
 
-- [ ] **TF-01**: JTextField paints with rounded border and background from CSS tokens
-- [ ] **TF-02**: JTextField shows distinct visual states: normal, hover, focused, disabled
-- [ ] **TF-03**: JTextField renders placeholder text in muted color when empty and unfocused
-- [ ] **TF-04**: JTextField shows focus ring on focus matching DWC input focus style
+- [x] **TF-01**: JTextField paints with rounded border and background from CSS tokens
+- [x] **TF-02**: JTextField shows distinct visual states: normal, hover, focused, disabled
+- [x] **TF-03**: JTextField renders placeholder text in muted color when empty and unfocused
+- [x] **TF-04**: JTextField shows focus ring on focus matching DWC input focus style
 
 ### Component: JCheckBox
 
@@ -169,10 +169,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BTN-02 | Phase 4 | Pending |
 | BTN-03 | Phase 4 | Pending |
 | BTN-04 | Phase 4 | Pending |
-| TF-01 | Phase 5 | Pending |
-| TF-02 | Phase 5 | Pending |
-| TF-03 | Phase 5 | Pending |
-| TF-04 | Phase 5 | Pending |
+| TF-01 | Phase 5 | ✓ Done |
+| TF-02 | Phase 5 | ✓ Done |
+| TF-03 | Phase 5 | ✓ Done |
+| TF-04 | Phase 5 | ✓ Done |
 | CB-01 | Phase 6 | Pending |
 | CB-02 | Phase 6 | Pending |
 | CB-03 | Phase 6 | Pending |

@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
 - [x] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
 - [x] **Phase 4: Button Component** - First delegate validates architecture
-- [ ] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
+- [x] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
 - [ ] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
 - [ ] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
 - [ ] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
@@ -101,8 +101,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — DwcTextFieldBorder, token mapping fixes, L&F registration
-- [ ] 05-02-PLAN.md — DwcTextFieldUI delegate with paintSafely pipeline and placeholder text
+- [x] 05-01-PLAN.md — DwcTextFieldBorder, token mapping fixes, L&F registration
+- [x] 05-02-PLAN.md — DwcTextFieldUI delegate with paintSafely pipeline and placeholder text
 
 ### Phase 6: Selection Components
 **Goal**: CheckBox, RadioButton, and ComboBox render with custom DWC styling completing form controls
@@ -159,7 +159,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
 | 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
 | 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
-| 5. Text Input Components | 0/2 | Planned | - |
+| 5. Text Input Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 6. Selection Components | 0/TBD | Not started | - |
 | 7. Display & Container Components | 0/TBD | Not started | - |
 | 8. Demo Application | 0/TBD | Not started | - |

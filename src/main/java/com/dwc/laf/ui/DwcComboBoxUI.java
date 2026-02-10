@@ -280,6 +280,11 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
             // Let super handle the basics (text, icon, etc.)
             super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
+            // index == -1 means the display area (not popup list).
+            // Must be non-opaque so the renderer doesn't paint its own
+            // background rectangle over the custom rounded background.
+            setOpaque(index != -1);
+
             if (isSelected) {
                 Color selBg = UIManager.getColor("ComboBox.selectionBackground");
                 Color selFg = UIManager.getColor("ComboBox.selectionForeground");

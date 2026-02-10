@@ -164,8 +164,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 09-01-PLAN.md — Button variant infrastructure: token mappings, per-variant focus ring colors, DwcButtonUI refactor, DwcButtonBorder variant awareness
-- [ ] 09-02-PLAN.md — Gallery update: variant button rows, theme switcher dropdown, visual verification
+- [x] 09-01-PLAN.md — Button variant infrastructure: token mappings, per-variant focus ring colors, DwcButtonUI refactor, DwcButtonBorder variant awareness
+- [x] 09-02-PLAN.md — Gallery update: variant button rows, theme switcher dropdown, visual verification
 
 ## Progress
 
@@ -182,4 +182,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 | 6. Selection Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
-| 9. Button Theme Variants & CSS Themes | 0/2 | Planned | — |
+| 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 9 in progress - Button theme variants and custom CSS themes.
+**Current focus:** Phase 9 complete - All phases done. DWC Swing L&F with button variants and theme switching.
 
 ## Current Position
 
 Phase: 9 of 9 (Button Theme Variants & Custom CSS Themes)
-Plan: 2 of 2 in current phase
-Status: Completed 09-01-PLAN.md - variant infrastructure ready
-Last activity: 2026-02-10 — Completed 09-01-PLAN.md (button variant infrastructure)
+Plan: 2 of 2 in current phase (COMPLETE)
+Status: Phase 09 Complete - ALL PHASES DONE
+Last activity: 2026-02-10 — Completed 09-02-PLAN.md (gallery variant showcase & theme switcher)
 
-Progress: [#############################################---] 95%
+Progress: [################################################] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 19
+- Total plans completed: 20
 - Average duration: 4min
-- Total execution time: 1.14 hours
+- Total execution time: 1.27 hours
 
 **By Phase:**
 
@@ -35,11 +35,11 @@ Progress: [#############################################---] 95%
 | 06-selection-components | 2 | 9min | 4.5min |
 | 07-display-container-components | 2 | 6min | 3min |
 | 08-demo-application | 1 | 5min | 5min |
-| 09-button-theme-variants | 1 | 3min | 3min |
+| 09-button-theme-variants | 2 | 11min | 5.5min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 3min, 3min, 5min, 3min
-- Trend: Variant infrastructure plan executed cleanly
+- Last 5 plans: 3min, 3min, 5min, 3min, 8min
+- Trend: Final plan included human verification checkpoint and two bug fixes
 
 *Updated after each plan completion*
 
@@ -123,6 +123,8 @@ Recent decisions affecting current work:
 - [Phase 09]: Map<String, VariantColors> replaces boolean isPrimary for N-variant support
 - [Phase 09]: Per-variant focus ring computed from --dwc-color-{variant}-h/s with shared --dwc-focus-ring-l/a
 - [Phase 09]: DwcButtonBorder resolves variant border via dwc.buttonType client property lookup
+- [Phase 09]: Theme switcher uses boolean[] switching guard for re-entrancy from updateComponentTreeUI
+- [Phase 09]: paintCurrentValue override required — BasicComboBoxUI overwrites renderer foreground with selectionForeground when focused
 
 ### Roadmap Evolution
 
@@ -130,7 +132,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -139,6 +141,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 09-01-PLAN.md (button variant infrastructure)
+Stopped at: Completed 09-02-PLAN.md (gallery variant showcase & theme switcher) - ALL PHASES COMPLETE
 Resume file: None
-Next action: Execute 09-02-PLAN.md (gallery demo with variant showcase and theme switching).
+Next action: Project complete. All 9 phases executed. Run `mvn compile exec:java` to see gallery.

@@ -10,8 +10,10 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.plaf.InsetsUIResource;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -195,5 +197,69 @@ class DwcLookAndFeelTest {
 
         // The switch succeeding proves UIResource wrapping is correct:
         // Swing can replace L&F-set values because they are UIResource instances.
+    }
+
+    // ---- Test 11: Focus ring color computed from HSL tokens ----
+
+    @Test
+    void lafPopulatesFocusRingColor() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color focusRingColor = UIManager.getColor("Component.focusRingColor");
+        assertNotNull(focusRingColor,
+                "Component.focusRingColor should be computed from CSS HSL tokens");
+        assertInstanceOf(ColorUIResource.class, focusRingColor,
+                "Component.focusRingColor must be ColorUIResource");
+        assertTrue(focusRingColor.getAlpha() < 255,
+                "Focus ring color should be semi-transparent (alpha < 255)");
+        assertTrue(focusRingColor.getAlpha() > 0,
+                "Focus ring color should have some opacity (alpha > 0)");
+    }
+
+    // ---- Test 12: Button margin ----
+
+    @Test
+    void lafPopulatesButtonMargin() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Insets margin = UIManager.getInsets("Button.margin");
+        assertNotNull(margin, "Button.margin should be populated");
+        assertInstanceOf(InsetsUIResource.class, margin,
+                "Button.margin must be InsetsUIResource");
+        assertEquals(new Insets(2, 14, 2, 14), margin,
+                "Button.margin should be (2, 14, 2, 14)");
+    }
+
+    // ---- Test 13: Button minimum width ----
+
+    @Test
+    void lafPopulatesButtonMinimumWidth() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        int minimumWidth = UIManager.getInt("Button.minimumWidth");
+        assertEquals(72, minimumWidth,
+                "Button.minimumWidth should be 72");
+    }
+
+    // ---- Test 14: Button borderColor from token mapping ----
+
+    @Test
+    void lafPopulatesButtonBorderColor() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color borderColor = UIManager.getColor("Button.borderColor");
+        assertNotNull(borderColor,
+                "Button.borderColor should be populated from --dwc-button-border-color");
+    }
+
+    // ---- Test 15: Button rollover flag ----
+
+    @Test
+    void lafPopulatesButtonRollover() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object rollover = UIManager.get("Button.rollover");
+        assertNotNull(rollover, "Button.rollover should be set");
+        assertEquals(Boolean.TRUE, rollover, "Button.rollover should be true");
     }
 }

@@ -2,15 +2,20 @@ package com.dwc.laf;
 
 import com.dwc.laf.css.CssThemeLoader;
 import com.dwc.laf.css.CssTokenMap;
+import com.dwc.laf.css.CssValue;
 import com.dwc.laf.defaults.TokenMappingConfig;
 import com.dwc.laf.defaults.UIDefaultsPopulator;
 
 import javax.swing.UIDefaults;
+import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.plaf.InsetsUIResource;
 import javax.swing.plaf.basic.BasicLookAndFeel;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
-import java.util.Arrays;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -91,6 +96,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 4. Set up default font from mapped font properties
         initDefaultFont(table);
+
+        // 5. Set up button-specific UIDefaults (focus ring color, margin, etc.)
+        initButtonDefaults(table);
     }
 
     // ---- Public API ----
@@ -165,6 +173,150 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         LOG.fine(() -> "Set default font: " + fontResource.getFamily()
                 + " " + fontResource.getSize() + "pt style=" + fontResource.getStyle());
+    }
+
+    // ---- Button defaults ----
+
+    /**
+     * Initializes button-specific UIDefaults entries that require computation
+     * beyond simple token mapping.
+     *
+     * <p>Computes the focus ring color from CSS HSL tokens
+     * ({@code --dwc-color-primary-h}, {@code --dwc-color-primary-s},
+     * {@code --dwc-focus-ring-l}, {@code --dwc-focus-ring-a}) and stores it
+     * as {@code Component.focusRingColor} for all components to share.</p>
+     *
+     * <p>Also installs button margin, minimum width, icon-text gap, and
+     * rollover flag in UIDefaults.</p>
+     */
+    private void initButtonDefaults(UIDefaults table) {
+        // 1. Focus ring color from CSS HSL tokens
+        initFocusRingColor(table);
+
+        // 2. Button margin
+        table.put("Button.margin", new InsetsUIResource(2, 14, 2, 14));
+
+        // 3. Button minimum width
+        table.put("Button.minimumWidth", 72);
+
+        // 4. Button icon-text gap
+        table.put("Button.iconTextGap", 4);
+
+        // 5. Rollover enabled
+        table.put("Button.rollover", Boolean.TRUE);
+
+        LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover)");
+    }
+
+    /**
+     * Computes the focus ring color from CSS HSL tokens and stores it in UIDefaults.
+     *
+     * <p>The DWC focus ring color is {@code hsla(primary-h, primary-s, 45%, 0.4)}.
+     * This method reads the individual HSL components from the token map, converts
+     * to RGB, and stores the result as {@code Component.focusRingColor}.</p>
+     */
+    private void initFocusRingColor(UIDefaults table) {
+        if (tokenMap == null) {
+            LOG.warning("Token map not available; skipping focus ring color computation");
+            return;
+        }
+
+        // Read hue: --dwc-color-primary-h (IntegerValue, e.g. 211)
+        OptionalInt hueOpt = tokenMap.getInt("--dwc-color-primary-h");
+        if (hueOpt.isEmpty()) {
+            LOG.warning("Missing --dwc-color-primary-h token; skipping focus ring color");
+            return;
+        }
+        float hue = hueOpt.getAsInt();
+
+        // Read saturation: --dwc-color-primary-s (DimensionValue with %, e.g. 100%)
+        float saturation = getDimensionPercent("--dwc-color-primary-s", -1f);
+        if (saturation < 0) {
+            LOG.warning("Missing --dwc-color-primary-s token; skipping focus ring color");
+            return;
+        }
+
+        // Read lightness: --dwc-focus-ring-l (DimensionValue with %, e.g. 45%)
+        float lightness = getDimensionPercent("--dwc-focus-ring-l", -1f);
+        if (lightness < 0) {
+            LOG.warning("Missing --dwc-focus-ring-l token; skipping focus ring color");
+            return;
+        }
+
+        // Read alpha: --dwc-focus-ring-a (FloatValue, e.g. 0.4)
+        Optional<Float> alphaOpt = tokenMap.getFloat("--dwc-focus-ring-a");
+        if (alphaOpt.isEmpty()) {
+            LOG.warning("Missing --dwc-focus-ring-a token; skipping focus ring color");
+            return;
+        }
+        float alpha = alphaOpt.get();
+
+        Color focusRingColor = hslToColor(hue, saturation, lightness, alpha);
+        table.put("Component.focusRingColor", new ColorUIResource(focusRingColor));
+
+        LOG.fine(() -> "Computed focus ring color: hsla(" + hue + ", " + saturation
+                + "%, " + lightness + "%, " + alpha + ") -> " + focusRingColor);
+    }
+
+    /**
+     * Reads a DimensionValue with "%" unit from the token map and returns the
+     * numeric part as a float (0-100 scale).
+     *
+     * @param propertyName the CSS custom property name
+     * @param defaultValue the value to return if the token is missing or not a dimension
+     * @return the percentage value (0-100), or defaultValue
+     */
+    private float getDimensionPercent(String propertyName, float defaultValue) {
+        Optional<CssValue> valueOpt = tokenMap.get(propertyName);
+        if (valueOpt.isPresent() && valueOpt.get() instanceof CssValue.DimensionValue dv) {
+            return dv.value();
+        }
+        return defaultValue;
+    }
+
+    /**
+     * Converts HSL color components to a Java {@link Color}.
+     *
+     * <p>Uses the same HSL-to-RGB algorithm as the CSS color spec and
+     * {@code CssColorParser}. The hue is in degrees (0-360), saturation
+     * and lightness are percentages (0-100), alpha is 0.0-1.0.</p>
+     *
+     * @param hue        the hue in degrees (0-360)
+     * @param saturation the saturation as a percentage (0-100)
+     * @param lightness  the lightness as a percentage (0-100)
+     * @param alpha      the alpha (0.0 = transparent, 1.0 = opaque)
+     * @return the computed Color
+     */
+    private static Color hslToColor(float hue, float saturation, float lightness, float alpha) {
+        float h = hue / 360f;
+        float s = saturation / 100f;
+        float l = lightness / 100f;
+
+        float q = l < 0.5f ? l * (1 + s) : l + s - l * s;
+        float p = 2 * l - q;
+
+        float r = hueToRgb(p, q, h + 1f / 3);
+        float g = hueToRgb(p, q, h);
+        float b = hueToRgb(p, q, h - 1f / 3);
+
+        int ri = Math.round(Math.max(0, Math.min(1, r)) * 255);
+        int gi = Math.round(Math.max(0, Math.min(1, g)) * 255);
+        int bi = Math.round(Math.max(0, Math.min(1, b)) * 255);
+        int ai = Math.round(Math.max(0, Math.min(1, alpha)) * 255);
+
+        return new Color(ri, gi, bi, ai);
+    }
+
+    /**
+     * Helper for HSL-to-RGB conversion. Converts a single color channel.
+     */
+    private static float hueToRgb(float p, float q, float t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1f / 6) return p + (q - p) * 6 * t;
+        if (t < 1f / 2) return q;
+        if (t < 2f / 3) return p + (q - p) * (2f / 3 - t) * 6;
+        return p;
     }
 
     /**

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 6 complete - All selection components (CheckBox, RadioButton, ComboBox) implemented
+**Current focus:** Phase 7 in progress - Display/container components (Label, Panel done; TabbedPane next)
 
 ## Current Position
 
-Phase: 6 of 8 (Selection Components)
-Plan: 2 of 2 in current phase
-Status: Phase 06 Complete
-Last activity: 2026-02-10 — Completed 06-02-PLAN.md (ComboBox delegate)
+Phase: 7 of 8 (Display & Container Components)
+Plan: 1 of 2 in current phase
+Status: Executing Phase 07
+Last activity: 2026-02-10 — Completed 07-01-PLAN.md (Label & Panel delegates)
 
-Progress: [##################░] 56%
+Progress: [####################] 59%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: 4min
-- Total execution time: 0.91 hours
+- Total execution time: 0.96 hours
 
 **By Phase:**
 
@@ -33,10 +33,11 @@ Progress: [##################░] 56%
 | 04-button-component | 2 | 5min | 2.5min |
 | 05-text-input-components | 2 | 5min | 2.5min |
 | 06-selection-components | 2 | 9min | 4.5min |
+| 07-display-container-components | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 3min, 2min, 7min, 2min
-- Trend: Back to normal speed on 06-02 (no deviations needed)
+- Last 5 plans: 3min, 2min, 7min, 2min, 3min
+- Trend: Consistent speed on 07-01
 
 *Updated after each plan completion*
 
@@ -107,6 +108,9 @@ Recent decisions affecting current work:
 - [Phase 06]: ComboBox paintCurrentValueBackground no-op; background painted in custom paint() for correct z-order
 - [Phase 06]: Hover exit sets client property to null (not FALSE) matching DwcTextFieldBorder's Boolean.TRUE check
 - [Phase 06]: DwcComboBoxArrowButton extends JButton (not BasicArrowButton) for full painting control
+- [Phase 07]: Removed getInsets override from DwcPanelUI (BasicPanelUI/ComponentUI has no getInsets method; shadow margin via focusWidth offset)
+- [Phase 07]: Panel.shadowColor hard-coded Color(0,0,0,40) in initPanelDefaults (not token-mapped)
+- [Phase 07]: Card-mode activation via client property: panel.putClientProperty("dwc.panelStyle", "card")
 
 ### Pending Todos
 
@@ -119,6 +123,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 06-02-PLAN.md (ComboBox delegate) - Phase 06 complete
+Stopped at: Completed 07-01-PLAN.md (Label & Panel delegates)
 Resume file: None
-Next action: Begin Phase 07 (layout containers)
+Next action: Execute 07-02-PLAN.md (TabbedPane delegate)

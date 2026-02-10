@@ -24,9 +24,9 @@ class CssColorParserTest {
             Optional<Color> result = CssColorParser.parse("hsl(211, 100%, 50%)");
             assertTrue(result.isPresent());
             Color c = result.get();
-            // HSL(211, 100%, 50%) -> approximately R=0, G=120, B=255
+            // HSL(211, 100%, 50%) -> R=0, G=123, B=255 (CSS HSL algorithm)
             assertEquals(0, c.getRed(), 1);
-            assertEquals(120, c.getGreen(), 2);
+            assertEquals(123, c.getGreen(), 1);
             assertEquals(255, c.getBlue(), 1);
             assertEquals(255, c.getAlpha());
         }
@@ -38,7 +38,7 @@ class CssColorParserTest {
             assertTrue(result.isPresent());
             Color c = result.get();
             assertEquals(0, c.getRed(), 1);
-            assertEquals(120, c.getGreen(), 2);
+            assertEquals(123, c.getGreen(), 1);
             assertEquals(255, c.getBlue(), 1);
             assertEquals(128, c.getAlpha(), 1);
         }
@@ -50,7 +50,7 @@ class CssColorParserTest {
             assertTrue(result.isPresent());
             Color c = result.get();
             assertEquals(0, c.getRed(), 1);
-            assertEquals(120, c.getGreen(), 2);
+            assertEquals(123, c.getGreen(), 1);
             assertEquals(255, c.getBlue(), 1);
         }
 

@@ -6,6 +6,7 @@ import com.dwc.laf.css.CssValue;
 import com.dwc.laf.defaults.TokenMappingConfig;
 import com.dwc.laf.defaults.UIDefaultsPopulator;
 import com.dwc.laf.ui.DwcButtonBorder;
+import com.dwc.laf.ui.DwcTextFieldBorder;
 
 import javax.swing.UIDefaults;
 import javax.swing.plaf.BorderUIResource;
@@ -81,6 +82,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
     protected void initClassDefaults(UIDefaults table) {
         super.initClassDefaults(table);
         table.put("ButtonUI", "com.dwc.laf.ui.DwcButtonUI");
+        table.put("TextFieldUI", "com.dwc.laf.ui.DwcTextFieldUI");
     }
 
     @Override
@@ -101,6 +103,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 5. Set up button-specific UIDefaults (focus ring color, margin, etc.)
         initButtonDefaults(table);
+
+        // 6. Set up text field-specific UIDefaults (margin, border)
+        initTextFieldDefaults(table);
     }
 
     // ---- Public API ----
@@ -211,6 +216,24 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("Button.border", new BorderUIResource(new DwcButtonBorder()));
 
         LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover, border)");
+    }
+
+    // ---- TextField defaults ----
+
+    /**
+     * Initializes text field-specific UIDefaults entries.
+     *
+     * <p>Installs the text field margin and the custom {@link DwcTextFieldBorder}
+     * that provides focus-width-aware insets and state-aware outline painting.</p>
+     */
+    private void initTextFieldDefaults(UIDefaults table) {
+        // 1. TextField margin
+        table.put("TextField.margin", new InsetsUIResource(2, 6, 2, 6));
+
+        // 2. TextField border (standard L&F pattern for LookAndFeel.installBorder)
+        table.put("TextField.border", new BorderUIResource(new DwcTextFieldBorder()));
+
+        LOG.fine("Initialized text field defaults (margin, border)");
     }
 
     /**

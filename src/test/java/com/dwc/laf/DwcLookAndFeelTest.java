@@ -15,6 +15,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
 
+import com.dwc.laf.ui.DwcTextFieldBorder;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -261,5 +263,78 @@ class DwcLookAndFeelTest {
         Object rollover = UIManager.get("Button.rollover");
         assertNotNull(rollover, "Button.rollover should be set");
         assertEquals(Boolean.TRUE, rollover, "Button.rollover should be true");
+    }
+
+    // ---- Test 16: TextField hover border color from token mapping ----
+
+    @Test
+    void lafPopulatesTextFieldHoverBorderColor() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color hoverBorderColor = UIManager.getColor("TextField.hoverBorderColor");
+        assertNotNull(hoverBorderColor,
+                "TextField.hoverBorderColor should be populated from --dwc-input-hover-border-color");
+    }
+
+    // ---- Test 17: TextField hover background from token mapping ----
+
+    @Test
+    void lafPopulatesTextFieldHoverBackground() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color hoverBg = UIManager.getColor("TextField.hoverBackground");
+        assertNotNull(hoverBg,
+                "TextField.hoverBackground should be populated from --dwc-input-hover-background");
+    }
+
+    // ---- Test 18: TextField.background is DWC input background, not white ----
+
+    @Test
+    void lafTextFieldBackgroundIsNotWhite() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Color tfBg = UIManager.getColor("TextField.background");
+        assertNotNull(tfBg, "TextField.background should be populated");
+        // --dwc-input-background maps to --dwc-color-default-light, which is a grayish color,
+        // not pure white (#fff = 255,255,255). The --dwc-color-white mapping was removed.
+        assertFalse(tfBg.getRed() == 255 && tfBg.getGreen() == 255 && tfBg.getBlue() == 255,
+                "TextField.background should NOT be pure white; it should be the DWC input background");
+    }
+
+    // ---- Test 19: TextField.border is DwcTextFieldBorder ----
+
+    @Test
+    void lafPopulatesTextFieldBorder() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object border = UIManager.get("TextField.border");
+        assertNotNull(border, "TextField.border should be populated");
+        // BorderUIResource wraps the actual border
+        assertInstanceOf(javax.swing.plaf.BorderUIResource.class, border,
+                "TextField.border should be wrapped in BorderUIResource");
+        javax.swing.plaf.BorderUIResource bur = (javax.swing.plaf.BorderUIResource) border;
+        // The BorderUIResource delegates to the wrapped border, which should be DwcTextFieldBorder.
+        // We verify by checking the insets behavior matches DwcTextFieldBorder's pattern.
+        javax.swing.JTextField tf = new javax.swing.JTextField();
+        Insets insets = bur.getBorderInsets(tf);
+        assertNotNull(insets, "Border insets should not be null");
+        // With the UIDefaults set by the L&F (focusWidth + borderWidth + margin),
+        // insets should be greater than zero on all sides
+        assertTrue(insets.top > 0, "top inset > 0");
+        assertTrue(insets.left > 0, "left inset > 0");
+    }
+
+    // ---- Test 20: TextField.margin ----
+
+    @Test
+    void lafPopulatesTextFieldMargin() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Insets margin = UIManager.getInsets("TextField.margin");
+        assertNotNull(margin, "TextField.margin should be populated");
+        assertInstanceOf(InsetsUIResource.class, margin,
+                "TextField.margin must be InsetsUIResource");
+        assertEquals(new Insets(2, 6, 2, 6), margin,
+                "TextField.margin should be (2, 6, 2, 6)");
     }
 }

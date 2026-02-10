@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 7 complete - Display/container components (Label, Panel, TabbedPane all done)
+**Current focus:** Phase 8 complete - All phases done. DWC Swing L&F with 8 component gallery verified.
 
 ## Current Position
 
-Phase: 7 of 8 (Display & Container Components)
-Plan: 2 of 2 in current phase (COMPLETE)
-Status: Phase 07 Complete
-Last activity: 2026-02-10 — Completed 07-02-PLAN.md (TabbedPane delegate)
+Phase: 8 of 8 (Demo Application)
+Plan: 1 of 1 in current phase (COMPLETE)
+Status: Phase 08 Complete - ALL PHASES DONE
+Last activity: 2026-02-10 — Completed 08-01-PLAN.md (DwcComponentGallery)
 
-Progress: [########################] 65%
+Progress: [################################################] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
+- Total plans completed: 18
 - Average duration: 4min
-- Total execution time: 1.01 hours
+- Total execution time: 1.09 hours
 
 **By Phase:**
 
@@ -34,10 +34,11 @@ Progress: [########################] 65%
 | 05-text-input-components | 2 | 5min | 2.5min |
 | 06-selection-components | 2 | 9min | 4.5min |
 | 07-display-container-components | 2 | 6min | 3min |
+| 08-demo-application | 1 | 5min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 7min, 2min, 3min, 3min
-- Trend: Consistent speed on 07-02
+- Last 5 plans: 7min, 2min, 3min, 3min, 5min
+- Trend: Final demo plan with visual verification checkpoint
 
 *Updated after each plan completion*
 
@@ -114,6 +115,9 @@ Recent decisions affecting current work:
 - [Phase 07]: Underline indicator painted in paintContentBorderTopEdge (at tab-content boundary), not paintTabBackground
 - [Phase 07]: Non-matching content edges are no-op for clean look (no unnecessary borders)
 - [Phase 07]: Tab focus ring ringWidth=2 (thinner than Component.focusWidth) for proportional appearance on tab targets
+- [Phase 08]: Gallery uses BoxLayout Y_AXIS with JScrollPane for vertical scrollability
+- [Phase 08]: No hardcoded colors in demo code; L&F handles all theming
+- [Phase 08]: DwcComboBoxRenderer sets opaque=false for display area (index == -1) to fix disabled ComboBox gray background
 
 ### Pending Todos
 
@@ -126,6 +130,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 07-02-PLAN.md (TabbedPane delegate) - Phase 07 complete
+Stopped at: Completed 08-01-PLAN.md (DwcComponentGallery) - ALL PHASES COMPLETE
 Resume file: None
-Next action: Execute Phase 08 (Integration Testing)
+Next action: Project complete. All 8 phases executed. Run `mvn compile exec:java` to see gallery.

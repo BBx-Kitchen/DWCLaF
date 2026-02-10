@@ -5,8 +5,10 @@ import com.dwc.laf.css.CssTokenMap;
 import com.dwc.laf.css.CssValue;
 import com.dwc.laf.defaults.TokenMappingConfig;
 import com.dwc.laf.defaults.UIDefaultsPopulator;
+import com.dwc.laf.ui.DwcButtonBorder;
 
 import javax.swing.UIDefaults;
+import javax.swing.plaf.BorderUIResource;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.InsetsUIResource;
@@ -78,7 +80,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
     @Override
     protected void initClassDefaults(UIDefaults table) {
         super.initClassDefaults(table);
-        // Custom ComponentUI delegates registered in Phases 4-7
+        table.put("ButtonUI", "com.dwc.laf.ui.DwcButtonUI");
     }
 
     @Override
@@ -205,7 +207,10 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         // 5. Rollover enabled
         table.put("Button.rollover", Boolean.TRUE);
 
-        LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover)");
+        // 6. Button border (standard L&F pattern for LookAndFeel.installBorder)
+        table.put("Button.border", new BorderUIResource(new DwcButtonBorder()));
+
+        LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover, border)");
     }
 
     /**

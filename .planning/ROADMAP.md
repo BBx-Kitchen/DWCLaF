@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Button Component** - First delegate validates architecture
 - [x] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
 - [x] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
-- [ ] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
+- [x] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
 - [ ] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
 
 ## Phase Details
@@ -133,8 +133,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 07-01-PLAN.md — DwcLabelUI + DwcPanelUI delegates with card-style shadow painting
-- [ ] 07-02-PLAN.md — DwcTabbedPaneUI delegate with underline indicator and hover states
+- [x] 07-01-PLAN.md — DwcLabelUI + DwcPanelUI delegates with card-style shadow painting
+- [x] 07-02-PLAN.md — DwcTabbedPaneUI delegate with underline indicator and hover states
 
 ### Phase 8: Demo Application
 **Goal**: Runnable demo application proves visual parity between Swing and DWC web components
@@ -163,5 +163,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
 | 5. Text Input Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 6. Selection Components | 2/2 | ✓ Complete | 2026-02-10 |
-| 7. Display & Container Components | 0/2 | In Progress | - |
+| 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 8. Demo Application | 0/TBD | Not started | - |

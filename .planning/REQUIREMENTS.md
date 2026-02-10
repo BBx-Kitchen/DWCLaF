@@ -74,18 +74,18 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Component: JLabel
 
-- [ ] **LBL-01**: JLabel renders with typography tokens from CSS (font family, size, weight, color)
+- [x] **LBL-01**: JLabel renders with typography tokens from CSS (font family, size, weight, color)
 
 ### Component: JPanel
 
-- [ ] **PNL-01**: JPanel supports card-style rendering with rounded corners and elevation shadow
-- [ ] **PNL-02**: JPanel background color derived from CSS surface token
+- [x] **PNL-01**: JPanel supports card-style rendering with rounded corners and elevation shadow
+- [x] **PNL-02**: JPanel background color derived from CSS surface token
 
 ### Component: JTabbedPane
 
-- [ ] **TAB-01**: JTabbedPane tab strip styled with DWC tab appearance (active indicator, hover effect)
-- [ ] **TAB-02**: JTabbedPane shows distinct tab states: normal, hover, selected, disabled
-- [ ] **TAB-03**: JTabbedPane content area has consistent background with panel styling
+- [x] **TAB-01**: JTabbedPane tab strip styled with DWC tab appearance (active indicator, hover effect)
+- [x] **TAB-02**: JTabbedPane shows distinct tab states: normal, hover, selected, disabled
+- [x] **TAB-03**: JTabbedPane content area has consistent background with panel styling
 
 ### Demo
 
@@ -181,12 +181,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CMB-01 | Phase 6 | Pending |
 | CMB-02 | Phase 6 | Pending |
 | CMB-03 | Phase 6 | Pending |
-| LBL-01 | Phase 7 | Pending |
-| PNL-01 | Phase 7 | Pending |
-| PNL-02 | Phase 7 | Pending |
-| TAB-01 | Phase 7 | Pending |
-| TAB-02 | Phase 7 | Pending |
-| TAB-03 | Phase 7 | Pending |
+| LBL-01 | Phase 7 | ✓ Done |
+| PNL-01 | Phase 7 | ✓ Done |
+| PNL-02 | Phase 7 | ✓ Done |
+| TAB-01 | Phase 7 | ✓ Done |
+| TAB-02 | Phase 7 | ✓ Done |
+| TAB-03 | Phase 7 | ✓ Done |
 | DEMO-01 | Phase 8 | Pending |
 | DEMO-02 | Phase 8 | Pending |
 | DEMO-03 | Phase 8 | Pending |

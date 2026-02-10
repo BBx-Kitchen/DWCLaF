@@ -52,10 +52,11 @@ Plans:
   3. DwcLookAndFeel extends BasicLookAndFeel and activates via UIManager.setLookAndFeel()
   4. Maven builds single JAR with bundled light theme CSS as classpath resource
   5. JAR has zero external runtime dependencies and works on any Java 21+ Swing application
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 02-01-PLAN.md — Token mapping config parser, UIDefaults populator, bundled properties file
+- [ ] 02-02-PLAN.md — DwcLookAndFeel skeleton wiring CSS loading to UIDefaults population
 
 ### Phase 3: Shared Painting Utilities
 **Goal**: Reusable painting utilities provide antialiasing, shadows, focus rings, and rounded borders for all delegates
@@ -152,7 +153,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
-| 2. UIDefaults Bridge & L&F Setup | 0/TBD | Not started | - |
+| 2. UIDefaults Bridge & L&F Setup | 0/2 | Not started | - |
 | 3. Shared Painting Utilities | 0/TBD | Not started | - |
 | 4. Button Component | 0/TBD | Not started | - |
 | 5. Text Input Components | 0/TBD | Not started | - |

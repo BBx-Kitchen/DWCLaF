@@ -226,6 +226,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         // 1. Focus ring color from CSS HSL tokens
         initFocusRingColor(table);
 
+        // 1b. Per-variant focus ring colors (success, danger, warning, info)
+        initVariantFocusRingColors(table);
+
         // 2. Button margin
         table.put("Button.margin", new InsetsUIResource(2, 14, 2, 14));
 
@@ -406,9 +409,60 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         Color focusRingColor = hslToColor(hue, saturation, lightness, alpha);
         table.put("Component.focusRingColor", new ColorUIResource(focusRingColor));
+        table.put("Component.focusRingColor.primary", new ColorUIResource(focusRingColor));
 
         LOG.fine(() -> "Computed focus ring color: hsla(" + hue + ", " + saturation
                 + "%, " + lightness + "%, " + alpha + ") -> " + focusRingColor);
+    }
+
+    /**
+     * Computes per-variant focus ring colors from CSS HSL tokens and stores them
+     * in UIDefaults.
+     *
+     * <p>Each variant (success, danger, warning, info) has its own hue and saturation
+     * tokens ({@code --dwc-color-{variant}-h} and {@code --dwc-color-{variant}-s}).
+     * The lightness and alpha are shared with the primary focus ring
+     * ({@code --dwc-focus-ring-l} and {@code --dwc-focus-ring-a}).</p>
+     *
+     * <p>Results are stored as {@code Component.focusRingColor.{variant}} in UIDefaults.</p>
+     */
+    private void initVariantFocusRingColors(UIDefaults table) {
+        if (tokenMap == null) {
+            return;
+        }
+
+        // Shared lightness and alpha (same as primary focus ring)
+        float lightness = getDimensionPercent("--dwc-focus-ring-l", -1f);
+        if (lightness < 0) {
+            return;
+        }
+        Optional<Float> alphaOpt = tokenMap.getFloat("--dwc-focus-ring-a");
+        if (alphaOpt.isEmpty()) {
+            return;
+        }
+        float alpha = alphaOpt.get();
+
+        String[] variants = {"success", "danger", "warning", "info"};
+        for (String variant : variants) {
+            OptionalInt hueOpt = tokenMap.getInt("--dwc-color-" + variant + "-h");
+            if (hueOpt.isEmpty()) {
+                LOG.fine(() -> "Missing --dwc-color-" + variant + "-h token; skipping variant focus ring");
+                continue;
+            }
+            float hue = hueOpt.getAsInt();
+
+            float saturation = getDimensionPercent("--dwc-color-" + variant + "-s", -1f);
+            if (saturation < 0) {
+                LOG.fine(() -> "Missing --dwc-color-" + variant + "-s token; skipping variant focus ring");
+                continue;
+            }
+
+            Color variantFocusRing = hslToColor(hue, saturation, lightness, alpha);
+            table.put("Component.focusRingColor." + variant, new ColorUIResource(variantFocusRing));
+
+            LOG.fine(() -> "Computed " + variant + " focus ring color: hsla(" + hue + ", "
+                    + saturation + "%, " + lightness + "%, " + alpha + ") -> " + variantFocusRing);
+        }
     }
 
     /**

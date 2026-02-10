@@ -90,6 +90,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ComboBoxUI", "com.dwc.laf.ui.DwcComboBoxUI");
         table.put("LabelUI", "com.dwc.laf.ui.DwcLabelUI");
         table.put("PanelUI", "com.dwc.laf.ui.DwcPanelUI");
+        table.put("TabbedPaneUI", "com.dwc.laf.ui.DwcTabbedPaneUI");
     }
 
     @Override
@@ -128,6 +129,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 11. Set up panel-specific UIDefaults (card mode shadow, arc)
         initPanelDefaults(table);
+
+        // 12. Set up tabbed pane-specific UIDefaults (tab insets, underline height)
+        initTabbedPaneDefaults(table);
     }
 
     // ---- Public API ----
@@ -338,6 +342,23 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("Panel.shadowOffsetY", 2);
 
         LOG.fine("Initialized panel defaults (arc, shadowColor, shadowBlurRadius, shadowOffsetY)");
+    }
+
+    // ---- TabbedPane defaults ----
+
+    /**
+     * Initializes tabbed pane-specific UIDefaults entries.
+     *
+     * <p>Sets tab insets for padding, zero tab area and content border insets
+     * for clean layout, and the underline indicator height.</p>
+     */
+    private void initTabbedPaneDefaults(UIDefaults table) {
+        table.put("TabbedPane.tabInsets", new InsetsUIResource(8, 16, 8, 16));
+        table.put("TabbedPane.tabAreaInsets", new InsetsUIResource(0, 0, 0, 0));
+        table.put("TabbedPane.contentBorderInsets", new InsetsUIResource(0, 0, 0, 0));
+        table.put("TabbedPane.underlineHeight", 3);
+
+        LOG.fine("Initialized tabbed pane defaults (tabInsets, tabAreaInsets, contentBorderInsets, underlineHeight)");
     }
 
     /**

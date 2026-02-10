@@ -20,6 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
 - [x] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
 - [x] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
+- [ ] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
 
 ## Phase Details
 
@@ -150,10 +151,26 @@ Plans:
 Plans:
 - [x] 08-01-PLAN.md — DwcComponentGallery: comprehensive 8-component gallery with exec-maven-plugin
 
+### Phase 9: Button Theme Variants & Custom CSS Themes
+**Goal**: Buttons support success/danger/warning/info variants and demo showcases custom CSS theme switching
+**Depends on**: Phase 8
+**Requirements**: VARIANT-01, VARIANT-02, VARIANT-03, THEME-DEMO-01, THEME-DEMO-02
+**Success Criteria** (what must be TRUE):
+  1. JButton supports success, danger, warning, info variants via putClientProperty("dwc.buttonType", "success") etc.
+  2. Each variant uses its semantic CSS color tokens for background, foreground, hover, pressed, and border
+  3. Focus ring color matches the variant's theme color (green for success, red for danger, etc.)
+  4. DwcComponentGallery shows all button variants in the button section
+  5. DwcComponentGallery includes a theme switcher that loads custom CSS files and re-applies the L&F
+**Plans**: 2 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Button variant infrastructure: token mappings, per-variant focus ring colors, DwcButtonUI refactor, DwcButtonBorder variant awareness
+- [ ] 09-02-PLAN.md — Gallery update: variant button rows, theme switcher dropdown, visual verification
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -165,3 +182,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 6. Selection Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
+| 9. Button Theme Variants & CSS Themes | 0/2 | Planned | — |

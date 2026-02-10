@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 10 of 10 (More Controls)
-Plan: 2 of 4 in current phase (COMPLETE)
+Plan: 3 of 4 in current phase (COMPLETE)
 Status: Executing Phase 10
-Last activity: 2026-02-10 — Completed 10-02-PLAN.md (scrollbar & tree)
+Last activity: 2026-02-10 — Completed 10-03-PLAN.md (JTable UI)
 
-Progress: [########################------------------------] 50%
+Progress: [##############################------------------] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 22
+- Total plans completed: 23
 - Average duration: 4min
-- Total execution time: 1.41 hours
+- Total execution time: 1.46 hours
 
 **By Phase:**
 
@@ -36,10 +36,10 @@ Progress: [########################------------------------] 50%
 | 07-display-container-components | 2 | 6min | 3min |
 | 08-demo-application | 1 | 5min | 5min |
 | 09-button-theme-variants | 2 | 11min | 5.5min |
-| 10-more-controls | 2 | 8min | 4min |
+| 10-more-controls | 3 | 11min | 3.7min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 8min, 4min, 4min
+- Last 5 plans: 3min, 8min, 4min, 4min, 3min
 - Trend: Steady execution pace for new component delegates
 
 *Updated after each plan completion*
@@ -133,6 +133,9 @@ Recent decisions affecting current work:
 - [Phase 10]: Stroked chevron icons (not filled triangles) for tree expand/collapse
 - [Phase 10]: Full-width tree selection highlight via paintRow override (modern look)
 - [Phase 10]: Tree.paintLines=false for clean modern appearance (no connecting lines)
+- [Phase 10]: Renderer-based approach (not monolithic paint override) for JTable customization
+- [Phase 10]: Table.alternateRowColor mapped from --dwc-surface-3 for subtle row striping
+- [Phase 10]: TableHeader.bottomSeparatorColor mapped from --dwc-color-default-dark
 
 ### Roadmap Evolution
 
@@ -150,6 +153,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 10-02-PLAN.md (scrollbar & tree)
+Stopped at: Completed 10-03-PLAN.md (JTable UI)
 Resume file: None
-Next action: Execute 10-03-PLAN.md (next plan in Phase 10)
+Next action: Execute 10-04-PLAN.md (next plan in Phase 10)

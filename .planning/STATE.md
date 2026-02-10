@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 10 of 10 (More Controls)
-Plan: 1 of 4 in current phase (COMPLETE)
+Plan: 2 of 4 in current phase (COMPLETE)
 Status: Executing Phase 10
-Last activity: 2026-02-10 — Completed 10-01-PLAN.md (tooltip & progress bar)
+Last activity: 2026-02-10 — Completed 10-02-PLAN.md (scrollbar & tree)
 
-Progress: [############------------------------------------] 25%
+Progress: [########################------------------------] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 21
+- Total plans completed: 22
 - Average duration: 4min
-- Total execution time: 1.34 hours
+- Total execution time: 1.41 hours
 
 **By Phase:**
 
@@ -36,10 +36,10 @@ Progress: [############------------------------------------] 25%
 | 07-display-container-components | 2 | 6min | 3min |
 | 08-demo-application | 1 | 5min | 5min |
 | 09-button-theme-variants | 2 | 11min | 5.5min |
-| 10-more-controls | 1 | 4min | 4min |
+| 10-more-controls | 2 | 8min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 5min, 3min, 8min, 4min
+- Last 5 plans: 5min, 3min, 8min, 4min, 4min
 - Trend: Steady execution pace for new component delegates
 
 *Updated after each plan completion*
@@ -129,6 +129,10 @@ Recent decisions affecting current work:
 - [Phase 10]: Area intersection clipping for progress bar fill to preserve track rounded corners
 - [Phase 10]: BasicToolTipUI.paint() text delegation via opaque=false (skip bg fill, let super handle text)
 - [Phase 10]: dwc.progressType client property for color variant activation (consistent with dwc.buttonType pattern)
+- [Phase 10]: Zero-size arrow buttons (FlatLaf pattern) for scrollbar with no decrease/increase buttons
+- [Phase 10]: Stroked chevron icons (not filled triangles) for tree expand/collapse
+- [Phase 10]: Full-width tree selection highlight via paintRow override (modern look)
+- [Phase 10]: Tree.paintLines=false for clean modern appearance (no connecting lines)
 
 ### Roadmap Evolution
 
@@ -146,6 +150,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 10-01-PLAN.md (tooltip & progress bar)
+Stopped at: Completed 10-02-PLAN.md (scrollbar & tree)
 Resume file: None
-Next action: Execute 10-02-PLAN.md (next plan in Phase 10)
+Next action: Execute 10-03-PLAN.md (next plan in Phase 10)

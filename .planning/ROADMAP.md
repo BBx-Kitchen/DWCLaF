@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: CSS Token Engine** - Parse CSS custom properties with variable resolution
 - [x] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
-- [ ] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
+- [x] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
 - [ ] **Phase 4: Button Component** - First delegate validates architecture
 - [ ] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
 - [ ] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
@@ -71,8 +71,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — PaintUtils (antialiasing, rounded shapes, outlines), HiDpiUtils, StateColorResolver
-- [ ] 03-02-PLAN.md — FocusRingPainter (DWC focus ring) and ShadowPainter (cached Gaussian blur)
+- [x] 03-01-PLAN.md — PaintUtils (antialiasing, rounded shapes, outlines), HiDpiUtils, StateColorResolver
+- [x] 03-02-PLAN.md — FocusRingPainter (DWC focus ring) and ShadowPainter (cached Gaussian blur)
 
 ### Phase 4: Button Component
 **Goal**: JButton renders with DWC appearance proving CSS-to-delegate pipeline works end-to-end
@@ -155,7 +155,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
 | 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
-| 3. Shared Painting Utilities | 0/2 | Not started | - |
+| 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
 | 4. Button Component | 0/TBD | Not started | - |
 | 5. Text Input Components | 0/TBD | Not started | - |
 | 6. Selection Components | 0/TBD | Not started | - |

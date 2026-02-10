@@ -34,12 +34,12 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Shared Painting
 
-- [ ] **PAINT-01**: All painting uses antialiased rendering (RenderingHints)
-- [ ] **PAINT-02**: Rounded corners painted via configurable arc radius from CSS tokens
-- [ ] **PAINT-03**: Focus ring painted outside component bounds with semi-transparent color matching DWC focus-visible style
-- [ ] **PAINT-04**: Box shadow / elevation painted behind components using cached blurred images
-- [ ] **PAINT-05**: HiDPI-aware painting using float coordinates and Graphics2D scaling
-- [ ] **PAINT-06**: State color resolver picks correct color for hover/pressed/focused/disabled states
+- [x] **PAINT-01**: All painting uses antialiased rendering (RenderingHints)
+- [x] **PAINT-02**: Rounded corners painted via configurable arc radius from CSS tokens
+- [x] **PAINT-03**: Focus ring painted outside component bounds with semi-transparent color matching DWC focus-visible style
+- [x] **PAINT-04**: Box shadow / elevation painted behind components using cached blurred images
+- [x] **PAINT-05**: HiDPI-aware painting using float coordinates and Graphics2D scaling
+- [x] **PAINT-06**: State color resolver picks correct color for hover/pressed/focused/disabled states
 
 ### Component: JButton
 
@@ -159,12 +159,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAF-02 | Phase 2 | ✓ Done |
 | LAF-03 | Phase 2 | ✓ Done |
 | LAF-04 | Phase 2 | ✓ Done |
-| PAINT-01 | Phase 3 | Pending |
-| PAINT-02 | Phase 3 | Pending |
-| PAINT-03 | Phase 3 | Pending |
-| PAINT-04 | Phase 3 | Pending |
-| PAINT-05 | Phase 3 | Pending |
-| PAINT-06 | Phase 3 | Pending |
+| PAINT-01 | Phase 3 | ✓ Done |
+| PAINT-02 | Phase 3 | ✓ Done |
+| PAINT-03 | Phase 3 | ✓ Done |
+| PAINT-04 | Phase 3 | ✓ Done |
+| PAINT-05 | Phase 3 | ✓ Done |
+| PAINT-06 | Phase 3 | ✓ Done |
 | BTN-01 | Phase 4 | Pending |
 | BTN-02 | Phase 4 | Pending |
 | BTN-03 | Phase 4 | Pending |

@@ -13,7 +13,7 @@ This roadmap builds a Java Swing Look & Feel that makes Swing applications visua
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: CSS Token Engine** - Parse CSS custom properties with variable resolution
-- [ ] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
+- [x] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
 - [ ] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
 - [ ] **Phase 4: Button Component** - First delegate validates architecture
 - [ ] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
@@ -55,8 +55,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Token mapping config parser, UIDefaults populator, bundled properties file
-- [ ] 02-02-PLAN.md — DwcLookAndFeel skeleton wiring CSS loading to UIDefaults population
+- [x] 02-01-PLAN.md — Token mapping config parser, UIDefaults populator, bundled properties file
+- [x] 02-02-PLAN.md — DwcLookAndFeel skeleton wiring CSS loading to UIDefaults population
 
 ### Phase 3: Shared Painting Utilities
 **Goal**: Reusable painting utilities provide antialiasing, shadows, focus rings, and rounded borders for all delegates
@@ -153,7 +153,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
-| 2. UIDefaults Bridge & L&F Setup | 0/2 | Not started | - |
+| 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
 | 3. Shared Painting Utilities | 0/TBD | Not started | - |
 | 4. Button Component | 0/TBD | Not started | - |
 | 5. Text Input Components | 0/TBD | Not started | - |

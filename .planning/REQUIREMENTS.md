@@ -20,17 +20,17 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Token Mapping
 
-- [ ] **MAP-01**: Mapping layer reads a properties file that maps CSS token names to Swing UIDefaults keys
-- [ ] **MAP-02**: One CSS token can map to multiple UIDefaults keys (e.g., `--dwc-border-radius` → `Button.arc` AND `CheckBox.arc`)
-- [ ] **MAP-03**: Mapping populates UIDefaults with typed Java values (Color, int, float, Font, Insets)
-- [ ] **MAP-04**: Mapping configuration is external and overridable without code changes
+- [x] **MAP-01**: Mapping layer reads a properties file that maps CSS token names to Swing UIDefaults keys
+- [x] **MAP-02**: One CSS token can map to multiple UIDefaults keys (e.g., `--dwc-border-radius` → `Button.arc` AND `CheckBox.arc`)
+- [x] **MAP-03**: Mapping populates UIDefaults with typed Java values (Color, int, float, Font, Insets)
+- [x] **MAP-04**: Mapping configuration is external and overridable without code changes
 
 ### Look & Feel Core
 
-- [ ] **LAF-01**: L&F extends BasicLookAndFeel and registers all custom ComponentUI delegates
-- [ ] **LAF-02**: L&F loads bundled light theme CSS on initialization
-- [ ] **LAF-03**: L&F populates UIDefaults from parsed CSS tokens via mapping layer
-- [ ] **LAF-04**: L&F can be activated via standard `UIManager.setLookAndFeel()` API
+- [x] **LAF-01**: L&F extends BasicLookAndFeel and registers all custom ComponentUI delegates
+- [x] **LAF-02**: L&F loads bundled light theme CSS on initialization
+- [x] **LAF-03**: L&F populates UIDefaults from parsed CSS tokens via mapping layer
+- [x] **LAF-04**: L&F can be activated via standard `UIManager.setLookAndFeel()` API
 
 ### Shared Painting
 
@@ -95,9 +95,9 @@ Requirements for prototype release. Each maps to roadmap phases.
 
 ### Build & Packaging
 
-- [ ] **BUILD-01**: Project builds with Maven producing a single JAR with zero external runtime dependencies
-- [ ] **BUILD-02**: Bundled CSS theme file included as classpath resource in JAR
-- [ ] **BUILD-03**: JAR works on Java 21+ with any Swing application via `UIManager.setLookAndFeel()`
+- [x] **BUILD-01**: Project builds with Maven producing a single JAR with zero external runtime dependencies
+- [x] **BUILD-02**: Bundled CSS theme file included as classpath resource in JAR
+- [x] **BUILD-03**: JAR works on Java 21+ with any Swing application via `UIManager.setLookAndFeel()`
 
 ## v2 Requirements
 
@@ -151,14 +151,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CSS-06 | Phase 1 | ✓ Done |
 | CSS-07 | Phase 1 | ✓ Done |
 | CSS-08 | Phase 1 | ✓ Done |
-| MAP-01 | Phase 2 | Pending |
-| MAP-02 | Phase 2 | Pending |
-| MAP-03 | Phase 2 | Pending |
-| MAP-04 | Phase 2 | Pending |
-| LAF-01 | Phase 2 | Pending |
-| LAF-02 | Phase 2 | Pending |
-| LAF-03 | Phase 2 | Pending |
-| LAF-04 | Phase 2 | Pending |
+| MAP-01 | Phase 2 | ✓ Done |
+| MAP-02 | Phase 2 | ✓ Done |
+| MAP-03 | Phase 2 | ✓ Done |
+| MAP-04 | Phase 2 | ✓ Done |
+| LAF-01 | Phase 2 | ✓ Done |
+| LAF-02 | Phase 2 | ✓ Done |
+| LAF-03 | Phase 2 | ✓ Done |
+| LAF-04 | Phase 2 | ✓ Done |
 | PAINT-01 | Phase 3 | Pending |
 | PAINT-02 | Phase 3 | Pending |
 | PAINT-03 | Phase 3 | Pending |
@@ -190,9 +190,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEMO-01 | Phase 8 | Pending |
 | DEMO-02 | Phase 8 | Pending |
 | DEMO-03 | Phase 8 | Pending |
-| BUILD-01 | Phase 2 | Pending |
-| BUILD-02 | Phase 2 | Pending |
-| BUILD-03 | Phase 2 | Pending |
+| BUILD-01 | Phase 2 | ✓ Done |
+| BUILD-02 | Phase 2 | ✓ Done |
+| BUILD-03 | Phase 2 | ✓ Done |
 
 **Coverage:**
 - v1 requirements: 48 total
@@ -201,4 +201,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after roadmap creation*
+*Last updated: 2026-02-10 after Phase 2 completion*

@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: CSS Token Engine** - Parse CSS custom properties with variable resolution
 - [x] **Phase 2: UIDefaults Bridge & L&F Setup** - Map CSS tokens to Swing, enable L&F activation
 - [x] **Phase 3: Shared Painting Utilities** - Cross-cutting rendering (shadows, focus rings, antialiasing)
-- [ ] **Phase 4: Button Component** - First delegate validates architecture
+- [x] **Phase 4: Button Component** - First delegate validates architecture
 - [ ] **Phase 5: Text Input Components** - TextField with placeholder and focus styling
 - [ ] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
 - [ ] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
@@ -86,8 +86,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — DwcButtonBorder, token mapping additions, focus ring color computation in L&F
-- [ ] 04-02-PLAN.md — DwcButtonUI delegate with full paint pipeline and L&F registration
+- [x] 04-01-PLAN.md — DwcButtonBorder, token mapping additions, focus ring color computation in L&F
+- [x] 04-02-PLAN.md — DwcButtonUI delegate with full paint pipeline and L&F registration
 
 ### Phase 5: Text Input Components
 **Goal**: JTextField renders with DWC input appearance including placeholder and focus styling
@@ -157,7 +157,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. CSS Token Engine | 5/5 | ✓ Complete | 2026-02-10 |
 | 2. UIDefaults Bridge & L&F Setup | 2/2 | ✓ Complete | 2026-02-10 |
 | 3. Shared Painting Utilities | 2/2 | ✓ Complete | 2026-02-10 |
-| 4. Button Component | 0/2 | Not started | - |
+| 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
 | 5. Text Input Components | 0/TBD | Not started | - |
 | 6. Selection Components | 0/TBD | Not started | - |
 | 7. Display & Container Components | 0/TBD | Not started | - |

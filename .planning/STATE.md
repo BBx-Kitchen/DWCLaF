@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 5 complete and verified - ready for Phase 6 (Selection Components)
+**Current focus:** Phase 6 in progress - CheckBox/RadioButton icons and UI delegates complete, ComboBox delegate next
 
 ## Current Position
 
-Phase: 5 of 8 (Text Input Components)
-Plan: 2 of 2 in current phase
-Status: Phase Complete
-Last activity: 2026-02-10 — Completed 05-02-PLAN.md (DwcTextFieldUI delegate)
+Phase: 6 of 8 (Selection Components)
+Plan: 1 of 2 in current phase
+Status: Plan 01 Complete
+Last activity: 2026-02-10 — Completed 06-01-PLAN.md (CheckBox/RadioButton icons and L&F setup)
 
-Progress: [##############░] 45%
+Progress: [################░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
+- Total plans completed: 14
 - Average duration: 4min
-- Total execution time: 0.76 hours
+- Total execution time: 0.88 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [##############░] 45%
 | 03-shared-painting-utilities | 2 | 6min | 3min |
 | 04-button-component | 2 | 5min | 2.5min |
 | 05-text-input-components | 2 | 5min | 2.5min |
+| 06-selection-components | 1 | 7min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 2min, 3min, 2min
-- Trend: Stable (~2.5min/plan)
+- Last 5 plans: 3min, 2min, 3min, 2min, 7min
+- Trend: Slight increase on 06-01 (CSS calc() fix added complexity)
 
 *Updated after each plan completion*
 
@@ -98,6 +99,11 @@ Recent decisions affecting current work:
 - [Phase 05]: super.paintSafely(g) called with original Graphics (not g.create() clone) for correct clip regions
 - [Phase 05]: Placeholder text via JTextField.placeholderText client property (same as FlatLaf)
 - [Phase 05]: Desktop font hints used when available for placeholder antialiasing
+- [Phase 06]: 16px icon content area for CheckBox/RadioButton (not 18px DWC web or 15px FlatLaf)
+- [Phase 06]: Both DwcCheckBoxUI and DwcRadioButtonUI extend BasicRadioButtonUI (not BasicCheckBoxUI)
+- [Phase 06]: Pre-computed primary-text contrast colors in CSS to bypass calc() limitation
+- [Phase 06]: Checkmark color = --dwc-color-on-primary-text (white), not --dwc-color-primary (blue)
+- [Phase 06]: Icon dimensions include focusWidth*2 for focus ring space
 
 ### Pending Todos
 
@@ -110,6 +116,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 05-02-PLAN.md (DwcTextFieldUI delegate)
+Stopped at: Completed 06-01-PLAN.md (CheckBox/RadioButton icons and L&F setup)
 Resume file: None
-Next action: Plan Phase 06 (Selection Components)
+Next action: Execute 06-02-PLAN.md (ComboBox delegate)

@@ -9,28 +9,29 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 
 ## Current Position
 
-Phase: 1 of 8 (CSS Token Engine) -- COMPLETE
-Plan: 5 of 5 in current phase (all done)
-Status: Phase Complete
-Last activity: 2026-02-10 — Completed 01-05-PLAN.md (CSS Engine facade)
+Phase: 2 of 8 (UIDefaults Bridge & L&F Setup)
+Plan: 1 of 2 in current phase (02-01 done)
+Status: Executing
+Last activity: 2026-02-10 — Completed 02-01-PLAN.md (Token Mapping & UIDefaults Populator)
 
-Progress: [######░░░░] 12%
+Progress: [#######░░░] 15%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: 5min
-- Total execution time: 0.42 hours
+- Total execution time: 0.50 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-css-token-engine | 5 | 25min | 5min |
+| 02-uidefaults-bridge-laf-setup | 1 | 5min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 8min, 3min, 5min, 4min, 5min
+- Last 5 plans: 3min, 5min, 4min, 5min, 5min
 - Trend: Stable (~5min/plan)
 
 *Updated after each plan completion*
@@ -63,6 +64,11 @@ Recent decisions affecting current work:
 - Top-level comma detection with paren depth tracking distinguishes font stacks from hsl()/rgb() commas
 - CssTokenMap package-private constructor (only CssThemeLoader creates instances)
 - Missing override file is non-fatal (warning logged, bundled defaults preserved)
+- Properties file format for token-mapping config (external, overridable, zero-code-change)
+- ColorUIResource wrapping for UIResource contract compliance (theme switching)
+- 16px base font size for rem/em to pixel conversion (matches browser default)
+- INSETS type deferred to component delegate phase (needs multi-value parsing)
+- RawValue skipped in AUTO mode (calc expressions not convertible to UIDefaults)
 
 ### Pending Todos
 
@@ -75,6 +81,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 01-05-PLAN.md (CSS Engine facade) -- Phase 1 COMPLETE
+Stopped at: Completed 02-01-PLAN.md (Token Mapping & UIDefaults Populator)
 Resume file: None
-Next action: Run `/gsd:plan-phase 2` to plan UIDefaults Bridge & L&F Setup phase
+Next action: Execute 02-02-PLAN.md (DwcLookAndFeel class, installTheme, getDefaults)

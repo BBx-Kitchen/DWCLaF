@@ -436,7 +436,28 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("Tree.showsRootHandles", Boolean.TRUE);
         table.put("Tree.paintLines", Boolean.FALSE);
 
-        LOG.fine("Initialized tree defaults (expandedIcon, collapsedIcon, rowHeight, showsRootHandles, paintLines)");
+        // DefaultTreeCellRenderer uses these for non-selected node backgrounds.
+        // Without setting them, it falls back to grey "control" color, creating
+        // visible grey rectangles behind node text.
+        Color treeBg = table.getColor("Tree.background");
+        if (treeBg != null) {
+            table.put("Tree.textBackground", treeBg);
+        }
+
+        // Set selection colors for DefaultTreeCellRenderer's own selection painting.
+        // Our DwcTreeUI.paintRow() paints full-width selection behind the renderer,
+        // but the renderer also paints selection — make them match.
+        Color selBg = table.getColor("Tree.selectionBackground");
+        Color selFg = table.getColor("Tree.selectionForeground");
+        if (selBg != null) {
+            table.put("Tree.textBackground", treeBg);
+            table.put("Tree.selectionBackground", selBg);
+        }
+        if (selFg != null) {
+            table.put("Tree.selectionForeground", selFg);
+        }
+
+        LOG.fine("Initialized tree defaults (expandedIcon, collapsedIcon, rowHeight, showsRootHandles, paintLines, textBackground)");
     }
 
     // ---- ScrollBar defaults ----

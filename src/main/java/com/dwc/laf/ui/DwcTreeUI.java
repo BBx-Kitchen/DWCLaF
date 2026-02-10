@@ -4,6 +4,8 @@ import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTreeUI;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -59,6 +61,30 @@ public class DwcTreeUI extends BasicTreeUI {
         // Set row height
         int rowHeight = UIManager.getInt("Tree.rowHeight");
         tree.setRowHeight(rowHeight > 0 ? rowHeight : 24);
+
+        // Configure DefaultTreeCellRenderer to not paint opaque grey backgrounds.
+        // Our paintRow() handles selection; the renderer should be transparent.
+        TreeCellRenderer renderer = tree.getCellRenderer();
+        if (renderer instanceof DefaultTreeCellRenderer dtcr) {
+            Color bg = UIManager.getColor("Tree.background");
+            if (bg != null) {
+                dtcr.setBackgroundNonSelectionColor(bg);
+            }
+            Color selBg = selectionBackground;
+            if (selBg != null) {
+                dtcr.setBackgroundSelectionColor(selBg);
+            }
+            Color selFg = selectionForeground;
+            if (selFg != null) {
+                dtcr.setTextSelectionColor(selFg);
+            }
+            Color fg = foreground;
+            if (fg != null) {
+                dtcr.setTextNonSelectionColor(fg);
+            }
+            // Remove focus border that DefaultTreeCellRenderer draws
+            dtcr.setBorderSelectionColor(null);
+        }
     }
 
     @Override

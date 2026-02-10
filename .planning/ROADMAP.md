@@ -130,10 +130,11 @@ Plans:
   3. JPanel background color derives from CSS surface token
   4. JTabbedPane tab strip styled with DWC tab appearance (active indicator, hover effect)
   5. JTabbedPane shows distinct tab states: normal, hover, selected, disabled
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD (defined during plan-phase)
+- [ ] 07-01-PLAN.md — DwcLabelUI + DwcPanelUI delegates with card-style shadow painting
+- [ ] 07-02-PLAN.md — DwcTabbedPaneUI delegate with underline indicator and hover states
 
 ### Phase 8: Demo Application
 **Goal**: Runnable demo application proves visual parity between Swing and DWC web components
@@ -162,5 +163,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Button Component | 2/2 | ✓ Complete | 2026-02-10 |
 | 5. Text Input Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 6. Selection Components | 2/2 | ✓ Complete | 2026-02-10 |
-| 7. Display & Container Components | 0/TBD | Not started | - |
+| 7. Display & Container Components | 0/2 | In Progress | - |
 | 8. Demo Application | 0/TBD | Not started | - |

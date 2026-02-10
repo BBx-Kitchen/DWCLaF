@@ -88,6 +88,8 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("CheckBoxUI", "com.dwc.laf.ui.DwcCheckBoxUI");
         table.put("RadioButtonUI", "com.dwc.laf.ui.DwcRadioButtonUI");
         table.put("ComboBoxUI", "com.dwc.laf.ui.DwcComboBoxUI");
+        table.put("LabelUI", "com.dwc.laf.ui.DwcLabelUI");
+        table.put("PanelUI", "com.dwc.laf.ui.DwcPanelUI");
     }
 
     @Override
@@ -120,6 +122,12 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 9. Set up combobox-specific UIDefaults (border, padding)
         initComboBoxDefaults(table);
+
+        // 10. Set up label-specific UIDefaults
+        initLabelDefaults(table);
+
+        // 11. Set up panel-specific UIDefaults (card mode shadow, arc)
+        initPanelDefaults(table);
     }
 
     // ---- Public API ----
@@ -295,6 +303,41 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ComboBox.padding", new InsetsUIResource(2, 6, 2, 6));
 
         LOG.fine("Initialized combobox defaults (border, padding)");
+    }
+
+    // ---- Label defaults ----
+
+    /**
+     * Initializes label-specific UIDefaults entries.
+     *
+     * <p>Label colors and fonts are populated via the token mapping pipeline.
+     * No additional computed defaults are needed.</p>
+     */
+    private void initLabelDefaults(UIDefaults table) {
+        LOG.fine("Initialized label defaults (token-mapped only)");
+    }
+
+    // ---- Panel defaults ----
+
+    /**
+     * Initializes panel-specific UIDefaults entries for card-mode rendering.
+     *
+     * <p>Sets up shadow parameters (color, blur radius, offset) and inherits
+     * {@code Panel.arc} from {@code Component.arc} if not already set by
+     * the token mapping pipeline.</p>
+     */
+    private void initPanelDefaults(UIDefaults table) {
+        // Inherit Panel.arc from Component.arc if not already set from token mapping
+        if (table.get("Panel.arc") == null || table.getInt("Panel.arc") <= 0) {
+            table.put("Panel.arc", table.getInt("Component.arc"));
+        }
+
+        // Semi-transparent black shadow (CSS box-shadow: 0 2px 6px rgba(0,0,0,0.15) approximation)
+        table.put("Panel.shadowColor", new ColorUIResource(new Color(0, 0, 0, 40)));
+        table.put("Panel.shadowBlurRadius", 6);
+        table.put("Panel.shadowOffsetY", 2);
+
+        LOG.fine("Initialized panel defaults (arc, shadowColor, shadowBlurRadius, shadowOffsetY)");
     }
 
     /**

@@ -440,4 +440,26 @@ class DwcLookAndFeelTest {
         assertEquals("com.dwc.laf.ui.DwcComboBoxUI", comboBoxUI,
                 "ComboBoxUI should be registered to DwcComboBoxUI");
     }
+
+    // ---- Test 30: LabelUI class default registered ----
+
+    @Test
+    void lafRegistersLabelUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object labelUI = UIManager.get("LabelUI");
+        assertEquals("com.dwc.laf.ui.DwcLabelUI", labelUI,
+                "LabelUI should be registered to DwcLabelUI");
+    }
+
+    // ---- Test 31: PanelUI class default registered ----
+
+    @Test
+    void lafRegistersPanelUI() throws UnsupportedLookAndFeelException {
+        activateDwcLaf();
+
+        Object panelUI = UIManager.get("PanelUI");
+        assertEquals("com.dwc.laf.ui.DwcPanelUI", panelUI,
+                "PanelUI should be registered to DwcPanelUI");
+    }
 }

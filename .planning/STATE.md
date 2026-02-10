@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 5 in progress - Text Input Components (Plan 1 of 2 complete)
+**Current focus:** Phase 5 complete - Text Input Components (Plan 2 of 2 complete)
 
 ## Current Position
 
 Phase: 5 of 8 (Text Input Components)
-Plan: 1 of 2 in current phase
-Status: In Progress
-Last activity: 2026-02-10 — Completed 05-01-PLAN.md (TextField border and UIDefaults)
+Plan: 2 of 2 in current phase
+Status: Phase Complete
+Last activity: 2026-02-10 — Completed 05-02-PLAN.md (DwcTextFieldUI delegate)
 
-Progress: [#############░░] 40%
+Progress: [##############░] 45%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: 4min
-- Total execution time: 0.73 hours
+- Total execution time: 0.76 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [#############░░] 40%
 | 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
 | 03-shared-painting-utilities | 2 | 6min | 3min |
 | 04-button-component | 2 | 5min | 2.5min |
-| 05-text-input-components | 1 | 3min | 3min |
+| 05-text-input-components | 2 | 5min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 3min, 2min, 3min
-- Trend: Stable (~3min/plan)
+- Last 5 plans: 3min, 3min, 2min, 3min, 2min
+- Trend: Stable (~2.5min/plan)
 
 *Updated after each plan completion*
 
@@ -94,6 +94,10 @@ Recent decisions affecting current work:
 - [Phase 05]: TextField uses 2,6,2,6 default margin (tighter than button's 2,14,2,14)
 - [Phase 05]: Removed --dwc-input-color mapping (currentColor unparseable; --dwc-color-black already covers it)
 - [Phase 05]: Removed TextField.background from --dwc-color-white (more-specific --dwc-input-background prevails)
+- [Phase 05]: paintSafely override (not paint) since BasicTextUI.paint() is final
+- [Phase 05]: super.paintSafely(g) called with original Graphics (not g.create() clone) for correct clip regions
+- [Phase 05]: Placeholder text via JTextField.placeholderText client property (same as FlatLaf)
+- [Phase 05]: Desktop font hints used when available for placeholder antialiasing
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 05-01-PLAN.md (TextField border and UIDefaults)
+Stopped at: Completed 05-02-PLAN.md (DwcTextFieldUI delegate)
 Resume file: None
-Next action: Execute 05-02-PLAN.md (DwcTextFieldUI delegate)
+Next action: Execute phase 06 plans (Checkbox/Radio components)

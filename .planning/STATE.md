@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 8 complete - All phases done. DWC Swing L&F with 8 component gallery verified.
+**Current focus:** Phase 9 in progress - Button theme variants and custom CSS themes.
 
 ## Current Position
 
-Phase: 8 of 8 (Demo Application)
-Plan: 1 of 1 in current phase (COMPLETE)
-Status: Phase 08 Complete - ALL PHASES DONE
-Last activity: 2026-02-10 — Completed 08-01-PLAN.md (DwcComponentGallery)
+Phase: 9 of 9 (Button Theme Variants & Custom CSS Themes)
+Plan: 2 of 2 in current phase
+Status: Completed 09-01-PLAN.md - variant infrastructure ready
+Last activity: 2026-02-10 — Completed 09-01-PLAN.md (button variant infrastructure)
 
-Progress: [################################################] 100%
+Progress: [#############################################---] 95%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18
+- Total plans completed: 19
 - Average duration: 4min
-- Total execution time: 1.09 hours
+- Total execution time: 1.14 hours
 
 **By Phase:**
 
@@ -35,10 +35,11 @@ Progress: [################################################] 100%
 | 06-selection-components | 2 | 9min | 4.5min |
 | 07-display-container-components | 2 | 6min | 3min |
 | 08-demo-application | 1 | 5min | 5min |
+| 09-button-theme-variants | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 2min, 3min, 3min, 5min
-- Trend: Final demo plan with visual verification checkpoint
+- Last 5 plans: 2min, 3min, 3min, 5min, 3min
+- Trend: Variant infrastructure plan executed cleanly
 
 *Updated after each plan completion*
 
@@ -118,6 +119,14 @@ Recent decisions affecting current work:
 - [Phase 08]: Gallery uses BoxLayout Y_AXIS with JScrollPane for vertical scrollability
 - [Phase 08]: No hardcoded colors in demo code; L&F handles all theming
 - [Phase 08]: DwcComboBoxRenderer sets opaque=false for display area (index == -1) to fix disabled ComboBox gray background
+- [Phase 09]: VariantColors record encapsulates 5 colors per variant (background, foreground, hover, pressed, focusRing)
+- [Phase 09]: Map<String, VariantColors> replaces boolean isPrimary for N-variant support
+- [Phase 09]: Per-variant focus ring computed from --dwc-color-{variant}-h/s with shared --dwc-focus-ring-l/a
+- [Phase 09]: DwcButtonBorder resolves variant border via dwc.buttonType client property lookup
+
+### Roadmap Evolution
+
+- Phase 9 added: Button Theme Variants & Custom CSS Themes
 
 ### Pending Todos
 
@@ -130,6 +139,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 08-01-PLAN.md (DwcComponentGallery) - ALL PHASES COMPLETE
+Stopped at: Completed 09-01-PLAN.md (button variant infrastructure)
 Resume file: None
-Next action: Project complete. All 8 phases executed. Run `mvn compile exec:java` to see gallery.
+Next action: Execute 09-02-PLAN.md (gallery demo with variant showcase and theme switching).

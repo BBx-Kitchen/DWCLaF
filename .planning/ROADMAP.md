@@ -20,7 +20,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: Selection Components** - CheckBox, RadioButton, ComboBox with custom rendering
 - [x] **Phase 7: Display & Container Components** - Label, Panel, TabbedPane complete component set
 - [x] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
-- [ ] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
+- [x] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
+- [ ] **Phase 10: Extended Components** - JTable, JTree, JScrollBar, JProgressBar, JToolTip
 
 ## Phase Details
 
@@ -167,10 +168,29 @@ Plans:
 - [x] 09-01-PLAN.md — Button variant infrastructure: token mappings, per-variant focus ring colors, DwcButtonUI refactor, DwcButtonBorder variant awareness
 - [x] 09-02-PLAN.md — Gallery update: variant button rows, theme switcher dropdown, visual verification
 
+### Phase 10: Extended Components
+**Goal**: Five additional themed component delegates (JTable, JTree, JScrollBar, JProgressBar, JToolTip) extending the L&F to 13 components
+**Depends on**: Phase 9
+**Requirements**: XTND-01, XTND-02, XTND-03, XTND-04, XTND-05
+**Success Criteria** (what must be TRUE):
+  1. JTable displays with row striping, header styling, and selection highlighting
+  2. JTree uses custom expand/collapse chevron icons and themed selection
+  3. JScrollBar renders as thin modern scrollbar with no arrow buttons and hover thumb color
+  4. JProgressBar shows rounded track/fill with primary/success/danger/warning/info color variants
+  5. JToolTip renders with rounded corners, themed colors, and drop shadow
+  6. DwcComponentGallery showcases all 13 themed components
+**Plans**: 4 plans
+
+Plans:
+- [ ] 10-01-PLAN.md — DwcToolTipUI + DwcToolTipBorder + DwcProgressBarUI with color variants
+- [ ] 10-02-PLAN.md — DwcScrollBarUI (thin modern) + DwcTreeUI with chevron icons
+- [ ] 10-03-PLAN.md — DwcTableUI with row striping, cell renderer, header renderer
+- [ ] 10-04-PLAN.md — Gallery update for all 5 new components + visual verification
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -183,3 +203,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 | 7. Display & Container Components | 2/2 | ✓ Complete | 2026-02-10 |
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
 | 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |
+| 10. Extended Components | 0/4 | In Progress | — |

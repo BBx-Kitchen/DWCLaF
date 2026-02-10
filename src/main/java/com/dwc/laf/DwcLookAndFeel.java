@@ -94,6 +94,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("TabbedPaneUI", "com.dwc.laf.ui.DwcTabbedPaneUI");
         table.put("ToolTipUI", "com.dwc.laf.ui.DwcToolTipUI");
         table.put("ProgressBarUI", "com.dwc.laf.ui.DwcProgressBarUI");
+        table.put("ScrollBarUI", "com.dwc.laf.ui.DwcScrollBarUI");
     }
 
     @Override
@@ -141,6 +142,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
 
         // 14. Set up progress bar-specific UIDefaults (border, arc)
         initProgressBarDefaults(table);
+
+        // 15. Set up scrollbar-specific UIDefaults (thumb arc, width)
+        initScrollBarDefaults(table);
     }
 
     // ---- Public API ----
@@ -405,6 +409,20 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         }
 
         LOG.fine("Initialized progress bar defaults (border, arc)");
+    }
+
+    // ---- ScrollBar defaults ----
+
+    /**
+     * Initializes scrollbar-specific UIDefaults entries.
+     *
+     * <p>Sets the thumb corner arc and scrollbar width for the thin modern look.</p>
+     */
+    private void initScrollBarDefaults(UIDefaults table) {
+        table.put("ScrollBar.thumbArc", 8);
+        table.put("ScrollBar.width", 10);
+
+        LOG.fine("Initialized scrollbar defaults (thumbArc, width)");
     }
 
     /**

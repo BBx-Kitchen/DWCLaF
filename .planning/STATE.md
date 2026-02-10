@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 4 complete and verified - ready for Phase 5 (Text Input Components)
+**Current focus:** Phase 5 in progress - Text Input Components (Plan 1 of 2 complete)
 
 ## Current Position
 
-Phase: 4 of 8 (Button Delegates)
-Plan: 2 of 2 in current phase (phase complete)
-Status: Phase Complete
-Last activity: 2026-02-10 — Completed 04-02-PLAN.md (DwcButtonUI delegate)
+Phase: 5 of 8 (Text Input Components)
+Plan: 1 of 2 in current phase
+Status: In Progress
+Last activity: 2026-02-10 — Completed 05-01-PLAN.md (TextField border and UIDefaults)
 
-Progress: [############░░░] 35%
+Progress: [#############░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 4min
-- Total execution time: 0.68 hours
+- Total execution time: 0.73 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [############░░░] 35%
 | 02-uidefaults-bridge-laf-setup | 2 | 8min | 4min |
 | 03-shared-painting-utilities | 2 | 6min | 3min |
 | 04-button-component | 2 | 5min | 2.5min |
+| 05-text-input-components | 1 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 3min, 3min, 2min
+- Last 5 plans: 3min, 3min, 3min, 2min, 3min
 - Trend: Stable (~3min/plan)
 
 *Updated after each plan completion*
@@ -89,6 +90,10 @@ Recent decisions affecting current work:
 - [Phase 04]: Per-component DwcButtonUI instances (not shared singleton) for future per-component state caching
 - [Phase 04]: Full paint() override without calling super.paint() for complete rendering control
 - [Phase 04]: LookAndFeel.installProperty for opaque=false (respects UIResource contract)
+- [Phase 05]: Hover state via DwcTextFieldUI.hover client property (JTextComponent has no rollover model)
+- [Phase 05]: TextField uses 2,6,2,6 default margin (tighter than button's 2,14,2,14)
+- [Phase 05]: Removed --dwc-input-color mapping (currentColor unparseable; --dwc-color-black already covers it)
+- [Phase 05]: Removed TextField.background from --dwc-color-white (more-specific --dwc-input-background prevails)
 
 ### Pending Todos
 
@@ -101,6 +106,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 04-02-PLAN.md (DwcButtonUI delegate) - Phase 04 complete
+Stopped at: Completed 05-01-PLAN.md (TextField border and UIDefaults)
 Resume file: None
-Next action: Research/plan Phase 05 (Text Input Components)
+Next action: Execute 05-02-PLAN.md (DwcTextFieldUI delegate)

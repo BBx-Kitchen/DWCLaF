@@ -232,11 +232,17 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
     // ---- Inner classes ----
 
     /**
-     * Custom arrow button that paints a chevron (downward-pointing) instead
-     * of the system arrow button provided by BasicComboBoxUI.
+     * Custom arrow button that paints a chevron (downward-pointing) with a
+     * 1px vertical separator line on its left edge, matching the DWC web
+     * combobox suffix area appearance.
+     *
+     * <p>The separator line mirrors the DWC SCSS {@code [part='suffix-separator']}
+     * rule: 1px wide, colored with {@code --dwc-color-default-dark}, inset
+     * 4px from top and bottom ({@code margin: var(--dwc-space-xs) 0}).</p>
      *
      * <p>The chevron is drawn as a stroked {@link Path2D} path with rounded
-     * caps and joins for a smooth appearance.</p>
+     * caps and joins for a smooth appearance. Arrow size is 6px with 1.2f
+     * stroke width for a compact, subtle look matching DWC web proportions.</p>
      */
     private static class DwcComboBoxArrowButton extends JButton {
 
@@ -251,7 +257,7 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
 
         @Override
         public Dimension getPreferredSize() {
-            return new Dimension(32, 32);
+            return new Dimension(24, 24);
         }
 
         @Override
@@ -259,24 +265,33 @@ public class DwcComboBoxUI extends BasicComboBoxUI {
             Graphics2D g2 = (Graphics2D) g.create();
             try {
                 Object[] saved = PaintUtils.setupPaintingHints(g2);
-                Color color = UIManager.getColor("ComboBox.buttonArrowColor");
-                if (color == null) {
-                    color = Color.DARK_GRAY;
-                }
-                g2.setColor(color);
 
                 int w = getWidth();
                 int h = getHeight();
 
+                // 1px separator line on the left edge, inset 4px top/bottom
+                // Mirrors DWC [part='suffix-separator']: width 1px,
+                // background-color var(--dwc-color-default-dark),
+                // margin var(--dwc-space-xs) 0
+                Color separatorColor = UIManager.getColor("ComboBox.buttonArrowColor");
+                if (separatorColor == null) {
+                    separatorColor = Color.DARK_GRAY;
+                }
+                g2.setColor(separatorColor);
+                g2.fillRect(0, 4, 1, h - 8);
+
                 // Chevron arrow (downward-pointing)
-                float arrowSize = 8f;
+                Color chevronColor = separatorColor;
+                g2.setColor(chevronColor);
+
+                float arrowSize = 6f;
                 float cx = w / 2f;
                 float cy = h / 2f;
                 Path2D.Float arrow = new Path2D.Float();
                 arrow.moveTo(cx - arrowSize / 2, cy - arrowSize / 4);
                 arrow.lineTo(cx, cy + arrowSize / 4);
                 arrow.lineTo(cx + arrowSize / 2, cy - arrowSize / 4);
-                g2.setStroke(new BasicStroke(1.5f, BasicStroke.CAP_ROUND,
+                g2.setStroke(new BasicStroke(1.2f, BasicStroke.CAP_ROUND,
                         BasicStroke.JOIN_ROUND));
                 g2.draw(arrow);
 

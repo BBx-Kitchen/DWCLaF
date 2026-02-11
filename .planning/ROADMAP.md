@@ -216,3 +216,14 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 Plans:
 - [x] 11-01-PLAN.md — ProgressBar pill-shaped fill, TextField flat border verification, Tree default node icons
 - [x] 11-02-PLAN.md — ComboBox arrow button rework with separator line and compact chevron
+
+### Phase 12: More rendering detail to match DWC
+
+**Goal:** Close remaining visual rendering gaps between the 13 existing Swing component delegates and their DWC web counterparts -- font matching, button text colors, ComboBox rework, TextField flat border, ProgressBar track rounding, border crispness, typography accuracy
+**Depends on:** Phase 11
+**Plans:** 3 plans
+
+Plans:
+- [ ] 12-01-PLAN.md -- Fix token-mapping collisions for button foreground/border colors + bold font derivation
+- [ ] 12-02-PLAN.md -- ProgressBar contrast-aware text color + border crispness improvements
+- [ ] 12-03-PLAN.md -- ComboBox visual refinement with font weight and proportion tuning

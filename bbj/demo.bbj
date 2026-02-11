@@ -1,0 +1,21 @@
+
+rem laf! = new com.dwc.laf.DwcLookAndFeel@()
+rem     javax.swing.UIManager@.setLookAndFeel(laf!)
+
+rem System@.setProperty("dwc.theme", "/Users/beff/_lab/dwclaf/css/theme2.css")
+
+wnd! = BBjAPI().openSysGui("X0").addWindow(10,10,800,200,"HELLO")
+btn! = wnd!.addButton(100,10,10,100,35,"HELLO")
+btn!.putClientProperty("dwc.buttonType", "primary")
+
+
+wnd!.setCallback(BBjAPI.ON_CLOSE,"byebye")
+btn!.setCallback(BBjAPI.ON_BUTTON_PUSH,"button")
+
+process_events
+
+byebye:bye
+
+button:
+    a=msgbox("HELLO WORLD")
+return

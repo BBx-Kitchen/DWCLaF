@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 11 - Visual detail refinements for DWC fidelity.
+**Current focus:** Phase 12 - More rendering detail to match DWC.
 
 ## Current Position
 
-Phase: 11 of 11 (Visual Details)
-Plan: 2 of 2 in current phase (COMPLETE)
-Status: Phase 11 Plan 02 Complete
-Last activity: 2026-02-11 — Completed 11-02-PLAN.md (ComboBox arrow button rework)
+Phase: 12 of 12 (More Rendering Detail)
+Plan: 1 of 3 in current phase
+Status: Phase 12 Plan 01 Complete
+Last activity: 2026-02-11 — Completed 12-01-PLAN.md (Token mapping collisions + bold button font)
 
-Progress: [################################################] 100%
+Progress: [################################################--] 93%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 26
+- Total plans completed: 27
 - Average duration: 4min
-- Total execution time: 1.55 hours
+- Total execution time: 1.67 hours
 
 **By Phase:**
 
@@ -38,10 +38,11 @@ Progress: [################################################] 100%
 | 09-button-theme-variants | 2 | 11min | 5.5min |
 | 10-more-controls | 4 | 15min | 3.8min |
 | 11-visual-details | 2 | 3min | 1.5min |
+| 12-more-rendering-detail | 1 | 7min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 4min, 4min, 1min, 1min
-- Trend: Visual detail refinement plans execute quickly (single-file changes)
+- Last 5 plans: 4min, 4min, 1min, 1min, 7min
+- Trend: Token collision fix required careful verification of mapping dependencies
 
 *Updated after each plan completion*
 
@@ -146,12 +147,17 @@ Recent decisions affecting current work:
 - [Phase 11]: 16x16px stroked-outline tree node icons matching DwcTreeExpandIcon visual style
 - [Phase 11]: Separator uses same ComboBox.buttonArrowColor as chevron (--dwc-color-default-dark light gray, no alpha reduction needed)
 - [Phase 11]: DWC suffix-separator pattern: 1px fillRect on arrow button left edge, inset 4px top/bottom
+- [Phase 12]: Removed --dwc-button-color collision (flattened CSS overwrites Button.foreground with white from primary variant)
+- [Phase 12]: Removed --dwc-button-border-color collision (flattened to primary blue, not default gray)
+- [Phase 12]: Button.borderColor mapped to --dwc-color-default (subtle gray matching button background tone)
+- [Phase 12]: Font.BOLD for Button.font (Java nearest equivalent to DWC font-weight 500 semibold)
 
 ### Roadmap Evolution
 
 - Phase 9 added: Button Theme Variants & Custom CSS Themes
 - Phase 10 added: more controls
 - Phase 11 added: Visual Details
+- Phase 12 added: More rendering detail to match DWC
 
 ### Pending Todos
 
@@ -164,6 +170,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-11
-Stopped at: Completed 11-02-PLAN.md (ComboBox arrow button rework)
+Stopped at: Completed 12-01-PLAN.md (Token mapping collisions + bold button font)
 Resume file: None
-Next action: Phase 11 complete. Run `mvn compile exec:java` to see gallery with refined ComboBox arrow rendering.
+Next action: Execute 12-02-PLAN.md (next rendering refinement plan)

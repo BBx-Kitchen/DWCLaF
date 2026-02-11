@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 12 of 12 (More Rendering Detail)
-Plan: 2 of 3 in current phase
-Status: Phase 12 Plan 02 Complete
-Last activity: 2026-02-11 — Completed 12-02-PLAN.md (ProgressBar text contrast + border crispness)
+Plan: 3 of 3 in current phase
+Status: Phase 12 Complete
+Last activity: 2026-02-11 — Completed 12-03-PLAN.md (ComboBox font weight + TextField flatness)
 
-Progress: [################################################-] 97%
+Progress: [##################################################] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 28
+- Total plans completed: 29
 - Average duration: 4min
 - Total execution time: 1.7 hours
 
@@ -38,10 +38,10 @@ Progress: [################################################-] 97%
 | 09-button-theme-variants | 2 | 11min | 5.5min |
 | 10-more-controls | 4 | 15min | 3.8min |
 | 11-visual-details | 2 | 3min | 1.5min |
-| 12-more-rendering-detail | 2 | 9min | 4.5min |
+| 12-more-rendering-detail | 3 | 10min | 3.3min |
 
 **Recent Trend:**
-- Last 5 plans: 4min, 1min, 1min, 7min, 2min
+- Last 5 plans: 1min, 1min, 7min, 2min, 1min
 - Trend: Small focused rendering refinements execute quickly
 
 *Updated after each plan completion*
@@ -154,6 +154,9 @@ Recent decisions affecting current work:
 - [Phase 12]: W3C luminance threshold 0.4 for ProgressBar text color switching (white on dark fills, black on light fills)
 - [Phase 12]: Single ProgressBar text color based on dominant area (>50% fill or track), not split at fill boundary
 - [Phase 12]: Math.round() pixel snapping in paintOutline for crisp 1px borders at all scale factors
+- [Phase 12]: Font.BOLD for ComboBox.font (same pattern as Button.font; DWC semibold 500 maps to Java BOLD)
+- [Phase 12]: TextField.font NOT set to BOLD; ComboBox gets bold because it's a selector, TextField uses normal weight
+- [Phase 12]: TextField background tint (--dwc-input-background) is correct DWC CSS; sunken appearance was border crispness issue fixed by pixel snapping
 
 ### Roadmap Evolution
 
@@ -173,6 +176,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-11
-Stopped at: Completed 12-02-PLAN.md (ProgressBar text contrast + border crispness)
+Stopped at: Completed 12-03-PLAN.md (ComboBox font weight + TextField flatness verification)
 Resume file: None
-Next action: Execute 12-03-PLAN.md (final rendering refinement plan)
+Next action: Phase 12 complete. All 12 phases executed. Project at 100%.

@@ -37,7 +37,7 @@ Progress: [################################################] 100%
 | 08-demo-application | 1 | 5min | 5min |
 | 09-button-theme-variants | 2 | 11min | 5.5min |
 | 10-more-controls | 4 | 15min | 3.8min |
-| 11-visual-details | 2 | 2min | 1min |
+| 11-visual-details | 2 | 3min | 1.5min |
 
 **Recent Trend:**
 - Last 5 plans: 3min, 4min, 4min, 1min, 1min
@@ -139,6 +139,11 @@ Recent decisions affecting current work:
 - [Phase 10]: TableHeader.bottomSeparatorColor mapped from --dwc-color-default-dark
 - [Phase 10]: Tree.textBackground set to Tree.background to prevent grey rectangles from DefaultTreeCellRenderer
 - [Phase 10]: DefaultTreeCellRenderer configured with matching non-selection/selection colors and null border selection color
+- [Phase 11]: ProgressBar.arc mapped from --dwc-border-radius-xl (12px) for pill-shaped fill instead of --dwc-border-radius (4px)
+- [Phase 11]: Pill-shaped fallback of 999 when ProgressBar.arc token is missing (clamps to min(width,height))
+- [Phase 11]: TextField border already flat via PaintUtils.paintOutline even-odd fill; "3D" appearance is intentional DWC input-background tint
+- [Phase 11]: Tree node icons (DwcTreeNodeIcon) installed in UIDefaults only, not on renderer, preserving UIResource contract
+- [Phase 11]: 16x16px stroked-outline tree node icons matching DwcTreeExpandIcon visual style
 - [Phase 11]: Separator uses same ComboBox.buttonArrowColor as chevron (--dwc-color-default-dark light gray, no alpha reduction needed)
 - [Phase 11]: DWC suffix-separator pattern: 1px fillRect on arrow button left edge, inset 4px top/bottom
 

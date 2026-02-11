@@ -23,6 +23,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
 - [x] **Phase 10: Extended Components** - JTable, JTree, JScrollBar, JProgressBar, JToolTip
 - [x] **Phase 11: Visual Details** - ProgressBar pill fill, ComboBox rework, TextField border, Tree icons
+- [x] **Phase 12: More rendering detail to match DWC** - Font matching, button text colors, ProgressBar contrast, border crispness, ComboBox refinement
 
 ## Phase Details
 
@@ -191,7 +192,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -206,6 +207,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |
 | 10. Extended Components | 4/4 | ✓ Complete | 2026-02-10 |
 | 11. Visual Details | 2/2 | ✓ Complete | 2026-02-11 |
+| 12. More rendering detail to match DWC | 3/3 | ✓ Complete | 2026-02-11 |
 
 ### Phase 11: Visual Details
 
@@ -224,6 +226,6 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 12-01-PLAN.md -- Fix token-mapping collisions for button foreground/border colors + bold font derivation
-- [ ] 12-02-PLAN.md -- ProgressBar contrast-aware text color + border crispness improvements
-- [ ] 12-03-PLAN.md -- ComboBox visual refinement with font weight and proportion tuning
+- [x] 12-01-PLAN.md -- Fix token-mapping collisions for button foreground/border colors + bold font derivation
+- [x] 12-02-PLAN.md -- ProgressBar contrast-aware text color + border crispness improvements
+- [x] 12-03-PLAN.md -- ComboBox visual refinement with font weight and proportion tuning

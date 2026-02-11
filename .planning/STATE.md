@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-10)
 
 **Core value:** Swing applications look recognizably identical to their DWC web counterparts by deriving visual appearance directly from the same CSS design tokens, eliminating manual theme duplication.
-**Current focus:** Phase 10 complete - 13 themed components with gallery showcase.
+**Current focus:** Phase 11 - Visual detail refinements for DWC fidelity.
 
 ## Current Position
 
-Phase: 10 of 10 (Extended Components)
-Plan: 4 of 4 in current phase (COMPLETE)
-Status: Phase 10 Complete - ALL PHASES DONE
-Last activity: 2026-02-10 — Completed 10-04-PLAN.md (gallery update & visual verification)
+Phase: 11 of 11 (Visual Details)
+Plan: 2 of 2 in current phase (COMPLETE)
+Status: Phase 11 Plan 02 Complete
+Last activity: 2026-02-11 — Completed 11-02-PLAN.md (ComboBox arrow button rework)
 
 Progress: [################################################] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 24
+- Total plans completed: 26
 - Average duration: 4min
-- Total execution time: 1.52 hours
+- Total execution time: 1.55 hours
 
 **By Phase:**
 
@@ -37,10 +37,11 @@ Progress: [################################################] 100%
 | 08-demo-application | 1 | 5min | 5min |
 | 09-button-theme-variants | 2 | 11min | 5.5min |
 | 10-more-controls | 4 | 15min | 3.8min |
+| 11-visual-details | 2 | 2min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 4min, 4min, 3min, 4min, 4min
-- Trend: Steady execution pace; final plan included visual verification checkpoint and tree fix
+- Last 5 plans: 3min, 4min, 4min, 1min, 1min
+- Trend: Visual detail refinement plans execute quickly (single-file changes)
 
 *Updated after each plan completion*
 
@@ -138,11 +139,14 @@ Recent decisions affecting current work:
 - [Phase 10]: TableHeader.bottomSeparatorColor mapped from --dwc-color-default-dark
 - [Phase 10]: Tree.textBackground set to Tree.background to prevent grey rectangles from DefaultTreeCellRenderer
 - [Phase 10]: DefaultTreeCellRenderer configured with matching non-selection/selection colors and null border selection color
+- [Phase 11]: Separator uses same ComboBox.buttonArrowColor as chevron (--dwc-color-default-dark light gray, no alpha reduction needed)
+- [Phase 11]: DWC suffix-separator pattern: 1px fillRect on arrow button left edge, inset 4px top/bottom
 
 ### Roadmap Evolution
 
 - Phase 9 added: Button Theme Variants & Custom CSS Themes
 - Phase 10 added: more controls
+- Phase 11 added: Visual Details
 
 ### Pending Todos
 
@@ -154,7 +158,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-10
-Stopped at: Completed 10-04-PLAN.md (gallery update & visual verification) - ALL PHASES COMPLETE
+Last session: 2026-02-11
+Stopped at: Completed 11-02-PLAN.md (ComboBox arrow button rework)
 Resume file: None
-Next action: Project complete. All 10 phases executed. Run `mvn compile exec:java` to see 13-component gallery.
+Next action: Phase 11 complete. Run `mvn compile exec:java` to see gallery with refined ComboBox arrow rendering.

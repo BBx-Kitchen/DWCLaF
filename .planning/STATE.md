@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-10)
 ## Current Position
 
 Phase: 12 of 12 (More Rendering Detail)
-Plan: 1 of 3 in current phase
-Status: Phase 12 Plan 01 Complete
-Last activity: 2026-02-11 — Completed 12-01-PLAN.md (Token mapping collisions + bold button font)
+Plan: 2 of 3 in current phase
+Status: Phase 12 Plan 02 Complete
+Last activity: 2026-02-11 — Completed 12-02-PLAN.md (ProgressBar text contrast + border crispness)
 
-Progress: [################################################--] 93%
+Progress: [################################################-] 97%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 27
+- Total plans completed: 28
 - Average duration: 4min
-- Total execution time: 1.67 hours
+- Total execution time: 1.7 hours
 
 **By Phase:**
 
@@ -38,11 +38,11 @@ Progress: [################################################--] 93%
 | 09-button-theme-variants | 2 | 11min | 5.5min |
 | 10-more-controls | 4 | 15min | 3.8min |
 | 11-visual-details | 2 | 3min | 1.5min |
-| 12-more-rendering-detail | 1 | 7min | 7min |
+| 12-more-rendering-detail | 2 | 9min | 4.5min |
 
 **Recent Trend:**
-- Last 5 plans: 4min, 4min, 1min, 1min, 7min
-- Trend: Token collision fix required careful verification of mapping dependencies
+- Last 5 plans: 4min, 1min, 1min, 7min, 2min
+- Trend: Small focused rendering refinements execute quickly
 
 *Updated after each plan completion*
 
@@ -151,6 +151,9 @@ Recent decisions affecting current work:
 - [Phase 12]: Removed --dwc-button-border-color collision (flattened to primary blue, not default gray)
 - [Phase 12]: Button.borderColor mapped to --dwc-color-default (subtle gray matching button background tone)
 - [Phase 12]: Font.BOLD for Button.font (Java nearest equivalent to DWC font-weight 500 semibold)
+- [Phase 12]: W3C luminance threshold 0.4 for ProgressBar text color switching (white on dark fills, black on light fills)
+- [Phase 12]: Single ProgressBar text color based on dominant area (>50% fill or track), not split at fill boundary
+- [Phase 12]: Math.round() pixel snapping in paintOutline for crisp 1px borders at all scale factors
 
 ### Roadmap Evolution
 
@@ -170,6 +173,6 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-11
-Stopped at: Completed 12-01-PLAN.md (Token mapping collisions + bold button font)
+Stopped at: Completed 12-02-PLAN.md (ProgressBar text contrast + border crispness)
 Resume file: None
-Next action: Execute 12-02-PLAN.md (next rendering refinement plan)
+Next action: Execute 12-03-PLAN.md (final rendering refinement plan)

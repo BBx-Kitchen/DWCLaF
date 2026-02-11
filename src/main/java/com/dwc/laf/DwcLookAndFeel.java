@@ -426,12 +426,13 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ProgressBar.border",
                 new BorderUIResource(javax.swing.BorderFactory.createEmptyBorder()));
 
-        // Inherit arc from Component.arc if not already set from token mapping
+        // Use pill-shaped fallback (999 -> clamps to min(width, height) in createRoundedShape)
+        // if the token-mapped --dwc-border-radius-xl value is missing or zero.
         if (table.get("ProgressBar.arc") == null || table.getInt("ProgressBar.arc") <= 0) {
-            table.put("ProgressBar.arc", table.getInt("Component.arc"));
+            table.put("ProgressBar.arc", 999);
         }
 
-        LOG.fine("Initialized progress bar defaults (border, arc)");
+        LOG.fine("Initialized progress bar defaults (border, arc=" + table.getInt("ProgressBar.arc") + ")");
     }
 
     // ---- Tree defaults ----

@@ -11,6 +11,7 @@ import com.dwc.laf.ui.DwcRadioButtonIcon;
 import com.dwc.laf.ui.DwcTextFieldBorder;
 import com.dwc.laf.ui.DwcToolTipBorder;
 import com.dwc.laf.ui.DwcTreeExpandIcon;
+import com.dwc.laf.ui.DwcTreeNodeIcon;
 
 import javax.swing.UIDefaults;
 import javax.swing.plaf.BorderUIResource;
@@ -447,6 +448,9 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
     private void initTreeDefaults(UIDefaults table) {
         table.put("Tree.expandedIcon", new DwcTreeExpandIcon(true));
         table.put("Tree.collapsedIcon", new DwcTreeExpandIcon(false));
+        table.put("Tree.openIcon", new DwcTreeNodeIcon(DwcTreeNodeIcon.Type.FOLDER_OPEN));
+        table.put("Tree.closedIcon", new DwcTreeNodeIcon(DwcTreeNodeIcon.Type.FOLDER_CLOSED));
+        table.put("Tree.leafIcon", new DwcTreeNodeIcon(DwcTreeNodeIcon.Type.FILE));
         table.put("Tree.rowHeight", 24);
         table.put("Tree.showsRootHandles", Boolean.TRUE);
         table.put("Tree.paintLines", Boolean.FALSE);
@@ -472,7 +476,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
             table.put("Tree.selectionForeground", selFg);
         }
 
-        LOG.fine("Initialized tree defaults (expandedIcon, collapsedIcon, rowHeight, showsRootHandles, paintLines, textBackground)");
+        LOG.fine("Initialized tree defaults (expandedIcon, collapsedIcon, openIcon, closedIcon, leafIcon, rowHeight, showsRootHandles, paintLines, textBackground)");
     }
 
     // ---- ScrollBar defaults ----

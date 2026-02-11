@@ -22,6 +22,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 8: Demo Application** - Component gallery with theme switching proves visual parity
 - [x] **Phase 9: Button Theme Variants & Custom CSS Themes** - Semantic button variants and runtime theme switching
 - [x] **Phase 10: Extended Components** - JTable, JTree, JScrollBar, JProgressBar, JToolTip
+- [x] **Phase 11: Visual Details** - ProgressBar pill fill, ComboBox rework, TextField border, Tree icons
 
 ## Phase Details
 
@@ -190,7 +191,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -204,6 +205,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
 | 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |
 | 10. Extended Components | 4/4 | ✓ Complete | 2026-02-10 |
+| 11. Visual Details | 2/2 | ✓ Complete | 2026-02-11 |
 
 ### Phase 11: Visual Details
 
@@ -212,5 +214,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 **Plans:** 2 plans
 
 Plans:
-- [ ] 11-01-PLAN.md — ProgressBar pill-shaped fill, TextField flat border verification, Tree default node icons
-- [ ] 11-02-PLAN.md — ComboBox arrow button rework with separator line and compact chevron
+- [x] 11-01-PLAN.md — ProgressBar pill-shaped fill, TextField flat border verification, Tree default node icons
+- [x] 11-02-PLAN.md — ComboBox arrow button rework with separator line and compact chevron

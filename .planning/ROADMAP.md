@@ -204,3 +204,13 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 8. Demo Application | 1/1 | ✓ Complete | 2026-02-10 |
 | 9. Button Theme Variants & CSS Themes | 2/2 | ✓ Complete | 2026-02-10 |
 | 10. Extended Components | 4/4 | ✓ Complete | 2026-02-10 |
+
+### Phase 11: Visual Details
+
+**Goal:** Close four specific rendering gaps (ProgressBar fill radius, ComboBox arrow rework, TextField flat border, Tree node icons) to achieve closer visual parity with DWC web
+**Depends on:** Phase 10
+**Plans:** 2 plans
+
+Plans:
+- [ ] 11-01-PLAN.md — ProgressBar pill-shaped fill, TextField flat border verification, Tree default node icons
+- [ ] 11-02-PLAN.md — ComboBox arrow button rework with separator line and compact chevron

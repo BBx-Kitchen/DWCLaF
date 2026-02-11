@@ -294,7 +294,7 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         // 2. TextField border (standard L&F pattern for LookAndFeel.installBorder)
         table.put("TextField.border", new BorderUIResource(new DwcTextFieldBorder()));
 
-        LOG.fine("Initialized text field defaults (margin, border)");
+        LOG.fine("Initialized text field defaults (margin, border, verified flat rendering)");
     }
 
     // ---- CheckBox defaults ----

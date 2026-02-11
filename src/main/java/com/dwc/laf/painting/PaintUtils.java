@@ -89,6 +89,12 @@ public final class PaintUtils {
      * Paints an outline (ring) using the even-odd fill rule. The outline is the
      * region between an outer shape and an inset inner shape.
      *
+     * <p>Coordinates are snapped to integer pixel boundaries before constructing
+     * the path. This prevents fractional coordinates from causing the 1px outline
+     * to spread across 2 device pixels via subpixel anti-aliasing, producing
+     * maximum border crispness. Rounded corners remain smooth because
+     * {@code VALUE_ANTIALIAS_ON} is still applied by the caller.</p>
+     *
      * <p>The caller is responsible for setting up rendering hints and the paint
      * color on {@code g} before calling this method.</p>
      *
@@ -101,6 +107,13 @@ public final class PaintUtils {
      */
     public static void paintOutline(Graphics2D g, float x, float y,
             float w, float h, float lineWidth, float arc) {
+        // Snap to integer pixel boundaries for maximum 1px border crispness
+        x = Math.round(x);
+        y = Math.round(y);
+        w = Math.round(w);
+        h = Math.round(h);
+        lineWidth = Math.max(1, Math.round(lineWidth));
+
         float innerArc = Math.max(arc - lineWidth, 0);
         Path2D path = new Path2D.Float(Path2D.WIND_EVEN_ODD);
         path.append(createRoundedShape(x, y, w, h, arc), false);

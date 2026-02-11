@@ -284,8 +284,8 @@ class UIDefaultsPopulatorTest {
         @Test
         @DisplayName("RawValue skipped in AUTO mode (not placed in UIDefaults)")
         void autoRawSkipped() {
-            // calc() expressions result in RawValue
-            CssTokenMap tokens = tokenMap(":root { --r: calc(100% - 20px); }");
+            // env() expressions result in RawValue (calc() is now evaluated before typing)
+            CssTokenMap tokens = tokenMap(":root { --r: env(safe-area-inset-top); }");
             TokenMappingConfig config = mapping("--r", "auto:Label.width");
 
             UIDefaultsPopulator.populate(table, tokens, config);

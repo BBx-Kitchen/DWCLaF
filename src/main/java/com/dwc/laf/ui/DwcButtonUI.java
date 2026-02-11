@@ -183,15 +183,17 @@ public class DwcButtonUI extends BasicButtonUI {
             float ch = height - fw * 2;
 
             // 1. Paint background
-            if (b.isContentAreaFilled()) {
-                Color bg = resolveBackground(b);
-                if (!b.isEnabled()) {
-                    StateColorResolver.paintWithOpacity(g2, disabledOpacity, () -> {
-                        PaintUtils.paintRoundedBackground(g2, cx, cy, cw, ch, arc, bg);
-                    });
-                } else {
+            // Always paint: opaque/contentAreaFilled is set to false so that
+            // Swing's default rectangular fill doesn't paint under our rounded
+            // corners. BBj ties opaque→contentAreaFilled, so checking that
+            // flag here would skip our own background painting.
+            Color bg = resolveBackground(b);
+            if (!b.isEnabled()) {
+                StateColorResolver.paintWithOpacity(g2, disabledOpacity, () -> {
                     PaintUtils.paintRoundedBackground(g2, cx, cy, cw, ch, arc, bg);
-                }
+                });
+            } else {
+                PaintUtils.paintRoundedBackground(g2, cx, cy, cw, ch, arc, bg);
             }
 
             // 2. Border painted by DwcButtonBorder (not here)

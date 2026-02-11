@@ -82,11 +82,14 @@ public final class CssThemeLoader {
         // 3. Resolve var() references
         Map<String, String> resolved = CssVariableResolver.resolve(rawTokens);
 
-        // 4. Type the resolved values
-        Map<String, CssValue> typed = CssValueTyper.type(resolved);
+        // 4. Evaluate calc() expressions
+        Map<String, String> evaluated = CssCalcEvaluator.evaluate(resolved);
 
-        // 5. Wrap in CssTokenMap
-        return new CssTokenMap(typed, resolved);
+        // 5. Type the resolved values
+        Map<String, CssValue> typed = CssValueTyper.type(evaluated);
+
+        // 6. Wrap in CssTokenMap
+        return new CssTokenMap(typed, evaluated);
     }
 
     /**
@@ -134,13 +137,14 @@ public final class CssThemeLoader {
     }
 
     /**
-     * Internal pipeline: parse -> resolve -> type -> wrap.
+     * Internal pipeline: parse -> resolve -> evaluate calc() -> type -> wrap.
      */
     private static CssTokenMap buildTokenMap(String cssText) {
         Map<String, String> rawTokens = CssTokenParser.parse(cssText);
         Map<String, String> resolved = CssVariableResolver.resolve(rawTokens);
-        Map<String, CssValue> typed = CssValueTyper.type(resolved);
-        return new CssTokenMap(typed, resolved);
+        Map<String, String> evaluated = CssCalcEvaluator.evaluate(resolved);
+        Map<String, CssValue> typed = CssValueTyper.type(evaluated);
+        return new CssTokenMap(typed, evaluated);
     }
 
     /**

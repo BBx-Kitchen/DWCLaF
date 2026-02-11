@@ -300,7 +300,15 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("CheckBox.margin", new InsetsUIResource(2, 4, 2, 4));
         table.put("CheckBox.rollover", Boolean.TRUE);
 
-        LOG.fine("Initialized checkbox defaults (icon, margin, rollover)");
+        // Set CheckBox.background to match the panel background so that if the
+        // component is opaque (BBj ties opaque→contentAreaFilled), the filled
+        // background doesn't show as a grey rectangle.
+        Color panelBg = table.getColor("Panel.background");
+        if (panelBg != null) {
+            table.put("CheckBox.background", new ColorUIResource(panelBg));
+        }
+
+        LOG.fine("Initialized checkbox defaults (icon, margin, rollover, background)");
     }
 
     // ---- RadioButton defaults ----
@@ -316,7 +324,13 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("RadioButton.margin", new InsetsUIResource(2, 4, 2, 4));
         table.put("RadioButton.rollover", Boolean.TRUE);
 
-        LOG.fine("Initialized radio button defaults (icon, margin, rollover)");
+        // Same background fix as CheckBox — prevent grey rectangle in BBj
+        Color panelBg = table.getColor("Panel.background");
+        if (panelBg != null) {
+            table.put("RadioButton.background", new ColorUIResource(panelBg));
+        }
+
+        LOG.fine("Initialized radio button defaults (icon, margin, rollover, background)");
     }
 
     // ---- ComboBox defaults ----

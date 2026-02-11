@@ -1,0 +1,316 @@
+rem /**
+rem  * DWC Look & Feel — BBj Component Gallery
+rem  *
+rem  * Showcases all themed components in BBj, matching the Swing
+rem  * DwcComponentGallery. Run in Webswing for full L&F rendering.
+rem  */
+
+rem ---- Window setup ----
+sysgui! = BBjAPI().openSysGui("X0")
+wnd! = sysgui!.addWindow(10, 10, 920, 750, "DWC Component Gallery — BBj", $00090003$)
+wnd!.setCallback(BBjAPI.ON_CLOSE, "byebye")
+
+rem Apply the L&F surface color to the window canvas.
+rem BBj windows don't automatically inherit Panel.background from UIDefaults
+rem because the initial background is serialized before the L&F applies.
+panelBg! = javax.swing.UIManager@.getColor("Panel.background")
+rem if panelBg! <> null() then wnd!.setBackColor(BBjAPI().makeColor(panelBg!.getRed(), panelBg!.getGreen(), panelBg!.getBlue()))
+rem Track control IDs
+id = 100
+
+rem ---- Title ----
+title! = wnd!.addStaticText(id, 24, 12, 600, 28, "DWC Look & Feel — Component Gallery")
+title!.setFont(sysgui!.makeFont("SansSerif", 20, 0))
+id = id + 1
+
+subtitle! = wnd!.addStaticText(id, 24, 42, 700, 20, "All themed components in BBj. Hover and click to see interactive states.")
+id = id + 1
+
+rem ---- Section: Buttons ----
+y = 80
+
+sectionLabel! = wnd!.addStaticText(id, 24, y, 200, 20, "Buttons")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y = y + 24
+
+rem Default variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Default variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Default")
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.setEnabled(0)
+id = id + 1
+y = y + 40
+
+rem Primary variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Primary variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Primary")
+btn!.putClientProperty("dwc.buttonType", "primary")
+btn!.setProperty("theme","primary") ; rem for DWC comparison
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.putClientProperty("dwc.buttonType", "primary")
+btn!.setProperty("theme","primary") ; rem for DWC comparison
+btn!.setEnabled(0)
+id = id + 1
+y = y + 40
+
+rem Success variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Success variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Success")
+btn!.putClientProperty("dwc.buttonType", "success")
+btn!.setProperty("theme","success") ; rem for DWC comparison
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.putClientProperty("dwc.buttonType", "success")
+btn!.setProperty("theme","success") ; rem for DWC comparison
+btn!.setEnabled(0)
+id = id + 1
+y = y + 40
+
+rem Danger variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Danger variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Danger")
+btn!.putClientProperty("dwc.buttonType", "danger")
+btn!.setProperty("theme","danger") ; rem for DWC comparison
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.putClientProperty("dwc.buttonType", "danger")
+btn!.setProperty("theme","danger") ; rem for DWC comparison
+btn!.setEnabled(0)
+id = id + 1
+y = y + 40
+
+rem Warning variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Warning variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Warning")
+btn!.putClientProperty("dwc.buttonType", "warning")
+btn!.setProperty("theme","warning") ; rem for DWC comparison
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.putClientProperty("dwc.buttonType", "warning")
+btn!.setProperty("theme","warning") ; rem for DWC comparison
+btn!.setEnabled(0)
+id = id + 1
+y = y + 40
+
+rem Info variant row
+rowLabel! = wnd!.addStaticText(id, 24, y, 200, 18, "Info variant:")
+id = id + 1
+y = y + 22
+
+btn! = wnd!.addButton(id, 24, y, 100, 32, "Info")
+btn!.putClientProperty("dwc.buttonType", "info")
+btn!.setProperty("theme","info") ; rem for DWC comparison
+id = id + 1
+btn! = wnd!.addButton(id, 132, y, 100, 32, "Disabled")
+btn!.putClientProperty("dwc.buttonType", "info")
+btn!.setProperty("theme","info") ; rem for DWC comparison
+btn!.setEnabled(0)
+id = id + 1
+y = y + 44
+
+rem ---- Column 2 starts: Text Fields, CheckBoxes, Radio, ComboBox ----
+rem Use right side of window (x=480+)
+x2 = 480
+y2 = 80
+
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "Text Fields")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+edit! = wnd!.addEditBox(id, x2, y2, 180, 28, "")
+edit!.setPlaceholder("Placeholder...")
+id = id + 1
+
+edit! = wnd!.addEditBox(id, x2 + 190, y2, 180, 28, "Filled text")
+id = id + 1
+y2 = y2 + 36
+
+edit! = wnd!.addEditBox(id, x2, y2, 180, 28, "Disabled")
+edit!.setEnabled(0)
+id = id + 1
+y2 = y2 + 48
+
+rem ---- CheckBoxes ----
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "CheckBoxes")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+cb! = wnd!.addCheckBox(id, x2, y2, 120, 24, "Unchecked")
+id = id + 1
+
+cb! = wnd!.addCheckBox(id, x2 + 130, y2, 120, 24, "Checked")
+cb!.setSelected(1)
+id = id + 1
+y2 = y2 + 30
+
+cb! = wnd!.addCheckBox(id, x2, y2, 120, 24, "Disabled")
+cb!.setEnabled(0)
+id = id + 1
+
+cb! = wnd!.addCheckBox(id, x2 + 130, y2, 150, 24, "Disabled Checked")
+cb!.setSelected(1)
+cb!.setEnabled(0)
+id = id + 1
+y2 = y2 + 42
+
+rem ---- RadioButtons ----
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "Radio Buttons")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+radioGroup! = wnd!.addRadioGroup()
+
+rb! = wnd!.addRadioButton(id, x2, y2, 120, 24, "Option A")
+radioGroup!.add(rb!)
+id = id + 1
+
+rb! = wnd!.addRadioButton(id, x2 + 130, y2, 120, 24, "Option B")
+rb!.setSelected(1)
+radioGroup!.add(rb!)
+id = id + 1
+y2 = y2 + 30
+
+rb! = wnd!.addRadioButton(id, x2, y2, 120, 24, "Disabled")
+rb!.setEnabled(0)
+radioGroup!.add(rb!)
+id = id + 1
+y2 = y2 + 42
+
+rem ---- ComboBox (ListButton) ----
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "ComboBox")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+combo! = wnd!.addListButton(id, x2, y2, 180, 200, "")
+combo!.addItem("Select...")
+combo!.addItem("Apple")
+combo!.addItem("Banana")
+combo!.addItem("Cherry")
+combo!.selectIndex(0)
+id = id + 1
+
+combo! = wnd!.addListButton(id, x2 + 190, y2, 180, 200, "")
+combo!.addItem("Disabled")
+combo!.selectIndex(0)
+combo!.setEnabled(0)
+id = id + 1
+y2 = y2 + 42
+
+rem ---- Labels ----
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "Labels")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+lbl! = wnd!.addStaticText(id, x2, y2, 120, 20, "Normal label")
+id = id + 1
+lbl! = wnd!.addStaticText(id, x2 + 130, y2, 120, 20, "Disabled label")
+lbl!.setEnabled(0)
+id = id + 1
+y2 = y2 + 42
+
+rem ---- Progress Bars ----
+sectionLabel! = wnd!.addStaticText(id, x2, y2, 200, 20, "Progress Bars")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y2 = y2 + 28
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Default:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(60)
+id = id + 1
+y2 = y2 + 24
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Success:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(75)
+pb!.putClientProperty("dwc.progressType", "success")
+pb!.setProperty("theme","success") ; rem for DWC comparison
+id = id + 1
+y2 = y2 + 24
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Danger:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(30)
+pb!.putClientProperty("dwc.progressType", "danger")
+pb!.setProperty("theme","danger") ; rem for DWC comparison
+id = id + 1
+y2 = y2 + 24
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Warning:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(50)
+pb!.putClientProperty("dwc.progressType", "warning")
+pb!.setProperty("theme","warning") ; rem for DWC comparison
+id = id + 1
+y2 = y2 + 24
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Info:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(90)
+pb!.putClientProperty("dwc.progressType", "info")
+pb!.setProperty("theme","info") ; rem for DWC comparison
+id = id + 1
+y2 = y2 + 24
+
+lbl! = wnd!.addStaticText(id, x2, y2 + 2, 60, 16, "Disabled:")
+id = id + 1
+pb! = wnd!.addProgressBar(id, x2 + 65, y2, 300, 16, 0, 100)
+pb!.setValue(40)
+pb!.setEnabled(0)
+id = id + 1
+y2 = y2 + 42
+
+rem ---- Bottom section: Tree ----
+sectionLabel! = wnd!.addStaticText(id, 24, y, 200, 20, "Tree")
+sectionLabel!.setFont(sysgui!.makeFont("SansSerif", 14, sysgui!.BOLD))
+id = id + 1
+y = y + 28
+
+tree! = wnd!.addTree(id, 24, y, 400, 150)
+tree!.setRoot(0, "Project")
+tree!.addExpandableNode(1, 0, "src")
+tree!.addNode(2, 1, "main")
+tree!.addNode(3, 1, "resources")
+tree!.addExpandableNode(4, 0, "tests")
+tree!.addNode(5, 4, "unit")
+tree!.addNode(6, 4, "integration")
+tree!.addExpandableNode(7, 0, "docs")
+tree!.addNode(8, 7, "README")
+tree!.addNode(9, 7, "CHANGELOG")
+tree!.expandNode(0)
+tree!.expandNode(1)
+tree!.selectNode(2)
+id = id + 1
+
+process_events
+
+byebye:
+bye

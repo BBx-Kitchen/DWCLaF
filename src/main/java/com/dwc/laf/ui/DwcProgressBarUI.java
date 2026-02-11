@@ -207,6 +207,11 @@ public class DwcProgressBarUI extends BasicProgressBarUI {
 
     /**
      * Paints the percentage/status string centered on the progress bar.
+     *
+     * <p>Text color is chosen dynamically based on the dominant background area's
+     * luminance: white text on dark fills (primary blue, danger red, success green)
+     * and black text on light fills (warning amber, track gray). The dominant area
+     * is whichever of the fill or track covers more than half the bar.</p>
      */
     private void paintString(Graphics2D g2, JProgressBar pb,
                               int x, int y, int width, int height, int amountFull) {
@@ -223,8 +228,52 @@ public class DwcProgressBarUI extends BasicProgressBarUI {
         int textY = y + (height - fm.getHeight()) / 2 + textHeight;
 
         g2.setFont(pb.getFont());
-        g2.setColor(pb.getForeground());
+
+        // Contrast-aware text color: pick black or white based on the dominant
+        // background area's luminance (fill if > 50%, track otherwise)
+        Color fillColor = resolveVariantColor(pb);
+        boolean fillDominant = (pb.getOrientation() == JProgressBar.HORIZONTAL)
+                ? amountFull > width / 2
+                : amountFull > height / 2;
+        Color bgForContrast = fillDominant ? fillColor : background;
+        g2.setColor(contrastTextColor(bgForContrast));
+
         g2.drawString(text, textX, textY);
+    }
+
+    /**
+     * Returns {@link Color#BLACK} or {@link Color#WHITE} for maximum contrast
+     * against the given background color, using W3C relative luminance.
+     *
+     * <p>The threshold of 0.4 ensures white text on medium-dark fills (primary
+     * blue L~0.13, danger red, success green) and black text on light fills
+     * (warning amber L~0.74, track gray).</p>
+     *
+     * @param bg the background color to contrast against
+     * @return black if the background is light, white if the background is dark
+     */
+    private Color contrastTextColor(Color bg) {
+        double r = linearize(bg.getRed() / 255.0);
+        double g = linearize(bg.getGreen() / 255.0);
+        double b = linearize(bg.getBlue() / 255.0);
+        double luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+        return luminance > 0.4 ? Color.BLACK : Color.WHITE;
+    }
+
+    /**
+     * Linearizes an sRGB channel value (0.0 to 1.0) to linear RGB.
+     *
+     * <p>Applies the standard sRGB transfer function inverse: values at or below
+     * 0.04045 are divided by 12.92; values above use the power curve
+     * {@code ((v + 0.055) / 1.055) ^ 2.4}.</p>
+     *
+     * @param srgb the sRGB channel value in [0.0, 1.0]
+     * @return the linearized value
+     */
+    private double linearize(double srgb) {
+        return srgb <= 0.04045
+                ? srgb / 12.92
+                : Math.pow((srgb + 0.055) / 1.055, 2.4);
     }
 
     /**

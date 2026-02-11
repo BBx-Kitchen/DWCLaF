@@ -267,7 +267,16 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         // 6. Button border (standard L&F pattern for LookAndFeel.installBorder)
         table.put("Button.border", new BorderUIResource(new DwcButtonBorder()));
 
-        LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover, border)");
+        // 7. Button font weight: DWC uses font-weight 500 (semibold).
+        // Java Font has no semi-bold; use BOLD as nearest equivalent.
+        FontUIResource defaultFont = (FontUIResource) table.get("defaultFont");
+        if (defaultFont != null) {
+            FontUIResource buttonFont = new FontUIResource(
+                defaultFont.getFamily(), Font.BOLD, defaultFont.getSize());
+            table.put("Button.font", buttonFont);
+        }
+
+        LOG.fine("Initialized button defaults (margin, minimumWidth, iconTextGap, rollover, border, font)");
     }
 
     // ---- TextField defaults ----

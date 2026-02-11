@@ -355,7 +355,16 @@ public class DwcLookAndFeel extends BasicLookAndFeel {
         table.put("ComboBox.border", new BorderUIResource(new DwcTextFieldBorder()));
         table.put("ComboBox.padding", new InsetsUIResource(2, 6, 2, 6));
 
-        LOG.fine("Initialized combobox defaults (border, padding)");
+        // ComboBox font weight: DWC inputs use font-weight 500 (semibold).
+        // Java Font has no semi-bold; use BOLD as nearest equivalent.
+        FontUIResource defaultFont = (FontUIResource) table.get("defaultFont");
+        if (defaultFont != null) {
+            FontUIResource comboFont = new FontUIResource(
+                defaultFont.getFamily(), Font.BOLD, defaultFont.getSize());
+            table.put("ComboBox.font", comboFont);
+        }
+
+        LOG.fine("Initialized combobox defaults (border, padding, font)");
     }
 
     // ---- Label defaults ----
